@@ -1,0 +1,17 @@
+.voltarAvancar {
+    width: 100%;
+    border: 1px solid rgba(184, 116, 46, 1);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.btnQuestion {
+    width: 40%;
+}
+.questions {
+    border: 1px solid rgba(184, 116, 46, 1);
+    margin: 15px 0;
+    padding: 10px;
+}

@@ -1,0 +1,63 @@
+.content {
+  width: 100%;
+  background: rgba(5, 13, 15, 1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contentHome {
+    width: 450px;
+    margin: 10px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* border: 1px solid rgba(184, 116, 46, 1); */
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo img {
+  width: 170px;
+}
+.message {
+  margin: 15px 0;
+  text-align: justify;
+  color: rgba(68, 68, 68, 1);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+.codeError p {
+    color: brown;
+}
+button {
+  width: 100%;
+  height: 45px;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: 0.3s;
+
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button:hover {
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 1px 1px 10px rgba(184, 116, 46, 1);
+}
+.buttonCadastrar button{
+  color: aliceblue;
+  background: rgba(187, 129, 53, 1);
+}
+.buttonComprarTeste button{
+  color: rgba(187, 129, 53, 1);
+  background: aliceblue;
+}

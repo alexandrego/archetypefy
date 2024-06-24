@@ -1,0 +1,101 @@
+.infoProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.bemVindo {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.bemVindo hr {
+    width: 230px;
+    color: rgba(68, 68, 68, 1);
+}
+.sejaBemVindo, .suasCompras {
+    margin: 5px 0;
+    color: rgba(68, 68, 68, 1);
+}
+.wordOrange {
+    color: rgba(184, 116, 46, 1);
+}
+.formulario {
+    width: 100%;
+}
+.compras {
+    /* border: 1px solid rgba(184, 116, 46, 1); */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 50px 0;
+}
+.compras a {
+    text-decoration: none;
+}
+.card {
+    width: 140px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 0;
+
+    /* border: 1px solid rgba(184, 116, 46, 1); */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.card:hover {
+    box-shadow: 1px 1px 10px rgba(184, 116, 46, 1);
+}
+.cardImg {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cardImg img {
+    width: 50px;
+}
+.cardDesc {
+    width: 140px;
+    text-align: center;
+    margin: 10px 0;
+    color: rgba(68, 68, 68, 1);
+}
+.suporte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.suporteName {
+    font-size: 14px;
+    color: rgba(68, 68, 68, 1);
+}
+.suportePhoto img {
+    width: 40px;
+}
+.suporteAction {
+    padding: 8px;
+    font-size: 12px;
+
+    border: 1px solid rgba(184, 116, 46, 1);
+    border-radius: 5px;
+}
+.logout {
+    position: absolute;
+    right: 30px;
+
+    width: 70px;
+    height: 40px;
+}

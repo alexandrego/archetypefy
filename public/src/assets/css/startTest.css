@@ -1,0 +1,7 @@
+.messageStartTest {
+    text-align: center;
+    line-height: 40px;
+}
+.messageStartTest p {
+    color: rgba(68, 68, 68, 1);
+}
