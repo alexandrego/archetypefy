@@ -31,7 +31,7 @@ class SecuryCode extends Mailable
         return new Envelope(
             subject: 'Secury Code',
             // from: 'suporte@archetypefy.online',
-            from: 'Suporte Archetypefy',
+            from: 'Archetypefy | suporte@archetypefy.online',
         );
     }
 
