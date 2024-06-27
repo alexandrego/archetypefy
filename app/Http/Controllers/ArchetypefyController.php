@@ -83,11 +83,6 @@ class ArchetypefyController extends Controller
             $user->save();
 
             // Envia dados por e-mail
-            // Mail::to($email)->send(
-            //     new \App\Mail\SecuryCode()
-            // );
-
-            // Envia dados por e-mail
             return redirect('/mailCode')->with(
                 [
                     'nome' => $nome,

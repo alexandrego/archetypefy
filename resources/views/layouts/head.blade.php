@@ -22,5 +22,7 @@
 </head>
 <body class="roboto-regular">
   @yield('content')
+
+  <script src="/src/assets/js/pageQuestions.js"></script>
 </body>
 </html>

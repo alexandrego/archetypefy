@@ -19,7 +19,7 @@
       </div>
 
       <div class="formulario">
-        <form action="/question" method="GET">
+        <form action="/question1" method="GET">
           <div class="message roboto-thin messageStartTest">
             <p>Bem vindo a</p>
             <p><span class="wordOrange">Archetypefy</span></p>

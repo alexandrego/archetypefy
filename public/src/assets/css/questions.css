@@ -1,17 +1,67 @@
 .voltarAvancar {
     width: 100%;
-    border: 1px solid rgba(184, 116, 46, 1);
+    margin: 25px 0;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
-.btnQuestion {
-    width: 40%;
+.btnQuestion a{
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    align-content: center;
+    justify-content: center;
 }
+.btnS {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+
+    background: none;
+    color: rgba(184, 116, 46, 1);
+    cursor: pointer;
+}
+.btnS:hover {
+    background: rgba(184, 116, 46, 1);
+    color: #FFF;
+    cursor: pointer;
+}
+
+.questionsTitle span {
+    font-size: 20px;
+}
+
 .questions {
     border: 1px solid rgba(184, 116, 46, 1);
     margin: 15px 0;
-    padding: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.questions.checked {
+    background: rgba(184, 116, 46, 1);
+}
+
+/* .questions:hover {
+    border: none;
+} */
+label:hover, input[type="radio"]:hover {
+    /* background: rgba(184, 116, 46, 1); */
+    cursor: pointer;
+    color: #FFF;
+}
+input[type="radio"] {
+    appearance: none;
+    font-size: 0.1px;
+    width: 0.1px;
+    height: 0.1px;
+}
+input[type="radio"]:checked { /* Código do ícone de círculo preenchido */
+    background: rgba(184, 116, 46, 1);
+    color: #FFF;
+}
+input[type="radio"]:checked + label { /* Código do ícone de círculo preenchido */
+    background: rgba(184, 116, 46, 1);
+    color: #FFF;
 }

@@ -23,17 +23,17 @@ Route::post('/checkCode', [CheckCodeController::class,'store']);
 Route::post('/logout', [CheckCodeController::class,'destroy']);
 
 // Rotas de perguntas
-Route::get('/question', [QuestionController::class, 'Question1'])->middleware('auth');
-// Route::get('/question', [QuestionController::class, 'Question2'])->middleware('auth');
-// Route::get('/question', [QuestionController::class, 'Question3'])->middleware('auth');
-// Route::get('/question', [QuestionController::class, 'Question4'])->middleware('auth');
+Route::get('/question1', [QuestionController::class, 'Question1'])->middleware('auth');
+Route::post('/question1', [QuestionController::class, 'SaveQuestion1'])->middleware('auth');
 
-Route::post('/question', [QuestionController::class, 'store'])->middleware('auth');
+Route::get('/question2', [QuestionController::class, 'Question2'])->middleware('auth');
+Route::post('/question2', [QuestionController::class, 'SaveQuestion2'])->middleware('auth');
 
-Route::post('/answer', [ArchetypefyController::class, 'Answer'])->middleware('auth');
-Route::get('/result', [ArchetypefyController::class, 'Result'])->middleware('auth');
-Route::get('/result/{id}', [ArchetypefyController::class, 'Result'])->middleware('auth');
-Route::get('/result/{id}/{id2}', [ArchetypefyController::class, 'Result'])->middleware('auth');
+// Route::post('/question', [QuestionController::class, 'store'])->middleware('auth');
+// Route::post('/answer', [ArchetypefyController::class, 'Answer'])->middleware('auth');
+// Route::get('/result', [ArchetypefyController::class, 'Result'])->middleware('auth');
+// Route::get('/result/{id}', [ArchetypefyController::class, 'Result'])->middleware('auth');
+// Route::get('/result/{id}/{id2}', [ArchetypefyController::class, 'Result'])->middleware('auth');
 
 
 // Route::get('/', function () {
