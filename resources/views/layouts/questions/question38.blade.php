@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="respostas">
-                        @if(session('answer')=='a')
+                        @if(session('answer38')=='a')
                             <div class="questions checked">
                                 <input type="radio" name="question38" id="a" value="a" checked /><label for="a">Conhecimento e sabedoria</label>
                             </div>
@@ -30,7 +30,7 @@
                             </div>
                         @endif
 
-                        @if(session('answer')=='b')
+                        @if(session('answer38')=='b')
                             <div class="questions checked">
                                 <input type="radio" name="question38" id="b" value="b" checked /><label for="b">Empatia e compaixão</label>
                             </div>
@@ -40,7 +40,7 @@
                             </div>
                         @endif
 
-                        @if(session('answer')=='c')
+                        @if(session('answer38')=='c')
                             <div class="questions checked">
                                 <input type="radio" name="question38" id="c" value="c" checked /><label for="c">Determinação e coragem</label>
                             </div>
@@ -50,7 +50,7 @@
                             </div>
                         @endif
 
-                        @if(session('answer')=='d')
+                        @if(session('answer38')=='d')
                             <div class="questions checked">
                                 <input type="radio" name="question38" id="d" value="d" checked /><label for="d">Curiosidade e exploração</label>
                             </div>

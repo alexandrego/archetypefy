@@ -1,4 +1,4 @@
-@extends('layouts.head')
+13@extends('layouts.head')
 
 @section('title', 'Questão 13')
 
@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="respostas">
-                        @if(session('answer')=='a')
+                        @if(session('answer13')=='a')
                             <div class="questions checked">
                                 <input type="radio" name="question13" id="a" value="a" checked /><label for="a">Sente a necessidade de ajudar imediatamente</label>
                             </div>
@@ -30,7 +30,7 @@
                             </div>
                         @endif
 
-                        @if(session('answer')=='b')
+                        @if(session('answer13')=='b')
                             <div class="questions checked">
                                 <input type="radio" name="question13" id="b" value="b" checked /><label for="b">Pensa em como resolver o problema</label>
                             </div>
@@ -40,7 +40,7 @@
                             </div>
                         @endif
 
-                        @if(session('answer')=='c')
+                        @if(session('answer13')=='c')
                             <div class="questions checked">
                                 <input type="radio" name="question13" id="c" value="c" checked /><label for="c">Procura distrair a pessoa com algo novo</label>
                             </div>
@@ -50,7 +50,7 @@
                             </div>
                         @endif
 
-                        @if(session('answer')=='d')
+                        @if(session('answer13')=='d')
                             <div class="questions checked">
                                 <input type="radio" name="question13" id="d" value="d" checked /><label for="d">Tenta acalmar e confortar</label>
                             </div>
