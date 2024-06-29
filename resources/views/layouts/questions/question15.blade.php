@@ -1,6 +1,6 @@
 @extends('layouts.head')
 
-@section('title', 'Questão 1')
+@section('title', 'Questão 15')
 
 @section('content')
   <div class="content">
@@ -11,57 +11,52 @@
       </div>
 
         <div id="formularioQuestions" class="formularioQuestions">
-            <form action="/question1" method="POST" onsubmit="avancando()">
+            <form action="/question15" method="POST" onsubmit="avancando()">
                 @csrf
                 <div class="message roboto-thin messageStartTest">
                     <!-- Pergunta -->
                     <div class="questionsTitle roboto-thin">
-                        <span>Você se sente mais realizado(a) quando:</span>
+                        <span>Em situações de conflito, você tende a:</span>
                     </div>
 
                     <div class="respostas">
-
-                        <!-- @if(session('answer'))
-                            <p>Resposta selecionada: {{ session('answer') }}</p>
-                        @endif -->
-
                         @if(session('answer')=='a')
                             <div class="questions checked">
-                                <input type="radio" name="question1" id="a" value="a" checked /><label for="a">Ganha uma competição ou um desafio</label>
+                                <input type="radio" name="question15" id="a" value="a" checked /><label for="a">Mediar e ajudar a resolver</label>
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question1" id="a" value="a" /><label for="a">Ganha uma competição ou um desafio</label>
+                                <input type="radio" name="question15" id="a" value="a" /><label for="a">Mediar e ajudar a resolver</label>
                             </div>
                         @endif
 
                         @if(session('answer')=='b')
                             <div class="questions checked">
-                                <input type="radio" name="question1" id="b" value="b" checked /><label for="b">Explora novos lugares e experiências</label>
+                                <input type="radio" name="question15" id="b" value="b" checked /><label for="b">Lutar pelos seus direitos</label>
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question1" id="b" value="b" /><label for="b">Explora novos lugares e experiências</label>
+                                <input type="radio" name="question15" id="b" value="b" /><label for="b">Lutar pelos seus direitos</label>
                             </div>
                         @endif
 
                         @if(session('answer')=='c')
                             <div class="questions checked">
-                                <input type="radio" name="question1" id="c" value="c" checked /><label for="c">Ajuda os outros sem esperar nada em troca</label>
+                                <input type="radio" name="question15" id="c" value="c" checked /><label for="c">Manter a calma e buscar entendimento</label>
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question1" id="c" value="c" /><label for="c">Ajuda os outros sem esperar nada em troca</label>
+                                <input type="radio" name="question15" id="c" value="c" /><label for="c">Manter a calma e buscar entendimento</label>
                             </div>
                         @endif
 
                         @if(session('answer')=='d')
                             <div class="questions checked">
-                                <input type="radio" name="question1" id="d" value="d" checked /><label for="d">Encontra harmonia e paz interior</label>
+                                <input type="radio" name="question15" id="d" value="d" checked /><label for="d">Procurar alternativas criativas</label>
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question1" id="d" value="d" /><label for="d">Encontra harmonia e paz interior</label>
+                                <input type="radio" name="question15" id="d" value="d" /><label for="d">Procurar alternativas criativas</label>
                             </div>
                         @endif
                     </div>
@@ -69,10 +64,10 @@
 
                 <div class="voltarAvancar">
                     <div class="btnQuestion">
-                        <a href="/startTest" id="btnVoltar" onclick="btnVoltar()" class="btnS">Voltar</a>
+                        <a href="/question14" id="btnVoltar" onclick="btnVoltar()" class="btnS">Voltar</a>
                     </div>
                     <div class="btnQuestion">
-                        <spam>1 - 48</span>
+                        <spam>15 - 48</span>
                     </div>
                     <div id="btnQuestion" class="btnQuestion">
                         <input type="submit" value="Avançar" class="btnS"/>

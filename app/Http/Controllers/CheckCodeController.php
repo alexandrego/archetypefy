@@ -14,6 +14,8 @@ class CheckCodeController extends Controller
         $email   = $request->email;
         $password = $request->confirmCode;
 
+        $sessionEmail = session(['sessionEmail' => $request->sessionEmail]);
+
         // Verifica se o email existe no banco de dados
         $user = User::where('email', $email)->first();
 
@@ -28,7 +30,7 @@ class CheckCodeController extends Controller
                 return redirect('/dashboard')->with(['nome' => $user->name]);
             } else {
                 // A senha está incorreta
-                return redirect('confirmCode')->with(['error' => 'Invalid password', 'email' => $user->$email]);
+                return redirect('/confirmCode')->with(['error' => 'Código expirado, verifique seu e-mail com atenção!', 'email' => $sessionEmail]);
             }
         } else {
             // O usuário não existe

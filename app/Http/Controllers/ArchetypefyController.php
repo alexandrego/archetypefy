@@ -23,6 +23,7 @@ class ArchetypefyController extends Controller
     public function ConfirmCode(Request $request) {
 
         $email = $request->email;
+        $email = session('sessionEmail');
 
         if(!$email){
             //Se não tiver email, volta para o login
@@ -35,9 +36,11 @@ class ArchetypefyController extends Controller
 
     public function Dashboard(Request $request) {
 
-        $nome = session(['nome' => $request->nome]);
+        // $nome = session(['nome' => $request->nome]);
+        $user = Auth::user();
+        $fullName = $user->name;
 
-        return view('layouts/dashboard')->with(['nome' => $nome]);
+        return view('layouts/dashboard', compact('fullName'));
     }
     public function Atention() {
         return view('layouts/atention');
@@ -105,5 +108,12 @@ class ArchetypefyController extends Controller
                 ]
             );
         }
+    }
+
+    public function Result(Request $request) {
+        $user = Auth::user();
+        $fullName = $user->name;
+
+        return view('layouts/resultado', compact('fullName'));
     }
 }

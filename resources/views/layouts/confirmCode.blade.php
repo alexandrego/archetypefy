@@ -45,16 +45,22 @@
                     <p>{{ session('confirmCode') }}</p>
                 @endif
             </div> -->
+            <div class="codeError">
+                @if(session('error'))
+                    <p>{{ session('error') }}</p>
+                @endif
+            </div>
 
-        <form action="/checkCode" method="POST">
+        <form action="/checkCode" method="POST" onsubmit="confirmCode()">
         @csrf
           <fieldset>
             <legend>Código de verificação</legend>
-            <input type="text" id="confirmCode" name="confirmCode" placeholder="Informe o código recebido no e-mail" required />
+            <input type="text" id="confirmCode" name="confirmCode" placeholder="Informe o código recebido no e-mail" maxlength="4" onkeyup="handleCode(event)" required />
+            <input type="hidden" id="email" name="sessionEmail" value="{{ session('sessionEmail') }}" />
             <input type="hidden" id="email" name="email" value="{{ session('email') }}" />
           </fieldset>
 
-          <div class="buttonCadastrar">
+          <div id="buttonCadastrar" class="buttonCadastrar">
             <button>Confirmar código</button>
           </div>
 

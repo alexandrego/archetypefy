@@ -57,6 +57,10 @@ button:hover {
   color: aliceblue;
   background: rgba(187, 129, 53, 1);
 }
+.buttonCadastrar-disabled button {
+    background-color: #494949;
+    cursor: progress;
+}
 .buttonComprarTeste button{
   color: rgba(187, 129, 53, 1);
   background: aliceblue;

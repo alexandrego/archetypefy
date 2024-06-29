@@ -17,7 +17,7 @@
         </div>
 
       <div class="formulario">
-        <form action="/dataArchetypefy" method="POST">
+        <form action="/dataArchetypefy" method="POST" onsubmit="entrar()">
         @csrf
           <fieldset>
             <legend>Nome</legend>
@@ -35,10 +35,10 @@
 
           <fieldset>
             <legend>Celular</legend>
-            <input type="text" id="celular" name="celular" placeholder="Informe seu WhastApp" required />
+            <input type="text" id="celular" name="celular" placeholder="Informe seu WhastApp (XX) X.XXXX-XXXX" maxlength="15" onkeyup="handlePhone(event)" required />
           </fieldset>
 
-          <div class="buttonCadastrar">
+          <div id="buttonCadastrar" class="buttonCadastrar">
             <button>Entrar</button>
           </div>
 

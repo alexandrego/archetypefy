@@ -22,7 +22,7 @@
                 <div class="infoProfile">
                     <div class="bemVindo roboto-thin">
                         <div class="sejaBemVindo">
-                            Seja bem vindo <span class="wordOrange">
+                            Olá <span class="wordOrange">
                                 <span class="wordBlue">
                                     {{explode(' ', $fullName)[0];}}
                                 </span>
@@ -33,38 +33,13 @@
                         <hr>
 
                         <div class="suasCompras">
-                            Aqui estão suas compras
+                            Seu Arquetipo é:
                         </div>
                     </div>
                 </div>
 
                 <div class="compras">
-                    <a href="/atention">
-                        <div class="card" title="Clique para começar o teste!">
-                            <div class="cardImg">
-                                <img src="src/assets/img/cardEnabled.svg" />
-                            </div>
-                            <div class="cardDesc">
-                                Identidade de Arquetipo
-                            </div>
-                        </div>
-                    </a>
-                    <div class="card" title="Clique para comprar!">
-                        <div class="cardImg">
-                            <img src="src/assets/img/cardDisabled.svg" />
-                        </div>
-                        <div class="cardDesc">
-                            Perfil Comportamental
-                        </div>
-                    </div>
-                    <div class="card" title="Clique para comprar!">
-                        <div class="cardImg">
-                            <img src="src/assets/img/cardDisabled.svg" />
-                        </div>
-                        <div class="cardDesc">
-                            Identidade Completa
-                        </div>
-                    </div>
+                    Nome do Arquetipo
                 </div>
                 <div class="suporte">
                     <div class="suporteName">

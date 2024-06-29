@@ -24,5 +24,7 @@
   @yield('content')
 
   <script src="/src/assets/js/pageQuestions.js"></script>
+  <script src="/src/assets/js/buttonEffect.js"></script>
+  <script src="/src/assets/js/maskPhone.js"></script>
 </body>
 </html>
