@@ -33,7 +33,7 @@
                         <hr>
 
                         <div class="suasCompras">
-                            Seu Arquetipo é:
+                            Seu Arquétipo é:
                         </div>
                     </div>
                 </div>

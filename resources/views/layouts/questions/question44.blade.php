@@ -16,7 +16,7 @@
                 <div class="message roboto-thin messageStartTest">
                     <!-- Pergunta -->
                     <div class="questionsTitle roboto-thin">
-                        <span>Seu objetivo principa é:</span>
+                        <span>Seu objetivo principal é:</span>
                     </div>
 
                     <div class="respostas">

@@ -1,4 +1,4 @@
-13@extends('layouts.head')
+@extends('layouts.head')
 
 @section('title', 'Questão 13')
 

@@ -16,7 +16,7 @@
                 <div class="message roboto-thin messageStartTest">
                     <!-- Pergunta -->
                     <div class="questionsTitle roboto-thin">
-                        <span>Você se identofica melhor com:</span>
+                        <span>Você se identifica melhor com:</span>
                     </div>
 
                     <div class="respostas">

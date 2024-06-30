@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Questions;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -108,12 +109,5 @@ class ArchetypefyController extends Controller
                 ]
             );
         }
-    }
-
-    public function Result(Request $request) {
-        $user = Auth::user();
-        $fullName = $user->name;
-
-        return view('layouts/resultado', compact('fullName'));
     }
 }

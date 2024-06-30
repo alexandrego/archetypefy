@@ -1858,25 +1858,158 @@ class QuestionController extends Controller
     public function SaveQuestion48(Request $request){
         // Busca dados no banco
         $user = Auth::user();
+        $fullName = $user->name;
         $userID = $user->id;
 
         $answer48 = $request->question48;
 
-        // Verifica se o email existe no banco de dados
+        // Verifica o banco de dados
         $user = Questions::where('user_id', $userID)->first();
+
+        $times_exec = $user->times_exec;
+        if($times_exec == ""){
+            $user->times_exec = 1;
+        } else {
+            $user->times_exec = $times_exec + 1;
+        }
+
+        //Arquétipos
+        $inocente = "Inocente";
+
+        $res_1 = $user->question_1;
+        if($res_1 == "a"){
+            $res_1 = 4;
+        } else if($res_1 == "b"){
+            $res_1 = 2;
+        } else if($res_1 == "c"){
+            $res_1 = 3;
+        } else {
+            $res_1 = 1;
+        }
+
+        $res_2 = $user->question_2;
+        if($res_2 == "a"){
+            $res_2 = 1;
+        } else if($res_2 == "b"){
+            $res_2 = 3;
+        } else if($res_2 == "c"){
+            $res_2 = 4;
+        } else {
+            $res_2 = 2;
+        }
+
+        $res_3 = $user->question_3;
+        if($res_3 == "a"){
+            $res_3 = 2;
+        } else if($res_3 == "b"){
+            $res_3 = 1;
+        } else if($res_3 == "c"){
+            $res_3 = 4;
+        } else {
+            $res_3 = 3;
+        }
+
+        $res_4 = $user->question_4;
+        if($res_4 == "a"){
+            $res_4 = 4;
+        } else if($res_4 == "b"){
+            $res_4 = 1;
+        } else if($res_4 == "c"){
+            $res_4 = 3;
+        } else {
+            $res_4 = 2;
+        }
+
+        $somaInocente = $res_1 + $res_2 + $res_3 + $res_4;
+
+        $orfao = "Orfão";
+
+        $res_5 = $user->question_5;
+        if($res_5 == "a"){
+            $res_5 = 3;
+        } else if($res_5 == "b"){
+            $res_5 = 4;
+        } else if($res_5 == "c"){
+            $res_5 = 2;
+        } else {
+            $res_5 = 1;
+        }
+
+        $res_6 = $user->question_6;
+        if($res_6 == "a"){
+            $res_6 = 4;
+        } else if($res_6 == "b"){
+            $res_6 = 2;
+        } else if($res_6 == "c"){
+            $res_6 = 3;
+        } else {
+            $res_6 = 1;
+        }
+
+        $res_7 = $user->question_7;
+        if($res_7 == "a"){
+            $res_7 = 2;
+        } else if($res_7 == "b"){
+            $res_7 = 4;
+        } else if($res_7 == "c"){
+            $res_7 = 1;
+        } else {
+            $res_7 = 3;
+        }
+
+        $res_8 = $user->question_8;
+        if($res_8 == "a"){
+            $res_8 = 4;
+        } else if($res_8 == "b"){
+            $res_8 = 1;
+        } else if($res_8 == "c"){
+            $res_8 = 2;
+        } else {
+            $res_8 = 3;
+        }
+
+        $somaOrfao = $res_5 + $res_6 + $res_7 + $res_8;
+
+        dd('Resultado = ' .$somaOrfao);
+
+        $guerreiro = "Guerreiro";
+        $cuidador = "Cuidador";
+        $explorador = "Explorador";
+        $rebelde = "Rebelde";
+        $amante = "Amante";
+        $criador = "Criador";
+        $bobo_da_corte = "Bobo da Corte";
+        $sabio = "Sábio";
+        $mago = "Mago";
+        $governante = "Governante";
 
         if($user){
             $user->question_48 = $answer48;
+            $user->times_exec;
+            dd($user);
             $user->save();
 
-            return view('layouts/questions/result');
+            return view('layouts/questions/result', compact('fullName'));
         } else {
             $question48 = new Questions();
             $question48->user_id = $userID;
             $question48->question_48 = $answer48;
+            $question48->$user->times_exec;
             $question48->save();
 
-            return view('layouts/questions/result');
+            return view('layouts/questions/result', compact('fullName'));
         }
     }
+
+    // public function Result(Request $request) {
+    //     $user = Auth::user();
+    //     $fullName = $user->name;
+    //     $userID = $user->id;
+
+    //     // Verifica o banco de dados
+    //     $user = Questions::where('user_id', $userID)->first();
+    //     dd($user);
+
+    //     return view('layouts/resultado', compact('fullName'));
+    // }
 }

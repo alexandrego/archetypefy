@@ -167,7 +167,7 @@ Route::post('/question47', [QuestionController::class, 'SaveQuestion47'])->middl
 Route::get('/question48', [QuestionController::class, 'Question48'])->middleware('auth');
 Route::post('/question48', [QuestionController::class, 'SaveQuestion48'])->middleware('auth');
 
-Route::get('/result', [ArchetypefyController::class, 'Result'])->middleware('auth');
+Route::get('/result', [QuestionController::class, 'Result'])->middleware('auth');
 
 
 // Route::post('/question', [QuestionController::class, 'store'])->middleware('auth');
