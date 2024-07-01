@@ -44,19 +44,20 @@ class ArchetypefyController extends Controller
 
         $lastQuestion = Questions::where('id', $userID)->first();
         if ($lastQuestion) {
-            $columnNames = $lastQuestion->getAttributes();
-            $lastEmptyColumn = null;
+            $columnNames = array_keys($lastQuestion->getAttributes());
+            $firstNullColumn = null;
 
-            foreach ($columnNames as $column => $value) {
-                if ($value === null) {
-                    $lastEmptyColumn = $column;
+            foreach ($columnNames as $column) {
+                if ($lastQuestion->$column === null) {
+                    $firstNullColumn = $column;
+                    break;
                 }
             }
 
-            if ($lastEmptyColumn) {
-                return response()->json(['last_empty_column' => $lastEmptyColumn]);
+            if ($firstNullColumn) {
+                return response()->json(['first_null_column' => $firstNullColumn]);
             } else {
-                return response()->json(['error' => 'No empty columns found'], 404);
+                return response()->json(['error' => 'No null columns found'], 404);
             }
         } else {
             return response()->json(['error' => 'No data found'], 404);
