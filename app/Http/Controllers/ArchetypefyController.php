@@ -47,7 +47,7 @@ class ArchetypefyController extends Controller
             $stringFirstName = $firstName;
         } else {
             if (is_array($firstName)) {
-                $stringFirstName = implode(',', $vafirstNameriable);
+                $stringFirstName = implode(',', $firstName);
             } else {
                 $stringFirstName = (string) $firstName;
             }
