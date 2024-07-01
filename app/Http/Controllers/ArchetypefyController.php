@@ -41,6 +41,10 @@ class ArchetypefyController extends Controller
         $user = Auth::user();
         $fullName = $user->name;
 
+        // $user = User::where('email', $email)->first();
+        $lastQuestion = Questions::where('questions', null)->first();
+        dd($lastQuestion);
+
         return view('layouts/dashboard', compact('fullName'));
     }
     public function Atention() {
@@ -84,7 +88,6 @@ class ArchetypefyController extends Controller
         if ($user) {
             // Atualiza a senha do usuário
             $user->password = Hash::make($confirmCode);
-            $user->markEmailAsVerified();
             $user->save();
 
             // Envia dados por e-mail

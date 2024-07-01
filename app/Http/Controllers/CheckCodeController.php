@@ -23,6 +23,9 @@ class CheckCodeController extends Controller
             // Verifica se a senha está correta
             if (Hash::check($password, $user->password)) {
                 // A senha está correta
+                $user->markEmailAsVerified();
+                $user->save();
+
                 // Cria uma sessão
                 Auth::login($user);
 
