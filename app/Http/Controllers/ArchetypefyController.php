@@ -39,10 +39,11 @@ class ArchetypefyController extends Controller
 
         // $nome = session(['nome' => $request->nome]);
         $user = Auth::user();
+        $userID = $user->id;
         $fullName = $user->name;
 
         // $user = User::where('email', $email)->first();
-        $lastQuestion = Questions::where('questions', null)->first();
+        $lastQuestion = Questions::where('id', $userID)->first();
         dd($lastQuestion);
 
         return view('layouts/dashboard', compact('fullName'));
