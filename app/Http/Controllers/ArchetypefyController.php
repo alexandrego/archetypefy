@@ -42,9 +42,26 @@ class ArchetypefyController extends Controller
         $userID = $user->id;
         $fullName = $user->name;
 
-        // $user = User::where('email', $email)->first();
         $lastQuestion = Questions::where('id', $userID)->first();
-        dd($lastQuestion);
+        if ($lastQuestion) {
+            $columnNames = $lastQuestion->getAttributes();
+            $lastEmptyColumn = null;
+
+            foreach ($columnNames as $column => $value) {
+                if ($value === null) {
+                    $lastEmptyColumn = $column;
+                }
+            }
+
+            if ($lastEmptyColumn) {
+                return response()->json(['last_empty_column' => $lastEmptyColumn]);
+            } else {
+                return response()->json(['error' => 'No empty columns found'], 404);
+            }
+        } else {
+            return response()->json(['error' => 'No data found'], 404);
+        }
+        // dd($lastQuestion);
 
         return view('layouts/dashboard', compact('fullName'));
     }
