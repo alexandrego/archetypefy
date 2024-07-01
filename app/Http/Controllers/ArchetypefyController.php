@@ -43,7 +43,13 @@ class ArchetypefyController extends Controller
         $fullName = $user->name;
         $firstName = compact('fullName');
 
-        session(['firstName' => $firstName]);
+        if (is_string($firstName)) {
+            $stringFirstName = $firstName;
+        } else {
+            $stringFirstName = (string) $firstName;
+        }
+
+        session(['firstName' => $stringFirstName]);
 
         $lastQuestion = Questions::where('id', $userID)->first();
         if ($lastQuestion) {
@@ -61,7 +67,7 @@ class ArchetypefyController extends Controller
                 if($firstNullColumn === "question_1"){
                     // Não exiba nada
                 } else if ($firstNullColumn === "question_2"){
-                    session(['firstNullColumn' => $firstNullColumn]);
+                    session(['stringFirstName' => $stringFirstName]);
                 }
                 // return response()->json(['first_null_column' => $firstNullColumn]);
             }
