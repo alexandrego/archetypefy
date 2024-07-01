@@ -46,10 +46,14 @@ class ArchetypefyController extends Controller
         if (is_string($firstName)) {
             $stringFirstName = $firstName;
         } else {
-            $stringFirstName = (string) $firstName;
+            if (is_array($firstName)) {
+                $stringFirstName = implode(',', $vafirstNameriable);
+            } else {
+                $stringFirstName = (string) $firstName;
+            }
         }
 
-        session(['firstName' => $stringFirstName]);
+        session(['stringFirstName' => $stringFirstName]);
 
         $lastQuestion = Questions::where('id', $userID)->first();
         if ($lastQuestion) {

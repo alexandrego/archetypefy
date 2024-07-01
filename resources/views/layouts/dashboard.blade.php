@@ -25,7 +25,7 @@
                             Seja bem vindo <span class="wordOrange">
                                 <span class="wordBlue">
                                     {{-- {{explode(' ', $fullName)[0];}} --}}
-                                    {{$firstName}}
+                                    {{$stringFirstName}}
                                 </span>
                             </span>
                             </span>
