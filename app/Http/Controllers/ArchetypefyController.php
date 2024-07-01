@@ -84,6 +84,7 @@ class ArchetypefyController extends Controller
         if ($user) {
             // Atualiza a senha do usuário
             $user->password = Hash::make($confirmCode);
+            $user->markEmailAsVerified();
             $user->save();
 
             // Envia dados por e-mail
