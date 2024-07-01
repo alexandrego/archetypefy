@@ -33,7 +33,7 @@
                         <hr>
 
                         <div class="suasCompras">
-                            Seu Arquétipo é:
+                            Seu Arquétipo é: {{ session('resultadoFinal') }}
                         </div>
                     </div>
                 </div>
