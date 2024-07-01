@@ -52,6 +52,7 @@ class ArchetypefyController extends Controller
                 $stringFirstName = (string) $firstName;
             }
         }
+        dd($stringFirstName);
 
         session(['stringFirstName' => $stringFirstName]);
 
