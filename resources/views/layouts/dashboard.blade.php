@@ -24,7 +24,8 @@
                         <div class="sejaBemVindo">
                             Seja bem vindo <span class="wordOrange">
                                 <span class="wordBlue">
-                                    {{explode(' ', $fullName)[0];}}
+                                    {{-- {{explode(' ', $fullName)[0];}} --}}
+                                    {{$firstName}}
                                 </span>
                             </span>
                             </span>
@@ -46,6 +47,19 @@
                             </div>
                             <div class="cardDesc">
                                 Identidade de Arquetipo
+                            </div>
+                            <div class="cardDesc">
+                                @if(isset($firstNullColumn))
+                                    @if($firstNullColumn == 'question_2')
+                                        {{$firstNullColumn}}
+                                        @elseif($firstNullColumn == 'question_3')
+                                            {{$firstNullColumn}}
+                                            @elseif($firstNullColumn == 'question_4')
+                                                {{$firstNullColumn}}
+                                                @elseif($firstNullColumn == 'question_5')
+                                                    {{$firstNullColumn}}
+                                                    @endif
+                                @endif
                             </div>
                         </div>
                     </a>

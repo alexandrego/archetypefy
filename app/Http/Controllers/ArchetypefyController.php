@@ -41,6 +41,9 @@ class ArchetypefyController extends Controller
         $user = Auth::user();
         $userID = $user->id;
         $fullName = $user->name;
+        $firstName = compact('fullName');
+
+        session(['firstName' => $firstName]);
 
         $lastQuestion = Questions::where('id', $userID)->first();
         if ($lastQuestion) {
@@ -55,16 +58,17 @@ class ArchetypefyController extends Controller
             }
 
             if ($firstNullColumn) {
-                return response()->json(['first_null_column' => $firstNullColumn]);
-            } else {
-                return response()->json(['error' => 'No null columns found'], 404);
+                if($firstNullColumn === "question_1"){
+                    // Não exiba nada
+                } else if ($firstNullColumn === "question_2"){
+                    session(['firstNullColumn' => $firstNullColumn]);
+                }
+                // return response()->json(['first_null_column' => $firstNullColumn]);
             }
-        } else {
-            return response()->json(['error' => 'No data found'], 404);
         }
         // dd($lastQuestion);
 
-        return view('layouts/dashboard', compact('fullName'));
+        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn]);
     }
     public function Atention() {
         return view('layouts/atention');
