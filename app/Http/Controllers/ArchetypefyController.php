@@ -43,14 +43,21 @@ class ArchetypefyController extends Controller
         $fullName = $user->name;
         $firstName = compact('fullName');
 
+        // if (is_string($firstName)) {
+        //     $stringFirstName = $firstName;
+        // } else {
+        //     if (is_array($firstName)) {
+        //         $stringFirstName = implode(',', $firstName);
+        //     } else {
+        //         $stringFirstName = (string) $firstName;
+        //     }
+        // }
+
         if (is_string($firstName)) {
-            $stringFirstName = $firstName;
+            $nameArray = explode(' ', $firstName);
+            $stringFirstName = $nameArray[0];
         } else {
-            if (is_array($firstName)) {
-                $stringFirstName = implode(',', $firstName);
-            } else {
-                $stringFirstName = (string) $firstName;
-            }
+            $stringFirstName = '';
         }
         dd($stringFirstName);
 
@@ -72,14 +79,14 @@ class ArchetypefyController extends Controller
                 if($firstNullColumn === "question_1"){
                     // Não exiba nada
                 } else if ($firstNullColumn === "question_2"){
-                    session(['stringFirstName' => $stringFirstName]);
+                    session(['firstNullColumn' => $firstNullColumn]);
                 }
                 // return response()->json(['first_null_column' => $firstNullColumn]);
             }
         }
         // dd($lastQuestion);
 
-        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn]);
+        return view('layouts/dashboard')->with(['stringFirstName' => $stringFirstName, 'firstNullColumn' => $firstNullColumn]);
     }
     public function Atention() {
         return view('layouts/atention');
