@@ -1881,7 +1881,7 @@ class QuestionController extends Controller
             // dd($user);
             $user->save();
 
-            return view('../result');
+            return view('layouts/dashboard');
         } else {
             $question48 = new Questions();
             $question48->user_id = $userID;
@@ -1889,7 +1889,7 @@ class QuestionController extends Controller
             $question48->$user->times_exec;
             $question48->save();
 
-            return view('../result');
+            return view('layouts/dashboard');
         }
     }
 
