@@ -97,3 +97,12 @@
     width: 70px;
     height: 40px;
 }
+
+@media (max-width: 450px) {
+    .logout {
+        right: 8px;
+    }
+    .compras {
+        flex-direction: column;
+    }
+  }
