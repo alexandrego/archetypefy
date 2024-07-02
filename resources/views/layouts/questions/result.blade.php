@@ -7,9 +7,9 @@
         <div class="contentHome">
             @auth
                 <div class="logout">
-                    <form action="/logout" method="POST">
+                    <form action="/dashboard" method="GET">
                         @csrf
-                        <button type="submit" class="btn btn-danger">Sair</button>
+                        <button type="submit" class="btn btn-danger">Voltar</button>
                     </form>
                 </div>
             @endauth
@@ -24,7 +24,7 @@
                         <div class="sejaBemVindo">
                             Olá <span class="wordOrange">
                                 <span class="wordBlue">
-                                    {{explode(' ', $fullName)[0];}}
+                                {{ session('fullName') }}
                                 </span>
                             </span>
                             </span>
@@ -38,8 +38,9 @@
                     </div>
                 </div>
 
-                <div class="compras">
-                    Nome do Arquetipo
+                <div class="divResultadoFinal">
+                    <p>Nome do Arquétipo <span class="resultadoFinal"> {{ session('resultadoFinal') }} </span></p>
+                    <p class="avisoResultado">Enviamos o PDF com o resultado detalhado para seu e-mail, favor consultar a caixa de entrada, caixa de spam e outros!</p>
                 </div>
                 <div class="suporte">
                     <div class="suporteName">

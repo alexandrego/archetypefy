@@ -1,0 +1,18 @@
+.resultadoFinal {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 0 0 20px;
+}
+.divResultadoFinal {
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.avisoResultado {
+    font-size: 15px;
+    margin: 20px 0 0 0;
+    text-align: center;
+}

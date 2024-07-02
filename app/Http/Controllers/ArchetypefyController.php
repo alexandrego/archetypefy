@@ -41,29 +41,14 @@ class ArchetypefyController extends Controller
         $user = Auth::user();
         $userID = $user->id;
         $fullName = $user->name;
-        $firstName = compact('fullName');
 
-        // if (is_string($firstName)) {
-        //     $stringFirstName = $firstName;
-        // } else {
-        //     if (is_array($firstName)) {
-        //         $stringFirstName = implode(',', $firstName);
-        //     } else {
-        //         $stringFirstName = (string) $firstName;
-        //     }
-        // }
+        $firstName = strtok($fullName, " ");
 
-        if (is_string($firstName)) {
-            $nameArray = explode(' ', $firstName);
-            $stringFirstName = $nameArray[0];
-        } else {
-            $stringFirstName = '';
-        }
-        dd($stringFirstName);
-
-        session(['stringFirstName' => $stringFirstName]);
+        session(['firstName' => $firstName]);
 
         $lastQuestion = Questions::where('id', $userID)->first();
+        // dd($lastQuestion);
+
         if ($lastQuestion) {
             $columnNames = array_keys($lastQuestion->getAttributes());
             $firstNullColumn = null;
@@ -82,11 +67,18 @@ class ArchetypefyController extends Controller
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
                 // return response()->json(['first_null_column' => $firstNullColumn]);
+            } else {
+                $firstNullColumn = 'result';
+                // dd($firstNullColumn);
+                session(['firstNullColumn' => $firstNullColumn]);
             }
+        } else {
+            $firstNullColumn = 'nao_iniciado';
+            // dd($firstNullColumn);
+            session(['firstNullColumn' => $firstNullColumn]);
         }
-        // dd($lastQuestion);
 
-        return view('layouts/dashboard')->with(['stringFirstName' => $stringFirstName, 'firstNullColumn' => $firstNullColumn]);
+        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn]);
     }
     public function Atention() {
         return view('layouts/atention');

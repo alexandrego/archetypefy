@@ -6,6 +6,7 @@ use App\Models\Questions;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class QuestionController extends Controller
 {
@@ -1873,6 +1874,650 @@ class QuestionController extends Controller
             $user->times_exec = $times_exec + 1;
         }
 
+        // //Arquétipos
+        // $inocente = "Inocente";
+
+        // $res_1 = $user->question_1;
+        // if($res_1 == "a"){
+        //     $res_1 = 4;
+        // } else if($res_1 == "b"){
+        //     $res_1 = 2;
+        // } else if($res_1 == "c"){
+        //     $res_1 = 3;
+        // } else {
+        //     $res_1 = 1;
+        // }
+
+        // $res_2 = $user->question_2;
+        // if($res_2 == "a"){
+        //     $res_2 = 1;
+        // } else if($res_2 == "b"){
+        //     $res_2 = 3;
+        // } else if($res_2 == "c"){
+        //     $res_2 = 4;
+        // } else {
+        //     $res_2 = 2;
+        // }
+
+        // $res_3 = $user->question_3;
+        // if($res_3 == "a"){
+        //     $res_3 = 2;
+        // } else if($res_3 == "b"){
+        //     $res_3 = 1;
+        // } else if($res_3 == "c"){
+        //     $res_3 = 4;
+        // } else {
+        //     $res_3 = 3;
+        // }
+
+        // $res_4 = $user->question_4;
+        // if($res_4 == "a"){
+        //     $res_4 = 4;
+        // } else if($res_4 == "b"){
+        //     $res_4 = 1;
+        // } else if($res_4 == "c"){
+        //     $res_4 = 3;
+        // } else {
+        //     $res_4 = 2;
+        // }
+
+        // $somaInocente = $res_1 + $res_2 + $res_3 + $res_4;
+
+        // $orfao = "Orfão";
+
+        // $res_5 = $user->question_5;
+        // if($res_5 == "a"){
+        //     $res_5 = 3;
+        // } else if($res_5 == "b"){
+        //     $res_5 = 4;
+        // } else if($res_5 == "c"){
+        //     $res_5 = 2;
+        // } else {
+        //     $res_5 = 1;
+        // }
+
+        // $res_6 = $user->question_6;
+        // if($res_6 == "a"){
+        //     $res_6 = 4;
+        // } else if($res_6 == "b"){
+        //     $res_6 = 2;
+        // } else if($res_6 == "c"){
+        //     $res_6 = 3;
+        // } else {
+        //     $res_6 = 1;
+        // }
+
+        // $res_7 = $user->question_7;
+        // if($res_7 == "a"){
+        //     $res_7 = 2;
+        // } else if($res_7 == "b"){
+        //     $res_7 = 4;
+        // } else if($res_7 == "c"){
+        //     $res_7 = 1;
+        // } else {
+        //     $res_7 = 3;
+        // }
+
+        // $res_8 = $user->question_8;
+        // if($res_8 == "a"){
+        //     $res_8 = 4;
+        // } else if($res_8 == "b"){
+        //     $res_8 = 1;
+        // } else if($res_8 == "c"){
+        //     $res_8 = 2;
+        // } else {
+        //     $res_8 = 3;
+        // }
+
+        // $somaOrfao = $res_5 + $res_6 + $res_7 + $res_8;
+
+        // $guerreiro = "Guerreiro";
+
+        // $res_9 = $user->question_9;
+        // if($res_9 == "a"){
+        //     $res_9 = 4;
+        // } else if($res_9 == "b"){
+        //     $res_9 = 2;
+        // } else if($res_9 == "c"){
+        //     $res_9 = 1;
+        // } else {
+        //     $res_9 = 3;
+        // }
+
+        // $res_10 = $user->question_10;
+        // if($res_10 == "a"){
+        //     $res_10 = 1;
+        // } else if($res_10 == "b"){
+        //     $res_10 = 3;
+        // } else if($res_10 == "c"){
+        //     $res_10 = 4;
+        // } else {
+        //     $res_10 = 2;
+        // }
+
+        // $res_11 = $user->question_11;
+        // if($res_11 == "a"){
+        //     $res_11 = 3;
+        // } else if($res_11 == "b"){
+        //     $res_11 = 2;
+        // } else if($res_11 == "c"){
+        //     $res_11 = 4;
+        // } else {
+        //     $res_11 = 1;
+        // }
+
+        // $res_12 = $user->question_12;
+        // if($res_12 == "a"){
+        //     $res_12 = 1;
+        // } else if($res_12 == "b"){
+        //     $res_12 = 3;
+        // } else if($res_12 == "c"){
+        //     $res_12 = 4;
+        // } else {
+        //     $res_12 = 2;
+        // }
+
+        // $somaGuerreiro = $res_9 + $res_10 + $res_11 + $res_12;
+
+        // $cuidador = "Cuidador";
+
+        // $res_13 = $user->question_13;
+        // if($res_13 == "a"){
+        //     $res_13 = 3;
+        // } else if($res_13 == "b"){
+        //     $res_13 = 1;
+        // } else if($res_13 == "c"){
+        //     $res_13 = 4;
+        // } else {
+        //     $res_13 = 2;
+        // }
+
+        // $res_14 = $user->question_14;
+        // if($res_14 == "a"){
+        //     $res_14 = 2;
+        // } else if($res_14 == "b"){
+        //     $res_14 = 3;
+        // } else if($res_14 == "c"){
+        //     $res_14 = 4;
+        // } else {
+        //     $res_14 = 1;
+        // }
+
+        // $res_15 = $user->question_15;
+        // if($res_15 == "a"){
+        //     $res_15 = 4;
+        // } else if($res_15 == "b"){
+        //     $res_15 = 1;
+        // } else if($res_15 == "c"){
+        //     $res_15 = 2;
+        // } else {
+        //     $res_15 = 3;
+        // }
+
+        // $res_16 = $user->question_16;
+        // if($res_16 == "a"){
+        //     $res_16 = 3;
+        // } else if($res_16 == "b"){
+        //     $res_16 = 1;
+        // } else if($res_16 == "c"){
+        //     $res_16 = 4;
+        // } else {
+        //     $res_16 = 2;
+        // }
+
+        // $somaCuidador = $res_13 + $res_14 + $res_15 + $res_16;
+
+        // $explorador = "Explorador";
+
+        // $res_17 = $user->question_17;
+        // if($res_17 == "a"){
+        //     $res_17 = 4;
+        // } else if($res_17 == "b"){
+        //     $res_17 = 3;
+        // } else if($res_17 == "c"){
+        //     $res_17 = 1;
+        // } else {
+        //     $res_17 = 2;
+        // }
+
+        // $res_18 = $user->question_18;
+        // if($res_18 == "a"){
+        //     $res_18 = 4;
+        // } else if($res_18 == "b"){
+        //     $res_18 = 3;
+        // } else if($res_18 == "c"){
+        //     $res_18 = 1;
+        // } else {
+        //     $res_18 = 2;
+        // }
+
+        // $res_19 = $user->question_19;
+        // if($res_19 == "a"){
+        //     $res_19 = 4;
+        // } else if($res_19 == "b"){
+        //     $res_19 = 3;
+        // } else if($res_19 == "c"){
+        //     $res_19 = 1;
+        // } else {
+        //     $res_19 = 2;
+        // }
+
+        // $res_20 = $user->question_20;
+        // if($res_20 == "a"){
+        //     $res_20 = 4;
+        // } else if($res_20 == "b"){
+        //     $res_20 = 3;
+        // } else if($res_20 == "c"){
+        //     $res_20 = 1;
+        // } else {
+        //     $res_20 = 2;
+        // }
+
+        // $somaExplorador = $res_17 + $res_18 + $res_19 + $res_20;
+
+        // $rebelde = "Rebelde";
+
+        // $res_21 = $user->question_21;
+        // if($res_21 == "a"){
+        //     $res_21 = 1;
+        // } else if($res_21 == "b"){
+        //     $res_21 = 3;
+        // } else if($res_21 == "c"){
+        //     $res_21 = 4;
+        // } else {
+        //     $res_21 = 2;
+        // }
+
+        // $res_22 = $user->question_22;
+        // if($res_22 == "a"){
+        //     $res_22 = 4;
+        // } else if($res_22 == "b"){
+        //     $res_22 = 3;
+        // } else if($res_22 == "c"){
+        //     $res_22 = 1;
+        // } else {
+        //     $res_22 = 2;
+        // }
+
+        // $res_23 = $user->question_23;
+        // if($res_23 == "a"){
+        //     $res_23 = 4;
+        // } else if($res_23 == "b"){
+        //     $res_23 = 3;
+        // } else if($res_23 == "c"){
+        //     $res_23 = 1;
+        // } else {
+        //     $res_23 = 2;
+        // }
+
+        // $res_24 = $user->question_24;
+        // if($res_24 == "a"){
+        //     $res_24 = 1;
+        // } else if($res_24 == "b"){
+        //     $res_24 = 3;
+        // } else if($res_24 == "c"){
+        //     $res_24 = 4;
+        // } else {
+        //     $res_24 = 2;
+        // }
+
+        // $somaRebelde = $res_21 + $res_22 + $res_23 + $res_24;
+
+        // $amante = "Amante";
+
+        // $res_25 = $user->question_25;
+        // if($res_25 == "a"){
+        //     $res_25 = 4;
+        // } else if($res_25 == "b"){
+        //     $res_25 = 3;
+        // } else if($res_25 == "c"){
+        //     $res_25 = 1;
+        // } else {
+        //     $res_25 = 2;
+        // }
+
+        // $res_26 = $user->question_26;
+        // if($res_26 == "a"){
+        //     $res_26 = 4;
+        // } else if($res_26 == "b"){
+        //     $res_26 = 3;
+        // } else if($res_26 == "c"){
+        //     $res_26 = 1;
+        // } else {
+        //     $res_26 = 2;
+        // }
+
+        // $res_27 = $user->question_27;
+        // if($res_27 == "a"){
+        //     $res_27 = 1;
+        // } else if($res_27 == "b"){
+        //     $res_27 = 3;
+        // } else if($res_27 == "c"){
+        //     $res_27 = 2;
+        // } else {
+        //     $res_27 = 4;
+        // }
+
+        // $res_28 = $user->question_28;
+        // if($res_28 == "a"){
+        //     $res_28 = 2;
+        // } else if($res_28 == "b"){
+        //     $res_28 = 3;
+        // } else if($res_28 == "c"){
+        //     $res_28 = 1;
+        // } else {
+        //     $res_28 = 4;
+        // }
+
+        // $somaAmante = $res_25 + $res_26 + $res_27 + $res_28;
+
+        // $criador = "Criador";
+
+        // $res_29 = $user->question_29;
+        // if($res_29 == "a"){
+        //     $res_29 = 4;
+        // } else if($res_29 == "b"){
+        //     $res_29 = 3;
+        // } else if($res_29 == "c"){
+        //     $res_29 = 1;
+        // } else {
+        //     $res_29 = 2;
+        // }
+
+        // $res_30 = $user->question_30;
+        // if($res_30 == "a"){
+        //     $res_30 = 4;
+        // } else if($res_30 == "b"){
+        //     $res_30 = 3;
+        // } else if($res_30 == "c"){
+        //     $res_30 = 1;
+        // } else {
+        //     $res_30 = 2;
+        // }
+
+        // $res_31 = $user->question_31;
+        // if($res_31 == "a"){
+        //     $res_31 = 4;
+        // } else if($res_31 == "b"){
+        //     $res_31 = 3;
+        // } else if($res_31 == "c"){
+        //     $res_31 = 1;
+        // } else {
+        //     $res_31 = 2;
+        // }
+
+        // $res_32 = $user->question_32;
+        // if($res_32 == "a"){
+        //     $res_32 = 4;
+        // } else if($res_32 == "b"){
+        //     $res_32 = 3;
+        // } else if($res_32 == "c"){
+        //     $res_32 = 1;
+        // } else {
+        //     $res_32 = 2;
+        // }
+
+        // $somaCriador = $res_29 + $res_30 + $res_31 + $res_32;
+
+        // $bobo_da_corte = "Bobo da Corte";
+
+        // $res_33 = $user->question_33;
+        // if($res_33 == "a"){
+        //     $res_33 = 3;
+        // } else if($res_33 == "b"){
+        //     $res_33 = 2;
+        // } else if($res_33 == "c"){
+        //     $res_33 = 1;
+        // } else {
+        //     $res_33 = 4;
+        // }
+
+        // $res_34 = $user->question_34;
+        // if($res_34 == "a"){
+        //     $res_34 = 2;
+        // } else if($res_34 == "b"){
+        //     $res_34 = 3;
+        // } else if($res_34 == "c"){
+        //     $res_34 = 1;
+        // } else {
+        //     $res_34 = 4;
+        // }
+
+        // $res_35 = $user->question_35;
+        // if($res_35 == "a"){
+        //     $res_35 = 2;
+        // } else if($res_35 == "b"){
+        //     $res_35 = 3;
+        // } else if($res_35 == "c"){
+        //     $res_35 = 1;
+        // } else {
+        //     $res_35 = 4;
+        // }
+
+        // $res_36 = $user->question_36;
+        // if($res_36 == "a"){
+        //     $res_36 = 2;
+        // } else if($res_36 == "b"){
+        //     $res_36 = 3;
+        // } else if($res_36 == "c"){
+        //     $res_36 = 1;
+        // } else {
+        //     $res_36 = 4;
+        // }
+
+        // $somaBobo_da_corte = $res_33 + $res_34 + $res_35 + $res_36;
+
+        // $sabio = "Sábio";
+
+        // $res_37 = $user->question_37;
+        // if($res_37 == "a"){
+        //     $res_37 = 4;
+        // } else if($res_37 == "b"){
+        //     $res_37 = 3;
+        // } else if($res_37 == "c"){
+        //     $res_37 = 1;
+        // } else {
+        //     $res_37 = 2;
+        // }
+
+        // $res_38 = $user->question_38;
+        // if($res_38 == "a"){
+        //     $res_38 = 4;
+        // } else if($res_38 == "b"){
+        //     $res_38 = 3;
+        // } else if($res_38 == "c"){
+        //     $res_38 = 1;
+        // } else {
+        //     $res_38 = 2;
+        // }
+
+        // $res_39 = $user->question_39;
+        // if($res_39 == "a"){
+        //     $res_39 = 4;
+        // } else if($res_39 == "b"){
+        //     $res_39 = 3;
+        // } else if($res_39 == "c"){
+        //     $res_39 = 1;
+        // } else {
+        //     $res_39 = 2;
+        // }
+
+        // $res_40 = $user->question_40;
+        // if($res_40 == "a"){
+        //     $res_40 = 4;
+        // } else if($res_40 == "b"){
+        //     $res_40 = 3;
+        // } else if($res_40 == "c"){
+        //     $res_40 = 1;
+        // } else {
+        //     $res_40 = 2;
+        // }
+
+        // $somaSabio = $res_37 + $res_38 + $res_39 + $res_40;
+
+        // $mago = "Mago";
+
+        // $res_41 = $user->question_41;
+        // if($res_41 == "a"){
+        //     $res_41 = 4;
+        // } else if($res_41 == "b"){
+        //     $res_41 = 3;
+        // } else if($res_41 == "c"){
+        //     $res_41 = 1;
+        // } else {
+        //     $res_41 = 2;
+        // }
+
+        // $res_42 = $user->question_42;
+        // if($res_42 == "a"){
+        //     $res_42 = 4;
+        // } else if($res_42 == "b"){
+        //     $res_42 = 3;
+        // } else if($res_42 == "c"){
+        //     $res_42 = 1;
+        // } else {
+        //     $res_42 = 2;
+        // }
+
+        // $res_43 = $user->question_43;
+        // if($res_43 == "a"){
+        //     $res_43 = 4;
+        // } else if($res_43 == "b"){
+        //     $res_43 = 3;
+        // } else if($res_43 == "c"){
+        //     $res_43 = 1;
+        // } else {
+        //     $res_43 = 2;
+        // }
+
+        // $res_44 = $user->question_44;
+        // if($res_44 == "a"){
+        //     $res_44 = 4;
+        // } else if($res_44 == "b"){
+        //     $res_44 = 3;
+        // } else if($res_44 == "c"){
+        //     $res_44 = 1;
+        // } else {
+        //     $res_44 = 2;
+        // }
+
+        // $somaMago = $res_41 + $res_42 + $res_43 + $res_44;
+
+        // $governante = "Governante";
+
+        // $res_45 = $user->question_45;
+        // if($res_45 == "a"){
+        //     $res_45 = 1;
+        // } else if($res_45 == "b"){
+        //     $res_45 = 3;
+        // } else if($res_45 == "c"){
+        //     $res_45 = 4;
+        // } else {
+        //     $res_45 = 2;
+        // }
+
+        // $res_46 = $user->question_46;
+        // if($res_46 == "a"){
+        //     $res_46 = 1;
+        // } else if($res_46 == "b"){
+        //     $res_46 = 3;
+        // } else if($res_46 == "c"){
+        //     $res_46 = 4;
+        // } else {
+        //     $res_46 = 2;
+        // }
+
+        // $res_47 = $user->question_47;
+        // if($res_47 == "a"){
+        //     $res_47 = 1;
+        // } else if($res_47 == "b"){
+        //     $res_47 = 3;
+        // } else if($res_47 == "c"){
+        //     $res_47 = 4;
+        // } else {
+        //     $res_47 = 2;
+        // }
+
+        // $res_48 = $user->question_48;
+        // if($res_48 == "a"){
+        //     $res_48 = 1;
+        // } else if($res_48 == "b"){
+        //     $res_48 = 3;
+        // } else if($res_48 == "c"){
+        //     $res_48 = 4;
+        // } else {
+        //     $res_48 = 2;
+        // }
+
+        // $somaGovernante = $res_45 + $res_46 + $res_47 + $res_48;
+
+        // $resultados = [
+        //     'Inocente' => $somaInocente,
+        //     'Órfão' => $somaOrfao,
+        //     'Guerreiro' => $somaGuerreiro,
+        //     'Cuidador' => $somaCuidador,
+        //     'Explorador' => $somaExplorador,
+        //     'Rebelde' => $somaRebelde,
+        //     'Amante' => $somaAmante,
+        //     'Criador' => $somaCriador,
+        //     'Bobo da corte' => $somaBobo_da_corte,
+        //     'Sábio' => $somaSabio,
+        //     'Mago' => $somaMago,
+        //     'Governante' => $somaGovernante
+        // ];
+
+        // $maiorResult = max($resultados);
+        // $maiorResultChave = array_search($maiorResult, $resultados);
+
+        // $resultadoFinal = session(['resultadoFinal' => $maiorResultChave]);
+
+        // dd($resultadoFinal);
+
+        // return view('layouts/questions/question48')->with($resultadoFinal);
+
+        // dd([
+        //     'Resultados' => $resultados,
+        //     'Maior Resultado' => $maiorResult,
+        //     'Chave do Maior Resultado' => $maiorResultChave
+        // ]);
+
+        // $maxResult = max($somaInocente, $somaOrfao, $somaGuerreiro, $somaCuidador, $somaExplorador, $somaRebelde, $somaAmante, $somaCriador, $somaBobo_da_corte, $somaSabio, $somaMago, $somaGovernante);
+
+        // $maiorResult = max(['Resultado Inocente = ' => $somaInocente, 'Resultado Órfão = ' => $somaOrfao, 'Resultado Guerreiro = ' => $somaGuerreiro, 'Resultado Cuidador = ' => $somaCuidador, 'Resultado Explorador = ' => $somaExplorador, 'Resultado Rebelde = ' => $somaRebelde, 'Resultado Amante = ' => $somaAmante, 'Resultado Criador = ' => $somaCriador, 'Resultado Bobo da corte = ' => $somaBobo_da_corte, 'Resultado Sábio = ' => $somaSabio, 'Resultado Mago = ' => $somaMago, 'Resultado Governante = ' => $somaGovernante]);
+
+        // dd(['Resultado Inocente = ' => $somaInocente, 'Resultado Órfão = ' => $somaOrfao, 'Resultado Guerreiro = ' => $somaGuerreiro, 'Resultado Cuidador = ' => $somaCuidador, 'Resultado Explorador = ' => $somaExplorador, 'Resultado Rebelde = ' => $somaRebelde, 'Resultado Amante = ' => $somaAmante, 'Resultado Criador = ' => $somaCriador, 'Resultado Bobo da corte = ' => $somaBobo_da_corte, 'Resultado Sábio = ' => $somaSabio, 'Resultado Mago = ' => $somaMago, 'Resultado Governante = ' => $somaGovernante,
+        // 'Maior Resultado = ' => $maxResult]);
+
+
+        if($user){
+            $user->question_48 = $answer48;
+            $user->times_exec;
+            // dd($user);
+            $user->save();
+
+            return view('layouts/questions/result', compact('fullName'));
+        } else {
+            $question48 = new Questions();
+            $question48->user_id = $userID;
+            $question48->question_48 = $answer48;
+            $question48->$user->times_exec;
+            $question48->save();
+
+            return view('layouts/questions/result', compact('fullName'));
+        }
+    }
+
+    public function Result(Request $request) {
+        $user = Auth::user();
+        $fullName = $user->name;
+        $email = $user->email;
+        $userID = $user->id;
+
+        // Verifica o banco de dados
+        $user = Questions::where('user_id', $userID)->first();
+        // dd($user);
+
+
         //Arquétipos
         $inocente = "Inocente";
 
@@ -2469,52 +3114,44 @@ class QuestionController extends Controller
         $maiorResultChave = array_search($maiorResult, $resultados);
 
         $resultadoFinal = session(['resultadoFinal' => $maiorResultChave]);
+        $fullName = session(['fullName' => $fullName]);
 
-        dd($resultadoFinal);
+        // Gerar o PDF
+        $pdf = PDF::loadView('layouts.mail.mailPdfResult', [
+            'fullName' => $fullName,
+            'resultadoFinal' => $resultadoFinal
+        ]);
 
-        // return view('layouts/questions/question48')->with($resultadoFinal);
+        // Enviar o email com o PDF anexado
+        // dd(gettype($email));
+        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResult', ['fullName' => $fullName, 'resultadoFinal' => $resultadoFinal], function($message) use ($pdf, $email) {
+            $message->to($email)
+                    ->subject('Archetypefy - Resultado do Teste')
+                    ->attachData($pdf->output(), 'resultado.pdf');
+        });
 
-        // dd([
-        //     'Resultados' => $resultados,
-        //     'Maior Resultado' => $maiorResult,
-        //     'Chave do Maior Resultado' => $maiorResultChave
-        // ]);
+        // Envia dados por e-mail
+        // return redirect('/mailResult')->with(
+        //     [
+        //         'resultadoFinal' => $maiorResultChave
+        //     ]
+        // );
 
-        // $maxResult = max($somaInocente, $somaOrfao, $somaGuerreiro, $somaCuidador, $somaExplorador, $somaRebelde, $somaAmante, $somaCriador, $somaBobo_da_corte, $somaSabio, $somaMago, $somaGovernante);
+        // dd($resultadoFinal);
 
-        // $maiorResult = max(['Resultado Inocente = ' => $somaInocente, 'Resultado Órfão = ' => $somaOrfao, 'Resultado Guerreiro = ' => $somaGuerreiro, 'Resultado Cuidador = ' => $somaCuidador, 'Resultado Explorador = ' => $somaExplorador, 'Resultado Rebelde = ' => $somaRebelde, 'Resultado Amante = ' => $somaAmante, 'Resultado Criador = ' => $somaCriador, 'Resultado Bobo da corte = ' => $somaBobo_da_corte, 'Resultado Sábio = ' => $somaSabio, 'Resultado Mago = ' => $somaMago, 'Resultado Governante = ' => $somaGovernante]);
-
-        // dd(['Resultado Inocente = ' => $somaInocente, 'Resultado Órfão = ' => $somaOrfao, 'Resultado Guerreiro = ' => $somaGuerreiro, 'Resultado Cuidador = ' => $somaCuidador, 'Resultado Explorador = ' => $somaExplorador, 'Resultado Rebelde = ' => $somaRebelde, 'Resultado Amante = ' => $somaAmante, 'Resultado Criador = ' => $somaCriador, 'Resultado Bobo da corte = ' => $somaBobo_da_corte, 'Resultado Sábio = ' => $somaSabio, 'Resultado Mago = ' => $somaMago, 'Resultado Governante = ' => $somaGovernante,
-        // 'Maior Resultado = ' => $maxResult]);
-
-
-        if($user){
-            $user->question_48 = $answer48;
-            $user->times_exec;
-            // dd($user);
-            $user->save();
-
-            return view('layouts/questions/result', compact('fullName'))->with($resultadoFinal);
-        } else {
-            $question48 = new Questions();
-            $question48->user_id = $userID;
-            $question48->question_48 = $answer48;
-            $question48->$user->times_exec;
-            $question48->save();
-
-            return view('layouts/questions/result', compact('fullName'))->with($resultadoFinal);
-        }
+        return view('layouts/questions/result')->with(['fullName' => $fullName, 'resultadoFinal' => $maiorResultChave]);
     }
+    public function MailResult() {
+        // Busca dados no banco
+        $user = Auth::user();
+        $email = $user->email;
 
-    // public function Result(Request $request) {
-    //     $user = Auth::user();
-    //     $fullName = $user->name;
-    //     $userID = $user->id;
+        // $email = session(['email' => $email]);
 
-    //     // Verifica o banco de dados
-    //     $user = Questions::where('user_id', $userID)->first();
-    //     dd($user);
+        \Illuminate\Support\Facades\Mail::to($email)->send(
+            new \App\Mail\MailResult()
+        );
 
-    //     return view('layouts/resultado', compact('fullName'));
-    // }
+        return view('layouts/questions/result');
+    }
 }

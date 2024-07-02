@@ -17,6 +17,7 @@ Route::get('/startTest', [ArchetypefyController::class, 'StartTest'])->middlewar
 // Rotas para envio de emails
 Route::get('/mailCode', [ArchetypefyController::class, 'MailCode']);
 Route::post('/dataArchetypefy', [ArchetypefyController::class, 'store']);
+Route::get('/mailResult', [QuestionController::class, 'MailResult']);
 
 // Rotas para confirmar código de verificação
 Route::post('/checkCode', [CheckCodeController::class,'store']);

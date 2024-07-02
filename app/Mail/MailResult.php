@@ -4,13 +4,12 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Http\Client\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SecuryCode extends Mailable
+class MailResult extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,9 +26,8 @@ class SecuryCode extends Mailable
      */
     public function envelope(): Envelope
     {
-
         return new Envelope(
-            subject: 'Secury Code',
+            subject: 'Mail Result',
             from: 'suporte@archetypefy.online',
         );
     }
@@ -40,7 +38,7 @@ class SecuryCode extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'layouts.mail.mail',
+            view: 'layouts.mail.mailResult',
         );
     }
 
