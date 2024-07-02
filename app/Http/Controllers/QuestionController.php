@@ -1881,7 +1881,7 @@ class QuestionController extends Controller
             // dd($user);
             $user->save();
 
-            return view('layouts/questions/result', compact('fullName'));
+            return view('/result');
         } else {
             $question48 = new Questions();
             $question48->user_id = $userID;
