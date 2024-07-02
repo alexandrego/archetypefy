@@ -1860,6 +1860,10 @@ class QuestionController extends Controller
         // Busca dados no banco
         $user = Auth::user();
         $fullName = $user->name;
+
+        $firstName = strtok($fullName, " ");
+
+        session(['firstName' => $firstName]);
         $userID = $user->id;
 
         $answer48 = $request->question48;
@@ -1881,7 +1885,7 @@ class QuestionController extends Controller
             // dd($user);
             $user->save();
 
-            return view('layouts/dashboard');
+            return view('layouts/dashboard')->with(['firstName' => $firstName]);;
         } else {
             $question48 = new Questions();
             $question48->user_id = $userID;
