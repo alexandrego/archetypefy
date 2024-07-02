@@ -1860,9 +1860,7 @@ class QuestionController extends Controller
         // Busca dados no banco
         $user = Auth::user();
         $fullName = $user->name;
-
         $firstName = strtok($fullName, " ");
-
         session(['firstName' => $firstName]);
         $userID = $user->id;
 
@@ -1885,7 +1883,41 @@ class QuestionController extends Controller
             // dd($user);
             $user->save();
 
-            return view('layouts/dashboard')->with(['firstName' => $firstName]);;
+            if($user) {
+                $lastQuestion = Questions::where('id', $userID)->first();
+                // dd($lastQuestion);
+
+                if ($lastQuestion) {
+                    $columnNames = array_keys($lastQuestion->getAttributes());
+                    $firstNullColumn = null;
+
+                    foreach ($columnNames as $column) {
+                        if ($lastQuestion->$column === null) {
+                            $firstNullColumn = $column;
+                            break;
+                        }
+                    }
+
+                    if ($firstNullColumn) {
+                        if($firstNullColumn === "question_1"){
+                            // Não exiba nada
+                        } else if ($firstNullColumn === "question_2"){
+                            session(['firstNullColumn' => $firstNullColumn]);
+                        }
+                        // return response()->json(['first_null_column' => $firstNullColumn]);
+                    } else {
+                        $firstNullColumn = 'result';
+                        // dd($firstNullColumn);
+                        session(['firstNullColumn' => $firstNullColumn]);
+                    }
+                } else {
+                    $firstNullColumn = 'nao_iniciado';
+                    // dd($firstNullColumn);
+                    session(['firstNullColumn' => $firstNullColumn]);
+                }
+
+                return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn]);
+            }
         } else {
             $question48 = new Questions();
             $question48->user_id = $userID;
