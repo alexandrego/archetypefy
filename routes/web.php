@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArchetypefyController;
 use App\Http\Controllers\CheckCodeController;
+use App\Http\Controllers\KiwifyController;
 use App\Http\Controllers\QuestionController;
 
 // Rotas públicas
@@ -170,14 +171,4 @@ Route::post('/question48', [QuestionController::class, 'SaveQuestion48'])->middl
 
 Route::get('/result', [QuestionController::class, 'Result'])->middleware('auth');
 
-
-// Route::post('/question', [QuestionController::class, 'store'])->middleware('auth');
-// Route::post('/answer', [ArchetypefyController::class, 'Answer'])->middleware('auth');
-// Route::get('/result', [ArchetypefyController::class, 'Result'])->middleware('auth');
-// Route::get('/result/{id}', [ArchetypefyController::class, 'Result'])->middleware('auth');
-// Route::get('/result/{id}/{id2}', [ArchetypefyController::class, 'Result'])->middleware('auth');
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::post('/kiwify-webhook', [KiwifyController::class, 'KiwifyWebhook']);
