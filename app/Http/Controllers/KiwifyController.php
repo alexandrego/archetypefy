@@ -2,23 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class KiwifyController extends Controller
 {
-    public function KiwifyWebhook(Request $request) {// Verificar se a requisição é válida
+    public function KiwifyWebhook(Request $request) {
+        // Verificar se a requisição é válida
         if ($this->isValidKiwifyRequest($request)) {
             // Obter os dados do POST
             $data = $request->all();
 
-            // Mostrar os dados usando dd()
-            // dd($data);
+            // Extrair os dados do cliente
+            $customerData = $data['Customer'];
 
-            // Você pode processar os dados aqui, como salvar no banco de dados
-            // ...
+            // Extrair os dados do pedido
+            $orderData = $data['Order'];
+
+            // Salvar os dados do cliente no banco de dados
+            $customer = Customer::updateOrCreate(
+                ['email' => $customerData['email']],
+                $customerData
+            );
+
+            // Salvar os dados do pedido no banco de dados
+            $order = Order::create([
+                'customer_id' => $customer->id,
+                'order_id' => $orderData['id'],
+                'amount' => $orderData['amount'],
+                'status' => $orderData['status'],
+            ]);
 
             // Retornar uma resposta de sucesso
-            return response()->json(['message' => 'Webhook recebido com sucesso'], 200);
+            return response()->json(['message' => 'Webhook recebido e dados salvos com sucesso'], 200);
         } else {
             // Retornar uma resposta de erro
             return response()->json(['error' => 'Requisição inválida'], 400);
