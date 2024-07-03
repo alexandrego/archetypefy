@@ -12,13 +12,13 @@ class KiwifyController extends Controller
             $data = $request->all();
 
             // Mostrar os dados usando dd()
-            dd($data);
+            // dd($data);
 
             // Você pode processar os dados aqui, como salvar no banco de dados
             // ...
 
             // Retornar uma resposta de sucesso
-            return response()->json(['message' => 'Webhook recebido com sucesso']);
+            return response()->json(['message' => 'Webhook recebido com sucesso'], 200);
         } else {
             // Retornar uma resposta de erro
             return response()->json(['error' => 'Requisição inválida'], 400);
