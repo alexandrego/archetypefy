@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KiwifyController extends Controller
@@ -52,10 +53,13 @@ class KiwifyController extends Controller
         return true;
     }
 
-    public function GetKiwifyWebhook(Request $request) {
+    public function GetKiwifyWebhook() {
+
+        $users = User::orderBy('id', 'DESC')->get();
+
         return response()->json([
             'status' => true,
-            'message' => "Listar usuários",
+            'users' => $users,
         ],200);
     }
 }
