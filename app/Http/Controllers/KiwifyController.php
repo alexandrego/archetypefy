@@ -51,4 +51,11 @@ class KiwifyController extends Controller
         // Exemplo simples:
         return true;
     }
+
+    public function GetKiwifyWebhook(Request $request) {
+        return response()->json([
+            'status' => true,
+            'message' => "Listar usuários",
+        ],200);
+    }
 }
