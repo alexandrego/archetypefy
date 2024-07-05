@@ -10,7 +10,7 @@ class KiwifyController extends Controller
 {
     public function KiwifyWebhook(Request $request) {
         // Verificar se a requisição é válida
-        // if ($this->isValidKiwifyRequest($request)) {
+        if ($this->isValidKiwifyRequest($request)) {
             // Obter os dados do POST
             $data = $request->all();
 
@@ -36,10 +36,10 @@ class KiwifyController extends Controller
 
             // Retornar uma resposta de sucesso
             return response()->json(['message' => 'Webhook recebido e dados salvos com sucesso'], 200);
-        // } else {
-        //     // Retornar uma resposta de erro
-        //     return response()->json(['error' => 'Requisição inválida'], 400);
-        // }
+        } else {
+            // Retornar uma resposta de erro
+            return response()->json(['error' => 'Requisição inválida'], 400);
+        }
     }
 
     private function isValidKiwifyRequest(Request $request)

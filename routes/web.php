@@ -170,5 +170,3 @@ Route::get('/question48', [QuestionController::class, 'Question48'])->middleware
 Route::post('/question48', [QuestionController::class, 'SaveQuestion48'])->middleware('auth');
 
 Route::get('/result', [QuestionController::class, 'Result'])->middleware('auth');
-
-Route::post('/kiwify-webhook', [KiwifyController::class, 'KiwifyWebhook']);
