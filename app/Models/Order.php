@@ -15,7 +15,7 @@ class Order extends Model
         'status',
     ];
 
-    public function customer()
+    public function Customer()
     {
         return $this->belongsTo(Customer::class);
     }

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Order;
-use App\Models\User;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class KiwifyController extends Controller
@@ -16,6 +15,8 @@ class KiwifyController extends Controller
         if ($this->isValidKiwifyRequest($request)) {
             // Obter os dados do POST
             $data = $request->all();
+
+            dd($data);
 
             // Extrair os dados do cliente
             $customerData = $data['Customer'];
