@@ -16,7 +16,7 @@ class KiwifyController extends Controller
             // Obter os dados do POST
             $data = $request->all();
 
-            dd($data);
+            // dd($data);
 
             // Extrair os dados do cliente
             $customerData = $data['Customer'];
