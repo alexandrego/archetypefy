@@ -174,3 +174,4 @@ use App\Http\Controllers\TemperamentoController;
 
 // Rotas para perguntas Identidade de Temperamentos
     Route::get('/temper1', [TemperamentoController::class, 'Temper1'])->middleware('auth');
+    Route::post('/temper2', [TemperamentoController::class, 'SaveTemper1'])->middleware('auth');
