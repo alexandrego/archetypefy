@@ -17,20 +17,7 @@ class KiwifyController extends Controller
         // Verificar se a requisição é válida
         if ($this->isValidKiwifyRequest($request)) {
             // Obter os dados do POST
-            // dd($request->all());
             $data = $request->all();
-
-            // if (array_key_exists('Customer', $data)) {
-            //     $customerData = $data['Customer'];
-            //     // Agora você pode acessar os dados do cliente, como:
-            //     $fullName = $customerData['full_name'];
-            //     $email = $customerData['email'];
-            //     $ip = $customerData['ip'];
-            //     // E assim por diante
-            // } else {
-            //     // Tratar o caso em que a chave "Customer" não está presente
-            //     return response()->json(['error' => 'Dados do cliente não encontrados'], 400);
-            // }
 
             // Extrair os dados do cliente
             $customerData = $data['Customer'];
@@ -43,14 +30,6 @@ class KiwifyController extends Controller
                 ['email' => $customerData['email']],
                 $customerData
             );
-
-            // Salvar os dados do pedido no banco de dados
-            // $order = Order::create([
-            //     'customer_id' => $customer->id,
-            //     'order_id' => $orderData['id'],
-            //     'amount' => $orderData['amount'],
-            //     'status' => $orderData['status'],
-            // ]);
 
             // Retornar uma resposta de sucesso
             return response()->json(['message' => 'Webhook recebido e dados salvos com sucesso'], 200);
@@ -67,7 +46,7 @@ class KiwifyController extends Controller
         // Retornar true se a requisição for válida, false caso contrário
 
         // Exemplo simples:
-        // $secret_key = 'f72wl8vo9va';
+        // $secret_key = $request;
 
         // // handle HEAD request
         // if (count($_POST) === 0) {

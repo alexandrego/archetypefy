@@ -72,7 +72,7 @@
                         <a href="/startTest" id="btnVoltar" onclick="btnVoltar()" class="btnS">Voltar</a>
                     </div>
                     <div class="btnQuestion">
-                        <spam>1 - 48</span>
+                        <span>1 - 48</span>
                     </div>
                     <div id="btnQuestion" class="btnQuestion">
                         <input type="submit" value="Avançar" class="btnS"/>

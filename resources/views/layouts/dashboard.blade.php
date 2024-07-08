@@ -251,15 +251,19 @@
                             Perfil Comportamental
                         </div>
                     </div>
-                    <div class="card" title="Clique para comprar!">
-                        <div class="cardImg">
-                            <img src="src/assets/img/cardDisabled.svg" />
+
+                    <a href="/temper1">
+                        <div class="card" title="Clique para começar o teste!">
+                            <div class="cardImg">
+                                <img src="src/assets/img/cardEnabled.svg" />
+                            </div>
+                            <div class="cardDesc">
+                                Identidade de Temperamentos
+                            </div>
                         </div>
-                        <div class="cardDesc">
-                            Identidade de Temperamentos
-                        </div>
-                    </div>
+                    </a>
                 </div>
+
                 <div class="suporte">
                     <div class="suporteName">
                         Suporte
@@ -271,6 +275,7 @@
                         Conversar via WhatsApp
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
