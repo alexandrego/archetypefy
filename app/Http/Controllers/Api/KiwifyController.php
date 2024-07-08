@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
-use App\Models\Order;
 use Illuminate\Http\Request;
 
 // client_secret = 9b2c4f9467bd0668d69264452caca0e839243ef7fed5ca90e3a1e5113f9402c3

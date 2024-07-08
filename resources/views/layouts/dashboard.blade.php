@@ -256,7 +256,7 @@
                             <img src="src/assets/img/cardDisabled.svg" />
                         </div>
                         <div class="cardDesc">
-                            Identidade Completa
+                            Identidade de Temperamentos
                         </div>
                     </div>
                 </div>

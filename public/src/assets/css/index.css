@@ -65,6 +65,12 @@ button:hover {
   color: rgba(187, 129, 53, 1);
   background: aliceblue;
 }
+.comprarTeste {
+    text-decoration: none;
+}
+/* .email {
+    font-size: 12px;
+} */
 
 @media (max-width: 450px) {
     .contentHome {
