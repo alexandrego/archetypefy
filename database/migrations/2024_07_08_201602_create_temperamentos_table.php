@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('temperamentos', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('temper1', 1)->nullable();
             $table->string('temper2', 1)->nullable();
             $table->string('temper3', 1)->nullable();
