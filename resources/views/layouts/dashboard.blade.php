@@ -243,14 +243,17 @@
                                 @endif
                         </div>
                     </a>
-                    <div class="card" title="Clique para comprar!">
-                        <div class="cardImg">
-                            <img src="src/assets/img/cardDisabled.svg" />
+
+                    <a href="/comportamento1">
+                        <div class="card" title="Clique para começar o teste!">
+                            <div class="cardImg">
+                                <img src="src/assets/img/cardEnabled.svg" />
+                            </div>
+                            <div class="cardDesc">
+                                Perfil Comportamental
+                            </div>
                         </div>
-                        <div class="cardDesc">
-                            Perfil Comportamental
-                        </div>
-                    </div>
+                    </a>
 
                     <a href="/temper1">
                         <div class="card" title="Clique para começar o teste!">

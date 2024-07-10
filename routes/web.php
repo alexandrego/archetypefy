@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArchetypefyController;
 use App\Http\Controllers\CheckCodeController;
+use App\Http\Controllers\ComportamentoController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TemperamentoController;
 
@@ -177,3 +178,61 @@ use App\Http\Controllers\TemperamentoController;
 
     Route::get('/temper2', [TemperamentoController::class, 'Temper2'])->middleware('auth');
     Route::post('/temper3', [TemperamentoController::class, 'SaveTemper2'])->middleware('auth');
+
+    Route::get('/temper3', [TemperamentoController::class, 'Temper3'])->middleware('auth');
+    Route::post('/temper4', [TemperamentoController::class, 'SaveTemper3'])->middleware('auth');
+
+    Route::get('/temper4', [TemperamentoController::class, 'Temper4'])->middleware('auth');
+    Route::post('/temper5', [TemperamentoController::class, 'SaveTemper4'])->middleware('auth');
+
+    Route::get('/temper5', [TemperamentoController::class, 'Temper5'])->middleware('auth');
+    Route::post('/temper6', [TemperamentoController::class, 'SaveTemper5'])->middleware('auth');
+
+    Route::get('/temper6', [TemperamentoController::class, 'Temper6'])->middleware('auth');
+    Route::post('/temper7', [TemperamentoController::class, 'SaveTemper6'])->middleware('auth');
+
+    Route::get('/temper7', [TemperamentoController::class, 'Temper7'])->middleware('auth');
+    Route::post('/temper8', [TemperamentoController::class, 'SaveTemper7'])->middleware('auth');
+
+    Route::get('/temper8', [TemperamentoController::class, 'Temper8'])->middleware('auth');
+    Route::post('/temper9', [TemperamentoController::class, 'SaveTemper8'])->middleware('auth');
+
+    Route::get('/temper9', [TemperamentoController::class, 'Temper9'])->middleware('auth');
+    Route::post('/temper10', [TemperamentoController::class, 'SaveTemper9'])->middleware('auth');
+
+    Route::get('/temper10', [TemperamentoController::class, 'Temper10'])->middleware('auth');
+    Route::post('/temper11', [TemperamentoController::class, 'SaveTemper10'])->middleware('auth');
+
+    Route::get('/temper11', [TemperamentoController::class, 'Temper11'])->middleware('auth');
+    Route::post('/temper12', [TemperamentoController::class, 'SaveTemper11'])->middleware('auth');
+
+    Route::get('/temper12', [TemperamentoController::class, 'Temper12'])->middleware('auth');
+    Route::post('/temper13', [TemperamentoController::class, 'SaveTemper12'])->middleware('auth');
+
+    Route::get('/temper13', [TemperamentoController::class, 'Temper13'])->middleware('auth');
+    Route::post('/temper14', [TemperamentoController::class, 'SaveTemper13'])->middleware('auth');
+
+    Route::get('/temper14', [TemperamentoController::class, 'Temper14'])->middleware('auth');
+    Route::post('/temper15', [TemperamentoController::class, 'SaveTemper14'])->middleware('auth');
+
+    Route::get('/temper15', [TemperamentoController::class, 'Temper15'])->middleware('auth');
+    Route::post('/temper16', [TemperamentoController::class, 'SaveTemper15'])->middleware('auth');
+
+    Route::get('/temper16', [TemperamentoController::class, 'Temper16'])->middleware('auth');
+    Route::post('/temper17', [TemperamentoController::class, 'SaveTemper16'])->middleware('auth');
+
+    Route::get('/temper17', [TemperamentoController::class, 'Temper17'])->middleware('auth');
+    Route::post('/temper18', [TemperamentoController::class, 'SaveTemper17'])->middleware('auth');
+
+    Route::get('/temper18', [TemperamentoController::class, 'Temper18'])->middleware('auth');
+    Route::post('/temper19', [TemperamentoController::class, 'SaveTemper18'])->middleware('auth');
+
+    Route::get('/temper19', [TemperamentoController::class, 'Temper19'])->middleware('auth');
+    Route::post('/temper20', [TemperamentoController::class, 'SaveTemper19'])->middleware('auth');
+
+    Route::get('/temper20', [TemperamentoController::class, 'Temper20'])->middleware('auth');
+    Route::post('/result', [TemperamentoController::class, 'SaveTemper20'])->middleware('auth');
+
+// Rotas para perfil comportamental
+    Route::get('/comportamento1', [ComportamentoController::class, 'Comportamento1'])->middleware('auth');
+    Route::post('/comportamento2', [ComportamentoController::class, 'SaveComportamento1'])->middleware('auth');
