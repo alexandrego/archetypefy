@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('full_name')->nullable();
             $table->string('first_name')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('mobile')->nullable()->nullable();
-            $table->string('CPF')->nullable()->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('CPF')->nullable();
             $table->string('ip')->nullable();
             $table->timestamps();
         });

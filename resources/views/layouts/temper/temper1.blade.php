@@ -31,7 +31,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="temper" id="a" value="a" /><label for="a">Energizado e animado</label>
+                                <input type="radio" name="temper" id="a" value="a" required/><label for="a">Energizado e animado</label>
                             </div>
                         @endif
 
@@ -41,7 +41,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="temper" id="b" value="b" /><label for="b">Interessado em conhecer novas pessoas</label>
+                                <input type="radio" name="temper" id="b" value="b" required/><label for="b">Interessado em conhecer novas pessoas</label>
                             </div>
                         @endif
 
@@ -51,7 +51,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="temper" id="c" value="c" /><label for="c">Observando e aprendendo com as interações</label>
+                                <input type="radio" name="temper" id="c" value="c" required/><label for="c">Observando e aprendendo com as interações</label>
                             </div>
                         @endif
 
@@ -61,7 +61,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="temper" id="d" value="d" /><label for="d">Prefiro ambientes mais tranquilos</label>
+                                <input type="radio" name="temper" id="d" value="d" required/><label for="d">Prefiro ambientes mais tranquilos</label>
                             </div>
                         @endif
                     </div>
@@ -69,7 +69,7 @@
 
                 <div class="voltarAvancar">
                     <div class="btnQuestion">
-                        <a href="/startTest" id="btnVoltar" onclick="btnVoltar()" class="btnS">Voltar</a>
+                        <a href="/dashboard" id="btnVoltar" onclick="btnVoltar()" class="btnS">Voltar</a>
                     </div>
                     <div class="btnQuestion">
                         <span>1 - 20</span>

@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArchetypefyController;
 use App\Http\Controllers\CheckCodeController;
-use App\Http\Controllers\KiwifyController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TemperamentoController;
 
@@ -175,3 +174,6 @@ use App\Http\Controllers\TemperamentoController;
 // Rotas para perguntas Identidade de Temperamentos
     Route::get('/temper1', [TemperamentoController::class, 'Temper1'])->middleware('auth');
     Route::post('/temper2', [TemperamentoController::class, 'SaveTemper1'])->middleware('auth');
+
+    Route::get('/temper2', [TemperamentoController::class, 'Temper2'])->middleware('auth');
+    Route::post('/temper3', [TemperamentoController::class, 'SaveTemper2'])->middleware('auth');
