@@ -21,6 +21,7 @@ class ComportamentoController extends Controller
 
             return view('layouts/comportamentos/comportamento1')->with(['answer' => $answer]);
         } else {
+            $answer = session()->forget('answer');
             return view('layouts/comportamentos/comportamento1');
         }
     }
