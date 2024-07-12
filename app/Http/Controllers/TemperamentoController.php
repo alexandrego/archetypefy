@@ -130,6 +130,15 @@ class TemperamentoController extends Controller
             $user->save();
 
             $answer = session()->forget('answer');
+
+            //Verifica se tem resposta na próxima view
+            $answer = $user->Temper4;
+            if($answer == NULL) {
+                return view('layouts/temper/temper4');
+            } else {
+                $answer = session(['answer' => $user->temper4]);
+                return view('layouts/temper/temper4')->with(['answer' => $answer]);
+            }
             return view('layouts/temper/temper4');
         } else {
             $temper = new Temperamentos();
@@ -400,7 +409,15 @@ class TemperamentoController extends Controller
             $user->save();
 
             $answer = session()->forget('answer');
-            return view('layouts/temper/temper10');
+
+            //Verifica se tem resposta na próxima view
+            $answer = $user->Temper10;
+            if($answer == NULL) {
+                return view('layouts/temper/temper10');
+            } else {
+                $answer = session(['answer' => $user->temper10]);
+                return view('layouts/temper/temper10')->with(['answer' => $answer]);
+            }
         } else {
             $temper = new Temperamentos();
             $temper->user_id = $userID;
