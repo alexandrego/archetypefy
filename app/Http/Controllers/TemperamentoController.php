@@ -132,9 +132,9 @@ class TemperamentoController extends Controller
             $answer = session()->forget('answer');
 
             //Verifica se tem resposta na próxima view
-            $answer = $user->Temper4;
+            $answer = $user->temper4;
             dd($answer);
-            if($answer == NULL) {
+            if($answer === NULL) {
                 return view('layouts/temper/temper4');
             } else {
                 $answer = session(['answer' => $user->temper4]);
