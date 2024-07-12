@@ -147,6 +147,15 @@ class TemperamentoController extends Controller
             $temper->save();
 
             $answer = session()->forget('answer');
+
+            //Verifica se tem resposta na próxima view
+            $answer = $user->Temper4;
+            if($answer == NULL) {
+                return view('layouts/temper/temper4');
+            } else {
+                $answer = session(['answer' => $user->temper4]);
+                return view('layouts/temper/temper4')->with(['answer' => $answer]);
+            }
             return view('layouts/temper/temper4');
         }
     }
