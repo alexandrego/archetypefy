@@ -133,7 +133,7 @@ class TemperamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->temper4;
-            dd($answer);
+
             if($answer === NULL) {
                 return view('layouts/temper/temper4');
             } else {
