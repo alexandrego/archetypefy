@@ -263,6 +263,89 @@
                             <div class="cardDesc">
                                 Identidade de Temperamentos
                             </div>
+                            @if(isset($firstNullColumnTemper))
+                                    @if($firstNullColumnTemper == 'temper2')
+                                        <div class="cardDesc">
+                                            <a href="../temper2">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper3')
+                                        <div class="cardDesc">
+                                            <a href="../temper3">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper4')
+                                        <div class="cardDesc">
+                                            <a href="../temper4">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper5')
+                                        <div class="cardDesc">
+                                            <a href="../temper5">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper6')
+                                        <div class="cardDesc">
+                                            <a href="../temper6">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper7')
+                                        <div class="cardDesc">
+                                            <a href="../temper7">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper8')
+                                        <div class="cardDesc">
+                                            <a href="../temper8">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper9')
+                                        <div class="cardDesc">
+                                            <a href="../temper9">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper10')
+                                        <div class="cardDesc">
+                                            <a href="../temper10">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper11')
+                                        <div class="cardDesc">
+                                            <a href="../temper11">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper12')
+                                        <div class="cardDesc">
+                                            <a href="../temper12">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper13')
+                                        <div class="cardDesc">
+                                            <a href="../temper13">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper14')
+                                        <div class="cardDesc">
+                                            <a href="../temper14">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper15')
+                                        <div class="cardDesc">
+                                            <a href="../temper15">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper16')
+                                        <div class="cardDesc">
+                                            <a href="../temper16">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper17')
+                                        <div class="cardDesc">
+                                            <a href="../temper17">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper18')
+                                        <div class="cardDesc">
+                                            <a href="../temper18">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper19')
+                                        <div class="cardDesc">
+                                            <a href="../temper19">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'temper20')
+                                        <div class="cardDesc">
+                                            <a href="../temper20">Continuar</a>
+                                        </div>
+                                    @elseif($firstNullColumnTemper == 'result')
+                                        <div class="cardDesc">
+                                            <a href="../result">Ver resultado</a>
+                                        </div>
+                                    @endif
+                                @endif
                         </div>
                     </a>
                 </div>

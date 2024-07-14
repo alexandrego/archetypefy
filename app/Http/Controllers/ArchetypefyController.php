@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Questions;
+use App\Models\Temperamentos;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +48,7 @@ class ArchetypefyController extends Controller
         session(['firstName' => $firstName]);
 
         $lastQuestion = Questions::where('id', $userID)->first();
-        // dd($lastQuestion);
+        $lastTemper = Temperamentos::where('id', $userID)->first();
 
         if ($lastQuestion) {
             $columnNames = array_keys($lastQuestion->getAttributes());
@@ -78,7 +79,33 @@ class ArchetypefyController extends Controller
             session(['firstNullColumn' => $firstNullColumn]);
         }
 
-        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn]);
+        if ($lastTemper) {
+            $columnNamesTemper = array_keys($lastTemper->getAttributes());
+            $firstNullColumnTemper = null;
+
+            foreach ($columnNamesTemper as $columnTemper) {
+                if ($lastTemper->$columnTemper === null) {
+                    $firstNullColumnTemper = $columnTemper;
+                    break;
+                }
+            }
+
+            if ($firstNullColumnTemper) {
+                if($firstNullColumnTemper == "temper1"){
+                    // Não exiba nada
+                } else { //if ($firstNullColumn == "question_2"){
+                    session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                }
+            } else {
+                $firstNullColumnTemper = 'resultTemper';
+                session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+            }
+        } else {
+            $firstNullColumnTemper = 'nao_iniciado_temper';
+            session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+        }
+
+        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn, 'firstNullColumnTemper' => $firstNullColumnTemper]);
     }
     public function Atention() {
         return view('layouts/atention');

@@ -1351,88 +1351,110 @@ class TemperamentoController extends Controller
             $res_11 = 1;
         }
 
-        $res_42 = $user->question_42;
-        if($res_42 == "a"){
-            $res_42 = 4;
-        } else if($res_42 == "b"){
-            $res_42 = 3;
-        } else if($res_42 == "c"){
-            $res_42 = 1;
+        $res_12 = $user->temper12;
+        if($res_12 == "a"){
+            $res_12 = 1;
+        } else if($res_12 == "b"){
+            $res_12 = 3;
+        } else if($res_12 == "c"){
+            $res_12 = 4;
         } else {
-            $res_42 = 2;
+            $res_12 = 2;
         }
 
-        $res_43 = $user->question_43;
-        if($res_43 == "a"){
-            $res_43 = 4;
-        } else if($res_43 == "b"){
-            $res_43 = 3;
-        } else if($res_43 == "c"){
-            $res_43 = 1;
+        $res_13 = $user->temper13;
+        if($res_13 == "a"){
+            $res_13 = 3;
+        } else if($res_13 == "b"){
+            $res_13 = 1;
+        } else if($res_13 == "c"){
+            $res_13 = 4;
         } else {
-            $res_43 = 2;
+            $res_13 = 2;
         }
 
-        $res_44 = $user->question_44;
-        if($res_44 == "a"){
-            $res_44 = 4;
-        } else if($res_44 == "b"){
-            $res_44 = 3;
-        } else if($res_44 == "c"){
-            $res_44 = 1;
+        $res_14 = $user->temper14;
+        if($res_14 == "a"){
+            $res_14 = 2;
+        } else if($res_14 == "b"){
+            $res_14 = 3;
+        } else if($res_14 == "c"){
+            $res_14 = 4;
         } else {
-            $res_44 = 2;
+            $res_14 = 1;
         }
 
-        $somaMelancolico = $res_41 + $res_42 + $res_43 + $res_44;
+        $res_15 = $user->temper15;
+        if($res_15 == "a"){
+            $res_15 = 4;
+        } else if($res_15 == "b"){
+            $res_15 = 1;
+        } else if($res_15 == "c"){
+            $res_15 = 2;
+        } else {
+            $res_15 = 3;
+        }
+
+        $somaMelancolico = $res_11 + $res_12 + $res_13 + $res_14 + $res_15;
 
         $fleumatico = "Fleumático";
 
-        $res_45 = $user->question_45;
-        if($res_45 == "a"){
-            $res_45 = 1;
-        } else if($res_45 == "b"){
-            $res_45 = 3;
-        } else if($res_45 == "c"){
-            $res_45 = 4;
+        $res_16 = $user->question_16;
+        if($res_16 == "a"){
+            $res_16 = 4;
+        } else if($res_16 == "b"){
+            $res_16 = 3;
+        } else if($res_16 == "c"){
+            $res_16 = 1;
         } else {
-            $res_45 = 2;
+            $res_16 = 2;
         }
 
-        $res_46 = $user->question_46;
-        if($res_46 == "a"){
-            $res_46 = 1;
-        } else if($res_46 == "b"){
-            $res_46 = 3;
-        } else if($res_46 == "c"){
-            $res_46 = 4;
+        $res_17 = $user->question_17;
+        if($res_17 == "a"){
+            $res_17 = 4;
+        } else if($res_17 == "b"){
+            $res_17 = 3;
+        } else if($res_17 == "c"){
+            $res_17 = 2;
         } else {
-            $res_46 = 2;
+            $res_17 = 1;
         }
 
-        $res_47 = $user->question_47;
-        if($res_47 == "a"){
-            $res_47 = 1;
-        } else if($res_47 == "b"){
-            $res_47 = 3;
-        } else if($res_47 == "c"){
-            $res_47 = 4;
+        $res_18 = $user->temper18;
+        if($res_18 == "a"){
+            $res_18 = 4;
+        } else if($res_18 == "b"){
+            $res_18 = 3;
+        } else if($res_18 == "c"){
+            $res_18 = 1;
         } else {
-            $res_47 = 2;
+            $res_18 = 2;
         }
 
-        $res_48 = $user->question_48;
-        if($res_48 == "a"){
-            $res_48 = 1;
-        } else if($res_48 == "b"){
-            $res_48 = 3;
-        } else if($res_48 == "c"){
-            $res_48 = 4;
+        $res_19 = $user->temper19;
+        if($res_19 == "a"){
+            $res_19 = 4;
+        } else if($res_19 == "b"){
+            $res_19 = 3;
+        } else if($res_19 == "c"){
+            $res_19 = 1;
         } else {
-            $res_48 = 2;
+            $res_19 = 2;
         }
 
-        $somaFleumatico = $res_45 + $res_46 + $res_47 + $res_48;
+        $res_20 = $user->temper20;
+        if($res_20 == "a"){
+            $res_20 = 4;
+        } else if($res_20 == "b"){
+            $res_20 = 1;
+        } else if($res_20 == "c"){
+            $res_20 = 2;
+        } else {
+            $res_20 = 3;
+        }
+
+        $somaFleumatico = $res_16 + $res_17 + $res_18 + $res_19 + $res_20;
 
         $resultados = [
             'Sanguíneo' => $somaSanguineo,
@@ -1448,20 +1470,20 @@ class TemperamentoController extends Controller
         $fullName = session(['fullName' => $fullName]);
 
         // Gerar o PDF
-        $pdf = PDF::loadView('layouts.mail.mailPdfResult', [
+        $pdf = PDF::loadView('layouts.mail.mailPdfResultTemper', [
             'fullName' => $fullName,
             'resultadoFinal' => $resultadoFinal
         ]);
 
         // Enviar o email com o PDF anexado
         // dd(gettype($email));
-        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResult', ['fullName' => $fullName, 'resultadoFinal' => $resultadoFinal], function($message) use ($pdf, $email) {
+        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultTemper', ['fullName' => $fullName, 'resultadoFinal' => $resultadoFinal], function($message) use ($pdf, $email) {
             $message->to($email)
-                    ->subject('Archetypefy - Resultado do Teste')
+                    ->subject('Teste de Temperamentos - Resultado do Teste')
                     ->attachData($pdf->output(), 'resultado.pdf');
         });
 
-        return view('layouts/questions/result')->with(['fullName' => $fullName, 'resultadoFinal' => $maiorResultChave]);
+        return view('layouts/temper/result')->with(['fullName' => $fullName, 'resultadoFinal' => $maiorResultChave]);
     }
     public function MailResult() {
         // Busca dados no banco
@@ -1474,6 +1496,6 @@ class TemperamentoController extends Controller
             new \App\Mail\MailResult()
         );
 
-        return view('layouts/questions/result');
+        return view('layouts/temper/result');
     }
 }
