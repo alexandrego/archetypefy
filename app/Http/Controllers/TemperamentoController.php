@@ -1210,4 +1210,270 @@ class TemperamentoController extends Controller
             return view('layouts/temper/result');
         }
     }
+
+    public function Result(Request $request) {
+        $user = Auth::user();
+        $fullName = $user->name;
+        $email = $user->email;
+        $userID = $user->id;
+
+        // Verifica o banco de dados
+        $user = Temperamentos::where('user_id', $userID)->first();
+        // dd($user);
+
+        $sanguineo = "Sanguíneo";
+        $res_1 = $user->temper1;
+        if($res_1 == "a"){
+            $res_1 = 4;
+        } else if($res_1 == "b"){
+            $res_1 = 3;
+        } else if($res_1 == "c"){
+            $res_1 = 2;
+        } else {
+            $res_1 = 1;
+        }
+
+        $res_2 = $user->temper2;
+        if($res_2 == "a"){
+            $res_2 = 1;
+        } else if($res_2 == "b"){
+            $res_2 = 3;
+        } else if($res_2 == "c"){
+            $res_2 = 4;
+        } else {
+            $res_2 = 2;
+        }
+
+        $res_3 = $user->temper3;
+        if($res_3 == "a"){
+            $res_3 = 2;
+        } else if($res_3 == "b"){
+            $res_3 = 3;
+        } else if($res_3 == "c"){
+            $res_3 = 4;
+        } else {
+            $res_3 = 1;
+        }
+
+        $res_4 = $user->temper4;
+        if($res_4 == "a"){
+            $res_4 = 4;
+        } else if($res_4 == "b"){
+            $res_4 = 1;
+        } else if($res_4 == "c"){
+            $res_4 = 3;
+        } else {
+            $res_4 = 2;
+        }
+
+        $res_5 = $user->temper5;
+        if($res_5 == "a"){
+            $res_5 = 3;
+        } else if($res_5 == "b"){
+            $res_5 = 4;
+        } else if($res_5 == "c"){
+            $res_5 = 2;
+        } else {
+            $res_5 = 1;
+        }
+
+        $somaSanguineo = $res_1 + $res_2 + $res_3 + $res_4 + $res_5;
+
+        $colerico = "Colérico";
+
+        $res_6 = $user->temper6;
+        if($res_6 == "a"){
+            $res_6 = 4;
+        } else if($res_6 == "b"){
+            $res_6 = 2;
+        } else if($res_6 == "c"){
+            $res_6 = 3;
+        } else {
+            $res_6 = 1;
+        }
+
+        $res_7 = $user->temper7;
+        if($res_7 == "a"){
+            $res_7 = 2;
+        } else if($res_7 == "b"){
+            $res_7 = 4;
+        } else if($res_7 == "c"){
+            $res_7 = 1;
+        } else {
+            $res_7 = 3;
+        }
+
+        $res_8 = $user->temper8;
+        if($res_8 == "a"){
+            $res_8 = 4;
+        } else if($res_8 == "b"){
+            $res_8 = 1;
+        } else if($res_8 == "c"){
+            $res_8 = 2;
+        } else {
+            $res_8 = 3;
+        }
+
+        $res_9 = $user->temper9;
+        if($res_9 == "a"){
+            $res_9 = 4;
+        } else if($res_9 == "b"){
+            $res_9 = 2;
+        } else if($res_9 == "c"){
+            $res_9 = 1;
+        } else {
+            $res_9 = 3;
+        }
+
+        $res_10 = $user->temper10;
+        if($res_10 == "a"){
+            $res_10 = 4;
+        } else if($res_10 == "b"){
+            $res_10 = 3;
+        } else if($res_10 == "c"){
+            $res_10 = 1;
+        } else {
+            $res_10 = 2;
+        }
+
+        $somaColerico = $res_6 + $res_7 + $res_8 + $res_9 + $res_10;
+
+        $melancolico = "Melancólico";
+
+        $res_11 = $user->question_11;
+        if($res_11 == "a"){
+            $res_11 = 3;
+        } else if($res_11 == "b"){
+            $res_11 = 2;
+        } else if($res_11 == "c"){
+            $res_11 = 4;
+        } else {
+            $res_11 = 1;
+        }
+
+        $res_42 = $user->question_42;
+        if($res_42 == "a"){
+            $res_42 = 4;
+        } else if($res_42 == "b"){
+            $res_42 = 3;
+        } else if($res_42 == "c"){
+            $res_42 = 1;
+        } else {
+            $res_42 = 2;
+        }
+
+        $res_43 = $user->question_43;
+        if($res_43 == "a"){
+            $res_43 = 4;
+        } else if($res_43 == "b"){
+            $res_43 = 3;
+        } else if($res_43 == "c"){
+            $res_43 = 1;
+        } else {
+            $res_43 = 2;
+        }
+
+        $res_44 = $user->question_44;
+        if($res_44 == "a"){
+            $res_44 = 4;
+        } else if($res_44 == "b"){
+            $res_44 = 3;
+        } else if($res_44 == "c"){
+            $res_44 = 1;
+        } else {
+            $res_44 = 2;
+        }
+
+        $somaMelancolico = $res_41 + $res_42 + $res_43 + $res_44;
+
+        $fleumatico = "Fleumático";
+
+        $res_45 = $user->question_45;
+        if($res_45 == "a"){
+            $res_45 = 1;
+        } else if($res_45 == "b"){
+            $res_45 = 3;
+        } else if($res_45 == "c"){
+            $res_45 = 4;
+        } else {
+            $res_45 = 2;
+        }
+
+        $res_46 = $user->question_46;
+        if($res_46 == "a"){
+            $res_46 = 1;
+        } else if($res_46 == "b"){
+            $res_46 = 3;
+        } else if($res_46 == "c"){
+            $res_46 = 4;
+        } else {
+            $res_46 = 2;
+        }
+
+        $res_47 = $user->question_47;
+        if($res_47 == "a"){
+            $res_47 = 1;
+        } else if($res_47 == "b"){
+            $res_47 = 3;
+        } else if($res_47 == "c"){
+            $res_47 = 4;
+        } else {
+            $res_47 = 2;
+        }
+
+        $res_48 = $user->question_48;
+        if($res_48 == "a"){
+            $res_48 = 1;
+        } else if($res_48 == "b"){
+            $res_48 = 3;
+        } else if($res_48 == "c"){
+            $res_48 = 4;
+        } else {
+            $res_48 = 2;
+        }
+
+        $somaFleumatico = $res_45 + $res_46 + $res_47 + $res_48;
+
+        $resultados = [
+            'Sanguíneo' => $somaSanguineo,
+            'Colérico' => $somaColerico,
+            'Melancólico' => $somaMelancolico,
+            'Fleumático' => $somaFleumatico
+        ];
+
+        $maiorResult = max($resultados);
+        $maiorResultChave = array_search($maiorResult, $resultados);
+
+        $resultadoFinal = session(['resultadoFinal' => $maiorResultChave]);
+        $fullName = session(['fullName' => $fullName]);
+
+        // Gerar o PDF
+        $pdf = PDF::loadView('layouts.mail.mailPdfResult', [
+            'fullName' => $fullName,
+            'resultadoFinal' => $resultadoFinal
+        ]);
+
+        // Enviar o email com o PDF anexado
+        // dd(gettype($email));
+        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResult', ['fullName' => $fullName, 'resultadoFinal' => $resultadoFinal], function($message) use ($pdf, $email) {
+            $message->to($email)
+                    ->subject('Archetypefy - Resultado do Teste')
+                    ->attachData($pdf->output(), 'resultado.pdf');
+        });
+
+        return view('layouts/questions/result')->with(['fullName' => $fullName, 'resultadoFinal' => $maiorResultChave]);
+    }
+    public function MailResult() {
+        // Busca dados no banco
+        $user = Auth::user();
+        $email = $user->email;
+
+        // $email = session(['email' => $email]);
+
+        \Illuminate\Support\Facades\Mail::to($email)->send(
+            new \App\Mail\MailResult()
+        );
+
+        return view('layouts/questions/result');
+    }
 }

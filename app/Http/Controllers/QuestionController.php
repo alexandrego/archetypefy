@@ -2552,15 +2552,6 @@ class QuestionController extends Controller
                     ->attachData($pdf->output(), 'resultado.pdf');
         });
 
-        // Envia dados por e-mail
-        // return redirect('/mailResult')->with(
-        //     [
-        //         'resultadoFinal' => $maiorResultChave
-        //     ]
-        // );
-
-        // dd($resultadoFinal);
-
         return view('layouts/questions/result')->with(['fullName' => $fullName, 'resultadoFinal' => $maiorResultChave]);
     }
     public function MailResult() {

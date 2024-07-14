@@ -105,7 +105,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento3;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento3');
             } else {
                 $answer = session(['answer' => $user->comportamento3]);
@@ -121,7 +121,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento3;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento3');
             } else {
                 $answer = session(['answer' => $user->comportamento3]);
@@ -166,7 +166,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento4;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento4');
             } else {
                 $answer = session(['answer' => $user->comportamento4]);
@@ -182,7 +182,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento4;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento4');
             } else {
                 $answer = session(['answer' => $user->comportamento4]);
@@ -227,7 +227,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento5;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento5');
             } else {
                 $answer = session(['answer' => $user->comportamento5]);
@@ -243,7 +243,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento5;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento5');
             } else {
                 $answer = session(['answer' => $user->comportamento5]);
@@ -288,7 +288,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento6;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento6');
             } else {
                 $answer = session(['answer' => $user->comportamento6]);
@@ -304,7 +304,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento6;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento6');
             } else {
                 $answer = session(['answer' => $user->comportamento6]);
@@ -349,7 +349,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento7;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento7');
             } else {
                 $answer = session(['answer' => $user->comportamento7]);
@@ -365,7 +365,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento7;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento7');
             } else {
                 $answer = session(['answer' => $user->comportamento7]);
@@ -410,7 +410,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento8;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento8');
             } else {
                 $answer = session(['answer' => $user->comportamento8]);
@@ -426,7 +426,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento8;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento8');
             } else {
                 $answer = session(['answer' => $user->comportamento8]);
@@ -471,7 +471,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento9;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento9');
             } else {
                 $answer = session(['answer' => $user->comportamento9]);
@@ -487,7 +487,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento9;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento9');
             } else {
                 $answer = session(['answer' => $user->comportamento9]);
@@ -532,7 +532,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento10;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento10');
             } else {
                 $answer = session(['answer' => $user->comportamento10]);
@@ -548,7 +548,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento10;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento10');
             } else {
                 $answer = session(['answer' => $user->comportamento10]);
@@ -593,7 +593,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento11;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento11');
             } else {
                 $answer = session(['answer' => $user->comportamento11]);
@@ -609,7 +609,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento11;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento11');
             } else {
                 $answer = session(['answer' => $user->comportamento11]);
@@ -654,7 +654,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento12;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento12');
             } else {
                 $answer = session(['answer' => $user->comportamento12]);
@@ -670,7 +670,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento12;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento12');
             } else {
                 $answer = session(['answer' => $user->comportamento12]);
@@ -715,7 +715,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento13;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento13');
             } else {
                 $answer = session(['answer' => $user->comportamento13]);
@@ -731,7 +731,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento13;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento13');
             } else {
                 $answer = session(['answer' => $user->comportamento13]);
@@ -776,7 +776,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento14;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento14');
             } else {
                 $answer = session(['answer' => $user->comportamento14]);
@@ -792,7 +792,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento14;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento14');
             } else {
                 $answer = session(['answer' => $user->comportamento14]);
@@ -837,7 +837,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento15;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento15');
             } else {
                 $answer = session(['answer' => $user->comportamento15]);
@@ -853,7 +853,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento15;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento15');
             } else {
                 $answer = session(['answer' => $user->comportamento15]);
@@ -898,7 +898,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento16;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento16');
             } else {
                 $answer = session(['answer' => $user->comportamento16]);
@@ -914,7 +914,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento16;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento16');
             } else {
                 $answer = session(['answer' => $user->comportamento16]);
@@ -959,7 +959,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento17;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento17');
             } else {
                 $answer = session(['answer' => $user->comportamento17]);
@@ -975,7 +975,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento17;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento17');
             } else {
                 $answer = session(['answer' => $user->comportamento17]);
@@ -1020,7 +1020,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento18;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento18');
             } else {
                 $answer = session(['answer' => $user->comportamento18]);
@@ -1036,7 +1036,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento18;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento18');
             } else {
                 $answer = session(['answer' => $user->comportamento18]);
@@ -1081,7 +1081,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento19;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento19');
             } else {
                 $answer = session(['answer' => $user->comportamento19]);
@@ -1097,7 +1097,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento19;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento19');
             } else {
                 $answer = session(['answer' => $user->comportamento19]);
@@ -1142,7 +1142,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento20;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento20');
             } else {
                 $answer = session(['answer' => $user->comportamento20]);
@@ -1158,7 +1158,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento20;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento20');
             } else {
                 $answer = session(['answer' => $user->comportamento20]);
@@ -1203,7 +1203,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento21;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento21');
             } else {
                 $answer = session(['answer' => $user->comportamento21]);
@@ -1219,7 +1219,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento21;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento21');
             } else {
                 $answer = session(['answer' => $user->comportamento21]);
@@ -1264,7 +1264,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento22;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento22');
             } else {
                 $answer = session(['answer' => $user->comportamento22]);
@@ -1280,7 +1280,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento22;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento22');
             } else {
                 $answer = session(['answer' => $user->comportamento22]);
@@ -1325,7 +1325,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento23;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento23');
             } else {
                 $answer = session(['answer' => $user->comportamento23]);
@@ -1341,7 +1341,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento23;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento23');
             } else {
                 $answer = session(['answer' => $user->comportamento23]);
@@ -1386,7 +1386,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento24;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento24');
             } else {
                 $answer = session(['answer' => $user->comportamento24]);
@@ -1402,7 +1402,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento24;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento24');
             } else {
                 $answer = session(['answer' => $user->comportamento24]);
@@ -1447,7 +1447,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento25;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento25');
             } else {
                 $answer = session(['answer' => $user->comportamento25]);
@@ -1463,7 +1463,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento25;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento25');
             } else {
                 $answer = session(['answer' => $user->comportamento25]);
@@ -1508,7 +1508,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento26;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento26');
             } else {
                 $answer = session(['answer' => $user->comportamento26]);
@@ -1524,7 +1524,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento26;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento26');
             } else {
                 $answer = session(['answer' => $user->comportamento26]);
@@ -1569,7 +1569,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento27;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento27');
             } else {
                 $answer = session(['answer' => $user->comportamento27]);
@@ -1585,7 +1585,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento27;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento27');
             } else {
                 $answer = session(['answer' => $user->comportamento27]);
@@ -1630,7 +1630,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento28;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento28');
             } else {
                 $answer = session(['answer' => $user->comportamento28]);
@@ -1646,7 +1646,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento28;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento28');
             } else {
                 $answer = session(['answer' => $user->comportamento28]);
@@ -1691,7 +1691,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento29;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento29');
             } else {
                 $answer = session(['answer' => $user->comportamento29]);
@@ -1707,7 +1707,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento29;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento29');
             } else {
                 $answer = session(['answer' => $user->comportamento29]);
@@ -1752,7 +1752,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento30;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento30');
             } else {
                 $answer = session(['answer' => $user->comportamento30]);
@@ -1768,7 +1768,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento30;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento30');
             } else {
                 $answer = session(['answer' => $user->comportamento30]);
@@ -1813,7 +1813,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento31;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento31');
             } else {
                 $answer = session(['answer' => $user->comportamento31]);
@@ -1829,7 +1829,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento31;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento31');
             } else {
                 $answer = session(['answer' => $user->comportamento31]);
@@ -1874,7 +1874,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento32;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento32');
             } else {
                 $answer = session(['answer' => $user->comportamento32]);
@@ -1890,7 +1890,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento32;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento32');
             } else {
                 $answer = session(['answer' => $user->comportamento32]);
@@ -1935,7 +1935,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento33;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento33');
             } else {
                 $answer = session(['answer' => $user->comportamento33]);
@@ -1951,7 +1951,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento33;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento33');
             } else {
                 $answer = session(['answer' => $user->comportamento33]);
@@ -1996,7 +1996,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento34;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento34');
             } else {
                 $answer = session(['answer' => $user->comportamento34]);
@@ -2012,7 +2012,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento34;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento34');
             } else {
                 $answer = session(['answer' => $user->comportamento34]);
@@ -2057,7 +2057,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento35;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento35');
             } else {
                 $answer = session(['answer' => $user->comportamento35]);
@@ -2073,7 +2073,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento35;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento35');
             } else {
                 $answer = session(['answer' => $user->comportamento35]);
@@ -2118,7 +2118,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento36;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento36');
             } else {
                 $answer = session(['answer' => $user->comportamento36]);
@@ -2134,7 +2134,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento36;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento36');
             } else {
                 $answer = session(['answer' => $user->comportamento36]);
@@ -2179,7 +2179,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento37;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento37');
             } else {
                 $answer = session(['answer' => $user->comportamento37]);
@@ -2195,7 +2195,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento37;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento37');
             } else {
                 $answer = session(['answer' => $user->comportamento37]);
@@ -2240,7 +2240,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento38;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento38');
             } else {
                 $answer = session(['answer' => $user->comportamento38]);
@@ -2256,7 +2256,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento38;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento38');
             } else {
                 $answer = session(['answer' => $user->comportamento38]);
@@ -2301,7 +2301,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento39;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento39');
             } else {
                 $answer = session(['answer' => $user->comportamento39]);
@@ -2317,7 +2317,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento39;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento39');
             } else {
                 $answer = session(['answer' => $user->comportamento39]);
@@ -2362,7 +2362,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento40;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento40');
             } else {
                 $answer = session(['answer' => $user->comportamento40]);
@@ -2378,7 +2378,7 @@ class ComportamentoController extends Controller
 
             //Verifica se tem resposta na próxima view
             $answer = $user->comportamento40;
-            if($answer === NULL) {
+            if($answer == NULL) {
                 return view('layouts/comportamentos/comportamento40');
             } else {
                 $answer = session(['answer' => $user->comportamento40]);
