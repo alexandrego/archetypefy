@@ -236,3 +236,117 @@ use App\Http\Controllers\TemperamentoController;
 // Rotas para perfil comportamental
     Route::get('/comportamento1', [ComportamentoController::class, 'Comportamento1'])->middleware('auth');
     Route::post('/comportamento2', [ComportamentoController::class, 'SaveComportamento1'])->middleware('auth');
+
+    Route::get('/comportamento2', [ComportamentoController::class, 'Comportamento2'])->middleware('auth');
+    Route::post('/comportamento3', [ComportamentoController::class, 'SaveComportamento2'])->middleware('auth');
+
+    Route::get('/comportamento3', [ComportamentoController::class, 'Comportamento3'])->middleware('auth');
+    Route::post('/comportamento4', [ComportamentoController::class, 'SaveComportamento3'])->middleware('auth');
+
+    Route::get('/comportamento4', [ComportamentoController::class, 'Comportamento4'])->middleware('auth');
+    Route::post('/comportamento5', [ComportamentoController::class, 'SaveComportamento4'])->middleware('auth');
+
+    Route::get('/comportamento5', [ComportamentoController::class, 'Comportamento5'])->middleware('auth');
+    Route::post('/comportamento6', [ComportamentoController::class, 'SaveComportamento5'])->middleware('auth');
+
+    Route::get('/comportamento6', [ComportamentoController::class, 'Comportamento6'])->middleware('auth');
+    Route::post('/comportamento7', [ComportamentoController::class, 'SaveComportamento6'])->middleware('auth');
+
+    Route::get('/comportamento7', [ComportamentoController::class, 'Comportamento7'])->middleware('auth');
+    Route::post('/comportamento8', [ComportamentoController::class, 'SaveComportamento7'])->middleware('auth');
+
+    Route::get('/comportamento8', [ComportamentoController::class, 'Comportamento8'])->middleware('auth');
+    Route::post('/comportamento9', [ComportamentoController::class, 'SaveComportamento8'])->middleware('auth');
+
+    Route::get('/comportamento9', [ComportamentoController::class, 'Comportamento9'])->middleware('auth');
+    Route::post('/comportamento10', [ComportamentoController::class, 'SaveComportamento9'])->middleware('auth');
+
+    Route::get('/comportamento10', [ComportamentoController::class, 'Comportamento10'])->middleware('auth');
+    Route::post('/comportamento11', [ComportamentoController::class, 'SaveComportamento10'])->middleware('auth');
+
+    Route::get('/comportamento11', [ComportamentoController::class, 'Comportamento11'])->middleware('auth');
+    Route::post('/comportamento12', [ComportamentoController::class, 'SaveComportamento11'])->middleware('auth');
+
+    Route::get('/comportamento12', [ComportamentoController::class, 'Comportamento12'])->middleware('auth');
+    Route::post('/comportamento13', [ComportamentoController::class, 'SaveComportamento12'])->middleware('auth');
+
+    Route::get('/comportamento13', [ComportamentoController::class, 'Comportamento13'])->middleware('auth');
+    Route::post('/comportamento14', [ComportamentoController::class, 'SaveComportamento13'])->middleware('auth');
+
+    Route::get('/comportamento14', [ComportamentoController::class, 'Comportamento14'])->middleware('auth');
+    Route::post('/comportamento15', [ComportamentoController::class, 'SaveComportamento14'])->middleware('auth');
+
+    Route::get('/comportamento15', [ComportamentoController::class, 'Comportamento15'])->middleware('auth');
+    Route::post('/comportamento16', [ComportamentoController::class, 'SaveComportamento15'])->middleware('auth');
+
+    Route::get('/comportamento16', [ComportamentoController::class, 'Comportamento16'])->middleware('auth');
+    Route::post('/comportamento17', [ComportamentoController::class, 'SaveComportamento16'])->middleware('auth');
+
+    Route::get('/comportamento17', [ComportamentoController::class, 'Comportamento17'])->middleware('auth');
+    Route::post('/comportamento18', [ComportamentoController::class, 'SaveComportamento17'])->middleware('auth');
+
+    Route::get('/comportamento18', [ComportamentoController::class, 'Comportamento18'])->middleware('auth');
+    Route::post('/comportamento19', [ComportamentoController::class, 'SaveComportamento18'])->middleware('auth');
+
+    Route::get('/comportamento19', [ComportamentoController::class, 'Comportamento19'])->middleware('auth');
+    Route::post('/comportamento20', [ComportamentoController::class, 'SaveComportamento19'])->middleware('auth');
+
+    Route::get('/comportamento20', [ComportamentoController::class, 'Comportamento20'])->middleware('auth');
+    Route::post('/comportamento21', [ComportamentoController::class, 'SaveComportamento20'])->middleware('auth');
+
+    Route::get('/comportamento21', [ComportamentoController::class, 'Comportamento21'])->middleware('auth');
+    Route::post('/comportamento22', [ComportamentoController::class, 'SaveComportamento21'])->middleware('auth');
+
+    Route::get('/comportamento22', [ComportamentoController::class, 'Comportamento22'])->middleware('auth');
+    Route::post('/comportamento23', [ComportamentoController::class, 'SaveComportamento22'])->middleware('auth');
+
+    Route::get('/comportamento23', [ComportamentoController::class, 'Comportamento23'])->middleware('auth');
+    Route::post('/comportamento24', [ComportamentoController::class, 'SaveComportamento23'])->middleware('auth');
+
+    Route::get('/comportamento24', [ComportamentoController::class, 'Comportamento24'])->middleware('auth');
+    Route::post('/comportamento25', [ComportamentoController::class, 'SaveComportamento24'])->middleware('auth');
+
+    Route::get('/comportamento26', [ComportamentoController::class, 'Comportamento26'])->middleware('auth');
+    Route::post('/comportamento26', [ComportamentoController::class, 'SaveComportamento26'])->middleware('auth');
+
+    Route::get('/comportamento27', [ComportamentoController::class, 'Comportamento27'])->middleware('auth');
+    Route::post('/comportamento26', [ComportamentoController::class, 'SaveComportamento27'])->middleware('auth');
+
+    Route::get('/comportamento28', [ComportamentoController::class, 'Comportamento28'])->middleware('auth');
+    Route::post('/comportamento29', [ComportamentoController::class, 'SaveComportamento28'])->middleware('auth');
+
+    Route::get('/comportamento29', [ComportamentoController::class, 'Comportamento29'])->middleware('auth');
+    Route::post('/comportamento30', [ComportamentoController::class, 'SaveComportamento29'])->middleware('auth');
+
+    Route::get('/comportamento30', [ComportamentoController::class, 'Comportamento30'])->middleware('auth');
+    Route::post('/comportamento31', [ComportamentoController::class, 'SaveComportamento30'])->middleware('auth');
+
+    Route::get('/comportamento31', [ComportamentoController::class, 'Comportamento31'])->middleware('auth');
+    Route::post('/comportamento32', [ComportamentoController::class, 'SaveComportamento31'])->middleware('auth');
+
+    Route::get('/comportamento32', [ComportamentoController::class, 'Comportamento32'])->middleware('auth');
+    Route::post('/comportamento33', [ComportamentoController::class, 'SaveComportamento32'])->middleware('auth');
+
+    Route::get('/comportamento33', [ComportamentoController::class, 'Comportamento33'])->middleware('auth');
+    Route::post('/comportamento34', [ComportamentoController::class, 'SaveComportamento33'])->middleware('auth');
+
+    Route::get('/comportamento34', [ComportamentoController::class, 'Comportamento34'])->middleware('auth');
+    Route::post('/comportamento35', [ComportamentoController::class, 'SaveComportamento34'])->middleware('auth');
+
+    Route::get('/comportamento35', [ComportamentoController::class, 'Comportamento35'])->middleware('auth');
+    Route::post('/comportamento36', [ComportamentoController::class, 'SaveComportamento35'])->middleware('auth');
+
+    Route::get('/comportamento36', [ComportamentoController::class, 'Comportamento36'])->middleware('auth');
+    Route::post('/comportamento37', [ComportamentoController::class, 'SaveComportamento36'])->middleware('auth');
+
+    Route::get('/comportamento37', [ComportamentoController::class, 'Comportamento37'])->middleware('auth');
+    Route::post('/comportamento38', [ComportamentoController::class, 'SaveComportamento37'])->middleware('auth');
+
+    Route::get('/comportamento38', [ComportamentoController::class, 'Comportamento38'])->middleware('auth');
+    Route::post('/comportamento39', [ComportamentoController::class, 'SaveComportamento38'])->middleware('auth');
+
+    Route::get('/comportamento39', [ComportamentoController::class, 'Comportamento39'])->middleware('auth');
+    Route::post('/comportamento40', [ComportamentoController::class, 'SaveComportamento39'])->middleware('auth');
+
+    Route::get('/comportamento40', [ComportamentoController::class, 'Comportamento40'])->middleware('auth');
+    Route::post('/result', [ComportamentoController::class, 'SaveComportamento40'])->middleware('auth');
