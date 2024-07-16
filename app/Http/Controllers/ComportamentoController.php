@@ -2408,6 +2408,9 @@ class ComportamentoController extends Controller
     {
         // Busca dados no banco
         $user = Auth::user();
+        $fullName = $user->name;
+        $firstName = strtok($fullName, " ");
+        session(['firstName' => $firstName]);
         $userID = $user->id;
 
         $answer = $request->temper;
@@ -2415,20 +2418,57 @@ class ComportamentoController extends Controller
         // Verifica se o email existe no banco de dados
         $user = Comportamentos::where('user_id', $userID)->first();
 
+        $times_exec = $user->times_exec;
+        if($times_exec == ""){
+            $user->times_exec = 1;
+        } else {
+            $user->times_exec = $times_exec + 1;
+        }
+
         if($user){
             $user->comportamento40 = $answer;
+            $user->times_exec;
             $user->save();
 
-            $answer = session()->forget('answer');
-            return view('layouts/comportamentos/result');
+            if($user) {
+                $lastComportamento = Comportamentos::where('id', $userID)->first();
+
+                if ($lastComportamento) {
+                    $columnNamesComportamento = array_keys($lastComportamento->getAttributes());
+                    $firstNullColumnComportamento = null;
+
+                    foreach ($columnNamesComportamento as $columnComportamento) {
+                        if ($lastComportamento->$columnComportamento === null) {
+                            $firstNullColumnComportamento = $columnComportamento;
+                            break;
+                        }
+                    }
+
+                    if ($firstNullColumnComportamento) {
+                        if($firstNullColumnComportamento === "comportamento1"){
+                            // Não exiba nada
+                        } else if ($firstNullColumnComportamento === "comportamento2"){
+                            session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                        }
+                    } else {
+                        $firstNullColumnComportamento = 'resultComportamento';
+                        session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                    }
+                } else {
+                    $firstNullColumnComportamento = 'nao_iniciado';
+                    session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                }
+                return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumnComportamento' => $firstNullColumnComportamento]);
+            }
         } else {
-            $temper = new Comportamentos();
-            $temper->user_id = $userID;
-            $temper->comportamento40 = $answer;
-            $temper->save();
+            $comportamento = new Comportamentos();
+            $comportamento->user_id = $userID;
+            $comportamento->comportamento40 = $answer;
+            $comportamento->$user->times_exec;
+            $comportamento->save();
 
             $answer = session()->forget('answer');
-            return view('layouts/comportamentos/result');
+            return view('layouts/comportamentos/resultComportamento');
         }
     }
 }

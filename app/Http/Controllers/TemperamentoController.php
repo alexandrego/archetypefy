@@ -1234,7 +1234,7 @@ class TemperamentoController extends Controller
                             session(['firstNullColumnTemper' => $firstNullColumnTemper]);
                         }
                     } else {
-                        $firstNullColumnTemper = 'result';
+                        $firstNullColumnTemper = 'resultTemper';
                         session(['firstNullColumnTemper' => $firstNullColumnTemper]);
                     }
                 } else {

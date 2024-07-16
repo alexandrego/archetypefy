@@ -351,4 +351,6 @@ use App\Http\Controllers\TemperamentoController;
     Route::post('/comportamento40', [ComportamentoController::class, 'SaveComportamento39'])->middleware('auth');
 
     Route::get('/comportamento40', [ComportamentoController::class, 'Comportamento40'])->middleware('auth');
-    Route::post('/result', [ComportamentoController::class, 'SaveComportamento40'])->middleware('auth');
+    Route::post('/comportamento40', [ComportamentoController::class, 'SaveComportamento40'])->middleware('auth');
+
+    Route::get('/resultComportamento', [ComportamentoController::class, 'ResultComportamento'])->middleware('auth');
