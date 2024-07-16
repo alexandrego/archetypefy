@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question22" id="a" value="a" /><label for="a">Está desafiando confrontando as regras</label>
+                                <input type="radio" name="question22" id="a" value="a" required/><label for="a">Está desafiando confrontando as regras</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question22" id="b" value="b" /><label for="b">Está ajudando alguém em necessidade</label>
+                                <input type="radio" name="question22" id="b" value="b" required/><label for="b">Está ajudando alguém em necessidade</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question22" id="c" value="c" /><label for="c">Está ganhando uma disputa</label>
+                                <input type="radio" name="question22" id="c" value="c" required/><label for="c">Está ganhando uma disputa</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question22" id="d" value="d" /><label for="d">Está em paz consigo mesmo(a)</label>
+                                <input type="radio" name="question22" id="d" value="d" required/><label for="d">Está em paz consigo mesmo(a)</label>
                             </div>
                         @endif
                     </div>

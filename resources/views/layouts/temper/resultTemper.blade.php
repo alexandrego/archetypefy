@@ -33,13 +33,13 @@
                         <hr>
 
                         <div class="suasCompras">
-                            Seu Temperamento é: {{ session('resultadoFinal') }}
+                            Seu Temperamento é: {{ session('resultadoFinalTemper') }}
                         </div>
                     </div>
                 </div>
 
                 <div class="divResultadoFinal">
-                    <p>Nome do Temperamento <span class="resultadoFinal"> {{ session('resultadoFinal') }} </span></p>
+                    <p>Nome do Temperamento <span class="resultadoFinal"> {{ session('resultadoFinalTemper') }} </span></p>
                     <p class="avisoResultado">Enviamos o PDF com o resultado detalhado para seu e-mail, favor consultar a caixa de entrada, caixa de spam e outros!</p>
                 </div>
                 <div class="suporte">

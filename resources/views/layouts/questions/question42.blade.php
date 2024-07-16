@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question42" id="a" value="a" /><label for="a">Está transformando algo para melhor</label>
+                                <input type="radio" name="question42" id="a" value="a" required/><label for="a">Está transformando algo para melhor</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question42" id="b" value="b" /><label for="b">Está ajudando alguém a mudar sua vida</label>
+                                <input type="radio" name="question42" id="b" value="b" required/><label for="b">Está ajudando alguém a mudar sua vida</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question42" id="c" value="c" /><label for="c">Está vencendo um grande desafio</label>
+                                <input type="radio" name="question42" id="c" value="c" required/><label for="c">Está vencendo um grande desafio</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question42" id="d" value="d" /><label for="d">Está descobrindo algo novo</label>
+                                <input type="radio" name="question42" id="d" value="d" required/><label for="d">Está descobrindo algo novo</label>
                             </div>
                         @endif
                     </div>

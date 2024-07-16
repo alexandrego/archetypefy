@@ -67,15 +67,12 @@ class ArchetypefyController extends Controller
                 } else if ($firstNullColumn === "question_2"){
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
-                // return response()->json(['first_null_column' => $firstNullColumn]);
             } else {
                 $firstNullColumn = 'result';
-                // dd($firstNullColumn);
                 session(['firstNullColumn' => $firstNullColumn]);
             }
         } else {
             $firstNullColumn = 'nao_iniciado';
-            // dd($firstNullColumn);
             session(['firstNullColumn' => $firstNullColumn]);
         }
 
@@ -93,7 +90,7 @@ class ArchetypefyController extends Controller
             if ($firstNullColumnTemper) {
                 if($firstNullColumnTemper == "temper1"){
                     // Não exiba nada
-                } else { //if ($firstNullColumn == "question_2"){
+                } else if ($firstNullColumn == "temper2"){
                     session(['firstNullColumnTemper' => $firstNullColumnTemper]);
                 }
             } else {

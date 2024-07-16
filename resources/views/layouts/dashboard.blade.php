@@ -340,9 +340,9 @@
                                         <div class="cardDesc">
                                             <a href="../temper20">Continuar</a>
                                         </div>
-                                    @elseif($firstNullColumnTemper == 'result')
+                                    @elseif($firstNullColumnTemper == 'resultTemper')
                                         <div class="cardDesc">
-                                            <a href="../result">Ver resultado</a>
+                                            <a href="../resultTemper">Ver resultado</a>
                                         </div>
                                     @endif
                                 @endif

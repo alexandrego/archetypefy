@@ -17,11 +17,11 @@
     </div>
 
     <div style="width:100%;margin:20px 0;font-size:14px;align-items:center;color:#fff;">
-            Seu principal temperamento é: {{ session('resultadoFinal') }}
+            Seu principal temperamento é: {{ session('resultadoFinalTemper') }}
     </div>
 
     <div style="width:100%;font-size:12px;text-align:justify;color:#fff;">
-            O temperamento {{ session('resultadoFinal') }} descreve uma pessoa que é....
+            O temperamento {{ session('resultadoFinalTemper') }} descreve uma pessoa que é....
     </div>
 
     </div>

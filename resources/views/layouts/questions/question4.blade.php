@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question4" id="a" value="a" /><label for="a">Encontrar a felicidade e a simplicidade</label>
+                                <input type="radio" name="question4" id="a" value="a" required /><label for="a">Encontrar a felicidade e a simplicidade</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question4" id="b" value="b" /><label for="b">Ser reconhecido(a) por suas conquistas</label>
+                                <input type="radio" name="question4" id="b" value="b" required /><label for="b">Ser reconhecido(a) por suas conquistas</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question4" id="c" value="c" /><label for="c">Ajudar e proteger os outros</label>
+                                <input type="radio" name="question4" id="c" value="c" required /><label for="c">Ajudar e proteger os outros</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question4" id="d" value="d" /><label for="d">Descobrir novos horizontes e aventuras</label>
+                                <input type="radio" name="question4" id="d" value="d" required /><label for="d">Descobrir novos horizontes e aventuras</label>
                             </div>
                         @endif
                     </div>

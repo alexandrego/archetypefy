@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question33" id="a" value="a" /><label for="a">Fazer os outros rirem</label>
+                                <input type="radio" name="question33" id="a" value="a" required/><label for="a">Fazer os outros rirem</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question33" id="b" value="b" /><label for="b">Ajudar os outros a se sentirem bem</label>
+                                <input type="radio" name="question33" id="b" value="b" required/><label for="b">Ajudar os outros a se sentirem bem</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question33" id="c" value="c" /><label for="c">Liderar o grupo</label>
+                                <input type="radio" name="question33" id="c" value="c" required/><label for="c">Liderar o grupo</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question33" id="d" value="d" /><label for="d">Explorar novas ideias e atividades</label>
+                                <input type="radio" name="question33" id="d" value="d" required/><label for="d">Explorar novas ideias e atividades</label>
                             </div>
                         @endif
                     </div>

@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question28" id="a" value="a" /><label for="a">Construir uma conexão amorosa duradoura</label>
+                                <input type="radio" name="question28" id="a" value="a" required/><label for="a">Construir uma conexão amorosa duradoura</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question28" id="b" value="b" /><label for="b">Ajudar o outro a crescer e se desenvolver</label>
+                                <input type="radio" name="question28" id="b" value="b" required/><label for="b">Ajudar o outro a crescer e se desenvolver</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question28" id="c" value="c" /><label for="c">Superar obstáculos juntos</label>
+                                <input type="radio" name="question28" id="c" value="c" required/><label for="c">Superar obstáculos juntos</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question28" id="d" value="d" /><label for="d">Explorar novas experiências juntos</label>
+                                <input type="radio" name="question28" id="d" value="d" required/><label for="d">Explorar novas experiências juntos</label>
                             </div>
                         @endif
                     </div>

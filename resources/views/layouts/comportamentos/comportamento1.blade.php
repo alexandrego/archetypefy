@@ -20,11 +20,6 @@
                     </div>
 
                     <div class="respostas">
-
-                        <!-- @if(session('answer'))
-                            <p>Resposta selecionada: {{ session('answer') }}</p>
-                        @endif -->
-
                         @if(session('answer')=='a')
                             <div class="questions checked">
                                 <input type="radio" name="temper" id="a" value="a" checked /><label for="a">ANIMADO</label>

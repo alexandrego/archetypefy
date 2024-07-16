@@ -3,13 +3,12 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MailResult extends Mailable
+class mailResultTemper extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,7 +26,7 @@ class MailResult extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Archetypefy - Mail Result',
+            subject: 'Archetypefy - Mail Result Temper',
             from: 'suporte@archetypefy.online',
         );
     }
@@ -38,7 +37,7 @@ class MailResult extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'layouts.mail.mailResult',
+            view: 'layouts.mail.mailResultTemper',
         );
     }
 

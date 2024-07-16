@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Temperamentos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class TemperamentoController extends Controller
 {
@@ -1180,13 +1181,19 @@ class TemperamentoController extends Controller
 
             return view('layouts/temper/temper20')->with(['answer' => $answer]);
         } else {
-            return view('layouts/temper/temper20');
+            $answer = session()->forget('answer');
+            $answer = session(['answer' => $temper->temper20]);
+
+            return view('layouts/temper/temper20')->with(['answer' => $answer]);
         }
     }
     public function SaveTemper20(Request $request)
     {
         // Busca dados no banco
         $user = Auth::user();
+        $fullName = $user->name;
+        $firstName = strtok($fullName, " ");
+        session(['firstName' => $firstName]);
         $userID = $user->id;
 
         $answer = $request->temper;
@@ -1194,308 +1201,341 @@ class TemperamentoController extends Controller
         // Verifica se o email existe no banco de dados
         $user = Temperamentos::where('user_id', $userID)->first();
 
+        $times_exec = $user->times_exec;
+        if($times_exec == ""){
+            $user->times_exec = 1;
+        } else {
+            $user->times_exec = $times_exec + 1;
+        }
+
         if($user){
             $user->temper20 = $answer;
+            $user->times_exec;
             $user->save();
 
-            $answer = session()->forget('answer');
-            return view('layouts/temper/result');
+            if($user) {
+                $lastTemper = Temperamentos::where('id', $userID)->first();
+
+                if ($lastTemper) {
+                    $columnNamesTemper = array_keys($lastTemper->getAttributes());
+                    $firstNullColumnTemper = null;
+
+                    foreach ($columnNamesTemper as $columnTemper) {
+                        if ($lastTemper->$columnTemper === null) {
+                            $firstNullColumnTemper = $columnTemper;
+                            break;
+                        }
+                    }
+
+                    if ($firstNullColumnTemper) {
+                        if($firstNullColumnTemper === "temper1"){
+                            // Não exiba nada
+                        } else if ($firstNullColumnTemper === "temper2"){
+                            session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                        }
+                    } else {
+                        $firstNullColumnTemper = 'result';
+                        session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                    }
+                } else {
+                    $firstNullColumnTemper = 'nao_iniciado';
+                    session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                }
+                return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumnTemper' => $firstNullColumnTemper]);
+            }
         } else {
             $temper = new Temperamentos();
             $temper->user_id = $userID;
             $temper->temper20 = $answer;
+            $temper->$user->times_exec;
             $temper->save();
 
             $answer = session()->forget('answer');
-            return view('layouts/temper/result');
+            return view('layouts/dashboard');
         }
     }
 
-    public function Result(Request $request) {
+    public function ResultTemper(Request $request) {
         $user = Auth::user();
         $fullName = $user->name;
         $email = $user->email;
         $userID = $user->id;
 
         // Verifica o banco de dados
-        $user = Temperamentos::where('user_id', $userID)->first();
-        // dd($user);
+        $userTemper = Temperamentos::where('user_id', $userID)->first();
 
         $sanguineo = "Sanguíneo";
-        $res_1 = $user->temper1;
-        if($res_1 == "a"){
-            $res_1 = 4;
-        } else if($res_1 == "b"){
-            $res_1 = 3;
-        } else if($res_1 == "c"){
-            $res_1 = 2;
+        $res_Temper1 = $userTemper->temper1;
+        if($res_Temper1 == "a"){
+            $res_Temper1 = 4;
+        } else if($res_Temper1 == "b"){
+            $res_Temper1 = 3;
+        } else if($res_Temper1 == "c"){
+            $res_Temper1 = 2;
         } else {
-            $res_1 = 1;
+            $res_Temper1 = 1;
         }
 
-        $res_2 = $user->temper2;
-        if($res_2 == "a"){
-            $res_2 = 1;
-        } else if($res_2 == "b"){
-            $res_2 = 3;
-        } else if($res_2 == "c"){
-            $res_2 = 4;
+        $res_Temper2 = $userTemper->temper2;
+        if($res_Temper2 == "a"){
+            $res_Temper2 = 1;
+        } else if($res_Temper2 == "b"){
+            $res_Temper2 = 3;
+        } else if($res_Temper2 == "c"){
+            $res_Temper2 = 4;
         } else {
-            $res_2 = 2;
+            $res_Temper2 = 2;
         }
 
-        $res_3 = $user->temper3;
-        if($res_3 == "a"){
-            $res_3 = 2;
-        } else if($res_3 == "b"){
-            $res_3 = 3;
-        } else if($res_3 == "c"){
-            $res_3 = 4;
+        $res_Temper3 = $userTemper->temper3;
+        if($res_Temper3 == "a"){
+            $res_Temper3 = 2;
+        } else if($res_Temper3 == "b"){
+            $res_Temper3 = 3;
+        } else if($res_Temper3 == "c"){
+            $res_Temper3 = 4;
         } else {
-            $res_3 = 1;
+            $res_Temper3 = 1;
         }
 
-        $res_4 = $user->temper4;
-        if($res_4 == "a"){
-            $res_4 = 4;
-        } else if($res_4 == "b"){
-            $res_4 = 1;
-        } else if($res_4 == "c"){
-            $res_4 = 3;
+        $res_Temper4 = $userTemper->temper4;
+        if($res_Temper4 == "a"){
+            $res_Temper4 = 4;
+        } else if($res_Temper4 == "b"){
+            $res_Temper4 = 1;
+        } else if($res_Temper4 == "c"){
+            $res_Temper4 = 3;
         } else {
-            $res_4 = 2;
+            $res_Temper4 = 2;
         }
 
-        $res_5 = $user->temper5;
-        if($res_5 == "a"){
-            $res_5 = 3;
-        } else if($res_5 == "b"){
-            $res_5 = 4;
-        } else if($res_5 == "c"){
-            $res_5 = 2;
+        $res_Temper5 = $userTemper->temper5;
+        if($res_Temper5 == "a"){
+            $res_Temper5 = 3;
+        } else if($res_Temper5 == "b"){
+            $res_Temper5 = 4;
+        } else if($res_Temper5 == "c"){
+            $res_Temper5 = 2;
         } else {
-            $res_5 = 1;
+            $res_Temper5 = 1;
         }
 
-        $somaSanguineo = $res_1 + $res_2 + $res_3 + $res_4 + $res_5;
+        $somaSanguineo = $res_Temper1 + $res_Temper2 + $res_Temper3 + $res_Temper4 + $res_Temper5;
 
         $colerico = "Colérico";
 
-        $res_6 = $user->temper6;
-        if($res_6 == "a"){
-            $res_6 = 4;
-        } else if($res_6 == "b"){
-            $res_6 = 2;
-        } else if($res_6 == "c"){
-            $res_6 = 3;
+        $res_Temper6 = $userTemper->temper6;
+        if($res_Temper6 == "a"){
+            $res_Temper6 = 4;
+        } else if($res_Temper6 == "b"){
+            $res_Temper6 = 2;
+        } else if($res_Temper6 == "c"){
+            $res_Temper6 = 3;
         } else {
-            $res_6 = 1;
+            $res_Temper6 = 1;
         }
 
-        $res_7 = $user->temper7;
-        if($res_7 == "a"){
-            $res_7 = 2;
-        } else if($res_7 == "b"){
-            $res_7 = 4;
-        } else if($res_7 == "c"){
-            $res_7 = 1;
+        $res_Temper7 = $userTemper->temper7;
+        if($res_Temper7 == "a"){
+            $res_Temper7 = 2;
+        } else if($res_Temper7 == "b"){
+            $res_Temper7 = 4;
+        } else if($res_Temper7 == "c"){
+            $res_Temper7 = 1;
         } else {
-            $res_7 = 3;
+            $res_Temper7 = 3;
         }
 
-        $res_8 = $user->temper8;
-        if($res_8 == "a"){
-            $res_8 = 4;
-        } else if($res_8 == "b"){
-            $res_8 = 1;
-        } else if($res_8 == "c"){
-            $res_8 = 2;
+        $res_Temper8 = $userTemper->temper8;
+        if($res_Temper8 == "a"){
+            $res_Temper8 = 4;
+        } else if($res_Temper8 == "b"){
+            $res_Temper8 = 1;
+        } else if($res_Temper8 == "c"){
+            $res_Temper8 = 2;
         } else {
-            $res_8 = 3;
+            $res_Temper8 = 3;
         }
 
-        $res_9 = $user->temper9;
-        if($res_9 == "a"){
-            $res_9 = 4;
-        } else if($res_9 == "b"){
-            $res_9 = 2;
-        } else if($res_9 == "c"){
-            $res_9 = 1;
+        $res_Temper9 = $userTemper->temper9;
+        if($res_Temper9 == "a"){
+            $res_Temper9 = 4;
+        } else if($res_Temper9 == "b"){
+            $res_Temper9 = 2;
+        } else if($res_Temper9 == "c"){
+            $res_Temper9 = 1;
         } else {
-            $res_9 = 3;
+            $res_Temper9 = 3;
         }
 
-        $res_10 = $user->temper10;
-        if($res_10 == "a"){
-            $res_10 = 4;
-        } else if($res_10 == "b"){
-            $res_10 = 3;
-        } else if($res_10 == "c"){
-            $res_10 = 1;
+        $res_Temper10 = $userTemper->temper10;
+        if($res_Temper10 == "a"){
+            $res_Temper10 = 4;
+        } else if($res_Temper10 == "b"){
+            $res_Temper10 = 3;
+        } else if($res_Temper10 == "c"){
+            $res_Temper10 = 1;
         } else {
-            $res_10 = 2;
+            $res_Temper10 = 2;
         }
 
-        $somaColerico = $res_6 + $res_7 + $res_8 + $res_9 + $res_10;
+        $somaColerico = $res_Temper6 + $res_Temper7 + $res_Temper8 + $res_Temper9 + $res_Temper10;
 
         $melancolico = "Melancólico";
 
-        $res_11 = $user->question_11;
-        if($res_11 == "a"){
-            $res_11 = 3;
-        } else if($res_11 == "b"){
-            $res_11 = 2;
-        } else if($res_11 == "c"){
-            $res_11 = 4;
+        $res_Temper11 = $userTemper->question_11;
+        if($res_Temper11 == "a"){
+            $res_Temper11 = 3;
+        } else if($res_Temper11 == "b"){
+            $res_Temper11 = 2;
+        } else if($res_Temper11 == "c"){
+            $res_Temper11 = 4;
         } else {
-            $res_11 = 1;
+            $res_Temper11 = 1;
         }
 
-        $res_12 = $user->temper12;
-        if($res_12 == "a"){
-            $res_12 = 1;
-        } else if($res_12 == "b"){
-            $res_12 = 3;
-        } else if($res_12 == "c"){
-            $res_12 = 4;
+        $res_Temper12 = $userTemper->temper12;
+        if($res_Temper12 == "a"){
+            $res_Temper12 = 1;
+        } else if($res_Temper12 == "b"){
+            $res_Temper12 = 3;
+        } else if($res_Temper12 == "c"){
+            $res_Temper12 = 4;
         } else {
-            $res_12 = 2;
+            $res_Temper12 = 2;
         }
 
-        $res_13 = $user->temper13;
-        if($res_13 == "a"){
-            $res_13 = 3;
-        } else if($res_13 == "b"){
-            $res_13 = 1;
-        } else if($res_13 == "c"){
-            $res_13 = 4;
+        $res_Temper13 = $userTemper->temper13;
+        if($res_Temper13 == "a"){
+            $res_Temper13 = 3;
+        } else if($res_Temper13 == "b"){
+            $res_Temper13 = 1;
+        } else if($res_Temper13 == "c"){
+            $res_Temper13 = 4;
         } else {
-            $res_13 = 2;
+            $res_Temper13 = 2;
         }
 
-        $res_14 = $user->temper14;
-        if($res_14 == "a"){
-            $res_14 = 2;
-        } else if($res_14 == "b"){
-            $res_14 = 3;
-        } else if($res_14 == "c"){
-            $res_14 = 4;
+        $res_Temper14 = $userTemper->temper14;
+        if($res_Temper14 == "a"){
+            $res_Temper14 = 2;
+        } else if($res_Temper14 == "b"){
+            $res_Temper14 = 3;
+        } else if($res_Temper14 == "c"){
+            $res_Temper14 = 4;
         } else {
-            $res_14 = 1;
+            $res_Temper14 = 1;
         }
 
-        $res_15 = $user->temper15;
-        if($res_15 == "a"){
-            $res_15 = 4;
-        } else if($res_15 == "b"){
-            $res_15 = 1;
-        } else if($res_15 == "c"){
-            $res_15 = 2;
+        $res_Temper15 = $userTemper->temper15;
+        if($res_Temper15 == "a"){
+            $res_Temper15 = 4;
+        } else if($res_Temper15 == "b"){
+            $res_Temper15 = 1;
+        } else if($res_Temper15 == "c"){
+            $res_Temper15 = 2;
         } else {
-            $res_15 = 3;
+            $res_Temper15 = 3;
         }
 
-        $somaMelancolico = $res_11 + $res_12 + $res_13 + $res_14 + $res_15;
+        $somaMelancolico = $res_Temper11 + $res_Temper12 + $res_Temper13 + $res_Temper14 + $res_Temper15;
 
         $fleumatico = "Fleumático";
 
-        $res_16 = $user->question_16;
-        if($res_16 == "a"){
-            $res_16 = 4;
-        } else if($res_16 == "b"){
-            $res_16 = 3;
-        } else if($res_16 == "c"){
-            $res_16 = 1;
+        $res_Temper16 = $userTemper->question_16;
+        if($res_Temper16 == "a"){
+            $res_Temper16 = 4;
+        } else if($res_Temper16 == "b"){
+            $res_Temper16 = 3;
+        } else if($res_Temper16 == "c"){
+            $res_Temper16 = 1;
         } else {
-            $res_16 = 2;
+            $res_Temper16 = 2;
         }
 
-        $res_17 = $user->question_17;
-        if($res_17 == "a"){
-            $res_17 = 4;
-        } else if($res_17 == "b"){
-            $res_17 = 3;
-        } else if($res_17 == "c"){
-            $res_17 = 2;
+        $res_Temper17 = $userTemper->question_17;
+        if($res_Temper17 == "a"){
+            $res_Temper17 = 4;
+        } else if($res_Temper17 == "b"){
+            $res_Temper17 = 3;
+        } else if($res_Temper17 == "c"){
+            $res_Temper17 = 2;
         } else {
-            $res_17 = 1;
+            $res_Temper17 = 1;
         }
 
-        $res_18 = $user->temper18;
-        if($res_18 == "a"){
-            $res_18 = 4;
-        } else if($res_18 == "b"){
-            $res_18 = 3;
-        } else if($res_18 == "c"){
-            $res_18 = 1;
+        $res_Temper18 = $userTemper->temper18;
+        if($res_Temper18 == "a"){
+            $res_Temper18 = 4;
+        } else if($res_Temper18 == "b"){
+            $res_Temper18 = 3;
+        } else if($res_Temper18 == "c"){
+            $res_Temper18 = 1;
         } else {
-            $res_18 = 2;
+            $res_Temper18 = 2;
         }
 
-        $res_19 = $user->temper19;
-        if($res_19 == "a"){
-            $res_19 = 4;
-        } else if($res_19 == "b"){
-            $res_19 = 3;
-        } else if($res_19 == "c"){
-            $res_19 = 1;
+        $res_Temper19 = $userTemper->temper19;
+        if($res_Temper19 == "a"){
+            $res_Temper19 = 4;
+        } else if($res_Temper19 == "b"){
+            $res_Temper19 = 3;
+        } else if($res_Temper19 == "c"){
+            $res_Temper19 = 1;
         } else {
-            $res_19 = 2;
+            $res_Temper19 = 2;
         }
 
-        $res_20 = $user->temper20;
-        if($res_20 == "a"){
-            $res_20 = 4;
-        } else if($res_20 == "b"){
-            $res_20 = 1;
-        } else if($res_20 == "c"){
-            $res_20 = 2;
+        $res_Temper20 = $userTemper->temper20;
+        if($res_Temper20 == "a"){
+            $res_Temper20 = 4;
+        } else if($res_Temper20 == "b"){
+            $res_Temper20 = 1;
+        } else if($res_Temper20 == "c"){
+            $res_Temper20 = 2;
         } else {
-            $res_20 = 3;
+            $res_Temper20 = 3;
         }
 
-        $somaFleumatico = $res_16 + $res_17 + $res_18 + $res_19 + $res_20;
+        $somaFleumatico = $res_Temper16 + $res_Temper17 + $res_Temper18 + $res_Temper19 + $res_Temper20;
 
-        $resultados = [
+        $resultadosTemper = [
             'Sanguíneo' => $somaSanguineo,
             'Colérico' => $somaColerico,
             'Melancólico' => $somaMelancolico,
             'Fleumático' => $somaFleumatico
         ];
 
-        $maiorResult = max($resultados);
-        $maiorResultChave = array_search($maiorResult, $resultados);
+        $maiorResultTemper = max($resultadosTemper);
+        $maiorResultChaveTemper = array_search($maiorResultTemper, $resultadosTemper);
 
-        $resultadoFinal = session(['resultadoFinal' => $maiorResultChave]);
+        $resultadoFinalTemper = session(['resultadoFinalTemper' => $maiorResultChaveTemper]);
         $fullName = session(['fullName' => $fullName]);
 
         // Gerar o PDF
         $pdf = PDF::loadView('layouts.mail.mailPdfResultTemper', [
             'fullName' => $fullName,
-            'resultadoFinal' => $resultadoFinal
+            'resultadoFinalTemper' => $resultadoFinalTemper
         ]);
 
         // Enviar o email com o PDF anexado
-        // dd(gettype($email));
-        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultTemper', ['fullName' => $fullName, 'resultadoFinal' => $resultadoFinal], function($message) use ($pdf, $email) {
+        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultTemper', ['fullName' => $fullName, 'resultadoFinalTemper' => $resultadoFinalTemper], function($message) use ($pdf, $email) {
             $message->to($email)
                     ->subject('Teste de Temperamentos - Resultado do Teste')
-                    ->attachData($pdf->output(), 'resultado.pdf');
+                    ->attachData($pdf->output(), 'resultadoTemper.pdf');
         });
 
-        return view('layouts/temper/result')->with(['fullName' => $fullName, 'resultadoFinal' => $maiorResultChave]);
+        return view('layouts/temper/resultTemper')->with(['fullName' => $fullName, 'resultadoFinalTemper' => $maiorResultChaveTemper]);
     }
-    public function MailResult() {
+    public function MailResultTemper() {
         // Busca dados no banco
         $user = Auth::user();
         $email = $user->email;
 
-        // $email = session(['email' => $email]);
-
         \Illuminate\Support\Facades\Mail::to($email)->send(
-            new \App\Mail\MailResult()
+            new \App\Mail\MailResultTemper()
         );
 
-        return view('layouts/temper/result');
+        return view('layouts/temper/resultTemper');
     }
 }

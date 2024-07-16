@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Questions;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDF;
@@ -1876,16 +1875,13 @@ class QuestionController extends Controller
             $user->times_exec = $times_exec + 1;
         }
 
-
         if($user){
             $user->question_48 = $answer48;
             $user->times_exec;
-            // dd($user);
             $user->save();
 
             if($user) {
                 $lastQuestion = Questions::where('id', $userID)->first();
-                // dd($lastQuestion);
 
                 if ($lastQuestion) {
                     $columnNames = array_keys($lastQuestion->getAttributes());
@@ -1904,18 +1900,14 @@ class QuestionController extends Controller
                         } else if ($firstNullColumn === "question_2"){
                             session(['firstNullColumn' => $firstNullColumn]);
                         }
-                        // return response()->json(['first_null_column' => $firstNullColumn]);
                     } else {
                         $firstNullColumn = 'result';
-                        // dd($firstNullColumn);
                         session(['firstNullColumn' => $firstNullColumn]);
                     }
                 } else {
                     $firstNullColumn = 'nao_iniciado';
-                    // dd($firstNullColumn);
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
-
                 return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn]);
             }
         } else {
@@ -1937,8 +1929,6 @@ class QuestionController extends Controller
 
         // Verifica o banco de dados
         $user = Questions::where('user_id', $userID)->first();
-        // dd($user);
-
 
         //Arquétipos
         $inocente = "Inocente";
@@ -2545,7 +2535,6 @@ class QuestionController extends Controller
         ]);
 
         // Enviar o email com o PDF anexado
-        // dd(gettype($email));
         \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResult', ['fullName' => $fullName, 'resultadoFinal' => $resultadoFinal], function($message) use ($pdf, $email) {
             $message->to($email)
                     ->subject('Archetypefy - Resultado do Teste')
@@ -2558,8 +2547,6 @@ class QuestionController extends Controller
         // Busca dados no banco
         $user = Auth::user();
         $email = $user->email;
-
-        // $email = session(['email' => $email]);
 
         \Illuminate\Support\Facades\Mail::to($email)->send(
             new \App\Mail\MailResult()

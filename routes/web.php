@@ -231,7 +231,9 @@ use App\Http\Controllers\TemperamentoController;
     Route::post('/temper20', [TemperamentoController::class, 'SaveTemper19'])->middleware('auth');
 
     Route::get('/temper20', [TemperamentoController::class, 'Temper20'])->middleware('auth');
-    Route::post('/result', [TemperamentoController::class, 'SaveTemper20'])->middleware('auth');
+    Route::post('/temper20', [TemperamentoController::class, 'SaveTemper20'])->middleware('auth');
+
+    Route::get('/resultTemper', [TemperamentoController::class, 'ResultTemper'])->middleware('auth');
 
 // Rotas para perfil comportamental
     Route::get('/comportamento1', [ComportamentoController::class, 'Comportamento1'])->middleware('auth');

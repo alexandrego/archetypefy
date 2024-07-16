@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question31" id="a" value="a" /><label for="a">Inovar e trazer novas ideias</label>
+                                <input type="radio" name="question31" id="a" value="a" required/><label for="a">Inovar e trazer novas ideias</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question31" id="b" value="b" /><label for="b">Ajudar os outros a realizarem suas tarefas</label>
+                                <input type="radio" name="question31" id="b" value="b" required/><label for="b">Ajudar os outros a realizarem suas tarefas</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question31" id="c" value="c" /><label for="c">Liderar e garantir que tudo seja feito corretamente</label>
+                                <input type="radio" name="question31" id="c" value="c" required/><label for="c">Liderar e garantir que tudo seja feito corretamente</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question31" id="d" value="d" /><label for="d">Explorar diferentes possibilidades</label>
+                                <input type="radio" name="question31" id="d" value="d" required/><label for="d">Explorar diferentes possibilidades</label>
                             </div>
                         @endif
                     </div>

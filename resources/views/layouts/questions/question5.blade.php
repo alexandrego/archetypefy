@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question5" id="a" value="a" /><label for="a">Sentir-se sozinho(a) e desamparado(a)</label>
+                                <input type="radio" name="question5" id="a" value="a" required /><label for="a">Sentir-se sozinho(a) e desamparado(a)</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question5" id="b" value="b" /><label for="b">Procurar maneiras de superar o desafio</label>
+                                <input type="radio" name="question5" id="b" value="b" required /><label for="b">Procurar maneiras de superar o desafio</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question5" id="c" value="c" /><label for="c">Ajudar os outros a se sentirem melhor</label>
+                                <input type="radio" name="question5" id="c" value="c" required /><label for="c">Ajudar os outros a se sentirem melhor</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question5" id="d" value="d" /><label for="d">Procurar novas oportunidades</label>
+                                <input type="radio" name="question5" id="d" value="d" required /><label for="d">Procurar novas oportunidades</label>
                             </div>
                         @endif
                     </div>

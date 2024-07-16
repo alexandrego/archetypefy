@@ -26,7 +26,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question39" id="a" value="a" /><label for="a">Ser a fonte de conhecimento e orientação</label>
+                                <input type="radio" name="question39" id="a" value="a" required/><label for="a">Ser a fonte de conhecimento e orientação</label>
                             </div>
                         @endif
 
@@ -36,7 +36,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question39" id="b" value="b" /><label for="b">Ajudar os outros a entenderem as coisas</label>
+                                <input type="radio" name="question39" id="b" value="b" required/><label for="b">Ajudar os outros a entenderem as coisas</label>
                             </div>
                         @endif
 
@@ -46,7 +46,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question39" id="c" value="c" /><label for="c">Liderar e tomar decisões</label>
+                                <input type="radio" name="question39" id="c" value="c" required/><label for="c">Liderar e tomar decisões</label>
                             </div>
                         @endif
 
@@ -56,7 +56,7 @@
                             </div>
                         @else
                             <div class="questions">
-                                <input type="radio" name="question39" id="d" value="d" /><label for="d">Explorar novas ideias e abordagens</label>
+                                <input type="radio" name="question39" id="d" value="d" required/><label for="d">Explorar novas ideias e abordagens</label>
                             </div>
                         @endif
                     </div>
