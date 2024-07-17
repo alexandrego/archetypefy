@@ -11,7 +11,7 @@
       </div>
 
         <div id="formularioQuestions" class="formularioQuestions">
-            <form action="/temper20" method="POST" onsubmit="avancando()">
+            <form action="/temperResult" method="POST" onsubmit="avancando()">
                 @csrf
                 <div class="message roboto-thin messageStartTest">
                     <!-- Pergunta -->

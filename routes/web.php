@@ -12,7 +12,7 @@ use App\Http\Controllers\TemperamentoController;
     Route::get('/confirmCode', [ArchetypefyController::class, 'ConfirmCode']);
 
 // Rotas quando logado
-    Route::get('/dashboard', [ArchetypefyController::class, 'Dashboard'])->middleware('auth');
+    Route::get('/dashboard', [ArchetypefyController::class, 'Dashboard'])->name('dashboard')->middleware('auth');
     Route::get('/atention', [ArchetypefyController::class, 'Atention'])->middleware('auth');
     Route::get('/startTest', [ArchetypefyController::class, 'StartTest'])->middleware('auth');
 
@@ -231,7 +231,7 @@ use App\Http\Controllers\TemperamentoController;
     Route::post('/temper20', [TemperamentoController::class, 'SaveTemper19'])->middleware('auth');
 
     Route::get('/temper20', [TemperamentoController::class, 'Temper20'])->middleware('auth');
-    Route::post('/temper20', [TemperamentoController::class, 'SaveTemper20'])->middleware('auth');
+    Route::post('/temperResult', [TemperamentoController::class, 'SaveTemper20'])->middleware('auth');
 
     Route::get('/resultTemper', [TemperamentoController::class, 'ResultTemper'])->middleware('auth');
 
@@ -308,11 +308,14 @@ use App\Http\Controllers\TemperamentoController;
     Route::get('/comportamento24', [ComportamentoController::class, 'Comportamento24'])->middleware('auth');
     Route::post('/comportamento25', [ComportamentoController::class, 'SaveComportamento24'])->middleware('auth');
 
+    Route::get('/comportamento25', [ComportamentoController::class, 'Comportamento25'])->middleware('auth');
+    Route::post('/comportamento26', [ComportamentoController::class, 'SaveComportamento25'])->middleware('auth');
+
     Route::get('/comportamento26', [ComportamentoController::class, 'Comportamento26'])->middleware('auth');
-    Route::post('/comportamento26', [ComportamentoController::class, 'SaveComportamento26'])->middleware('auth');
+    Route::post('/comportamento27', [ComportamentoController::class, 'SaveComportamento26'])->middleware('auth');
 
     Route::get('/comportamento27', [ComportamentoController::class, 'Comportamento27'])->middleware('auth');
-    Route::post('/comportamento26', [ComportamentoController::class, 'SaveComportamento27'])->middleware('auth');
+    Route::post('/comportamento28', [ComportamentoController::class, 'SaveComportamento27'])->middleware('auth');
 
     Route::get('/comportamento28', [ComportamentoController::class, 'Comportamento28'])->middleware('auth');
     Route::post('/comportamento29', [ComportamentoController::class, 'SaveComportamento28'])->middleware('auth');
@@ -351,6 +354,6 @@ use App\Http\Controllers\TemperamentoController;
     Route::post('/comportamento40', [ComportamentoController::class, 'SaveComportamento39'])->middleware('auth');
 
     Route::get('/comportamento40', [ComportamentoController::class, 'Comportamento40'])->middleware('auth');
-    Route::post('/comportamento40', [ComportamentoController::class, 'SaveComportamento40'])->middleware('auth');
+    Route::post('/comportamentoResult', [ComportamentoController::class, 'SaveComportamento40'])->middleware('auth');
 
     Route::get('/resultComportamento', [ComportamentoController::class, 'ResultComportamento'])->middleware('auth');

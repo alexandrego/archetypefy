@@ -1241,7 +1241,8 @@ class TemperamentoController extends Controller
                     $firstNullColumnTemper = 'nao_iniciado';
                     session(['firstNullColumnTemper' => $firstNullColumnTemper]);
                 }
-                return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumnTemper' => $firstNullColumnTemper]);
+                // return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumnTemper' => $firstNullColumnTemper]);
+                return redirect()->route('dashboard')->with(['firstName' => $firstName, 'firstNullColumnTemper' => $firstNullColumnTemper]);
             }
         } else {
             $temper = new Temperamentos();
@@ -1251,7 +1252,8 @@ class TemperamentoController extends Controller
             $temper->save();
 
             $answer = session()->forget('answer');
-            return view('layouts/dashboard');
+            // return view('layouts/dashboard');
+            return redirect()->route('dashboard');
         }
     }
 

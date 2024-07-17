@@ -11,7 +11,7 @@
       </div>
 
         <div id="formularioQuestions" class="formularioQuestions">
-            <form action="/result" method="POST" onsubmit="avancando()">
+            <form action="/comportamentoResult" method="POST" onsubmit="avancando()">
                 @csrf
                 <div class="message roboto-thin messageStartTest">
                     <!-- Pergunta -->

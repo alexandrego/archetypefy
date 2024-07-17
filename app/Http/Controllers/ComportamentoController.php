@@ -2455,10 +2455,11 @@ class ComportamentoController extends Controller
                         session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
                     }
                 } else {
-                    $firstNullColumnComportamento = 'nao_iniciado';
+                    $firstNullColumnComportamento = 'nao_iniciado_comportamento';
                     session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
                 }
-                return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                // return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                return redirect()->route('dashboard')->with(['firstName' => $firstName, 'firstNullColumnComportamento' => $firstNullColumnComportamento]);
             }
         } else {
             $comportamento = new Comportamentos();
@@ -2468,7 +2469,54 @@ class ComportamentoController extends Controller
             $comportamento->save();
 
             $answer = session()->forget('answer');
-            return view('layouts/comportamentos/resultComportamento');
+            // return view('layouts/dashboard');
+
+            return redirect()->route('dashboard');
         }
+    }
+
+
+    public function ResultComportamento(Request $request) {
+        $user = Auth::user();
+        $fullName = $user->name;
+        $email = $user->email;
+        $userID = $user->id;
+
+        // Verifica o banco de dados
+        $userComportamento = Comportamentos::where('user_id', $userID)->first();
+        dd($userComportamento);
+
+
+        // $maiorResultComportamento = max($resultadosComportamento);
+        // $maiorResultChaveComportamento = array_search($maiorResultComportamento, $resultadosComportamento);
+
+        // $resultadoFinalComportamento = session(['resultadoFinalComportamento' => $maiorResultChaveComportamento]);
+        $fullName = session(['fullName' => $fullName]);
+
+        // Gerar o PDF
+        $pdf = PDF::loadView('layouts.mail.mailPdfResultComportamento', [
+            'fullName' => $fullName,
+            'resultadoFinalComportamento' => $resultadoFinalComportamento
+        ]);
+
+        // Enviar o email com o PDF anexado
+        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultComportamento', ['fullName' => $fullName, 'resultadoFinalComportamento' => $resultadoFinalComportamento], function($message) use ($pdf, $email) {
+            $message->to($email)
+                    ->subject('Perfil Comportamental - Resultado do Teste')
+                    ->attachData($pdf->output(), 'resultadoComportamento.pdf');
+        });
+
+        return view('layouts/comportamentos/resultComportamento')->with(['fullName' => $fullName, 'resultadoFinalComportamento' => $maiorResultChaveComportamento]);
+    }
+    public function MailResultComportamento() {
+        // Busca dados no banco
+        $user = Auth::user();
+        $email = $user->email;
+
+        \Illuminate\Support\Facades\Mail::to($email)->send(
+            new \App\Mail\MailResultComportamento()
+        );
+
+        return view('layouts/comportamentos/resultComportamento');
     }
 }

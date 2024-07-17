@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comportamentos;
 use App\Models\Questions;
 use App\Models\Temperamentos;
 use App\Models\User;
@@ -49,6 +50,7 @@ class ArchetypefyController extends Controller
 
         $lastQuestion = Questions::where('id', $userID)->first();
         $lastTemper = Temperamentos::where('id', $userID)->first();
+        $lastComportamento = Comportamentos::where('id', $userID)->first();
 
         if ($lastQuestion) {
             $columnNames = array_keys($lastQuestion->getAttributes());
@@ -90,7 +92,7 @@ class ArchetypefyController extends Controller
             if ($firstNullColumnTemper) {
                 if($firstNullColumnTemper == "temper1"){
                     // Não exiba nada
-                } else if ($firstNullColumn == "temper2"){
+                } else if ($firstNullColumnTemper == "temper2"){
                     session(['firstNullColumnTemper' => $firstNullColumnTemper]);
                 }
             } else {
@@ -102,7 +104,33 @@ class ArchetypefyController extends Controller
             session(['firstNullColumnTemper' => $firstNullColumnTemper]);
         }
 
-        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn, 'firstNullColumnTemper' => $firstNullColumnTemper]);
+        if ($lastComportamento) {
+            $columnNamesComportamento = array_keys($lastComportamento->getAttributes());
+            $firstNullColumnComportamento = null;
+
+            foreach ($columnNamesComportamento as $columnComportamento) {
+                if ($lastComportamento->$columnComportamento === null) {
+                    $firstNullColumnComportamento = $columnComportamento;
+                    break;
+                }
+            }
+
+            if ($firstNullColumnComportamento) {
+                if($firstNullColumnComportamento == "comportamento1"){
+                    // Não exiba nada
+                } else if ($firstNullColumnComportamento == "comportamento2"){
+                    session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                }
+            } else {
+                $firstNullColumnComportamento = 'resultComportamento';
+                session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+            }
+        } else {
+            $firstNullColumnComportamento = 'nao_iniciado_Comportamento';
+            session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+        }
+
+        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn, 'firstNullColumnTemper' => $firstNullColumnTemper, 'firstNullColumnComportamento' => $firstNullColumnComportamento]);
     }
     public function Atention() {
         return view('layouts/atention');
