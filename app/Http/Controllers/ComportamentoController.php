@@ -2484,13 +2484,28 @@ class ComportamentoController extends Controller
 
         // Verifica o banco de dados
         $userComportamento = Comportamentos::where('user_id', $userID)->first();
-        dd($userComportamento);
 
+        if ($userComportamento) {
+            $contagem = [
+                'a' => 0,
+                'b' => 0,
+                'c' => 0,
+                'd' => 0
+            ];
 
-        // $maiorResultComportamento = max($resultadosComportamento);
-        // $maiorResultChaveComportamento = array_search($maiorResultComportamento, $resultadosComportamento);
+            $comportamentos = $userComportamento->toArray();
 
-        // $resultadoFinalComportamento = session(['resultadoFinalComportamento' => $maiorResultChaveComportamento]);
+            foreach ($comportamentos as $key => $value) {
+                if (str_starts_with($key, 'comportamento')) {
+                    $contagem[$value]++;
+                }
+            }
+
+            dd('Respostas', 'a: ' . $contagem['a'], 'b: ' . $contagem['b'], 'c: ' . $contagem['c'], 'd: ' . $contagem['d']);
+        } else {
+            dd('No user comportamento found for the given user ID.');
+        }
+
         $fullName = session(['fullName' => $fullName]);
 
         // Gerar o PDF
