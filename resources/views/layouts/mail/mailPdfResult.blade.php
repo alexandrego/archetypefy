@@ -21,7 +21,7 @@
     </div>
 
     <div style="width:100%;font-size:12px;text-align:justify;color:#fff;">
-        @if({{session('resultadoFinal')}} == 'Orfão')
+        @if(session('resultadoFinal') == 'Orfão')
             <p>
                 O arquétipo {{ session('resultadoFinal') }} descreve uma pessoa que busca pertencimento e segurança, enfrentando os desafios da vida com resiliência e realismo. Muitas vezes cético, o Órfão anseia por conexões autênticas e um senso de comunidade.
             </p>
@@ -111,7 +111,7 @@
 
             <p>Este manual completo oferece uma visão abrangente e inspiradora do perfil do {{session('resultadoFinal')}}, proporcionando orientação prática, estratégias de comunicação eficazes e exemplos tangíveis para você que se identifica com esse arquétipo.</p>
 
-        @elseif({{session('resultadoFinal')}} == 'Governante')
+        @elseif(session('resultadoFinal') == 'Governante')
             <p>
                 O arquétipo {{ session('resultadoFinal') }} descreve uma pessoa que é autoritária e responsável, buscando liderança e controle. Com uma forte sensação de dever e uma visão estratégica, ele é voltado para a ordem e a eficiência, criando estruturas e direções para alcançar objetivos e gerenciar recursos.
             </p>
