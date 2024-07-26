@@ -33,13 +33,29 @@
                         <hr>
 
                         <div class="suasCompras">
-                            Seu Comportamento é: {{ session('resultadoFinalComportamento') }}
+                            <!-- Seu Comportamento é: {{ session('resultadoFinalComportamento') }} -->
                         </div>
                     </div>
                 </div>
 
                 <div class="divResultadoFinal">
-                    <p>Nome do Comportamento <span class="resultadoFinal"> {{ session('resultadoFinalComportamento') }} </span></p>
+                    <!-- <p>Nome do Comportamento <span class="resultadoFinal"> {{ session('resultadoFinalComportamento') }} </span></p> -->
+                    <div>
+                        {{session('resultadoFinalComportamentoComunicador')}}
+                    </div>
+
+                    <div>
+                        {{session('resultadoFinalComportamentoExecutor')}}
+                    </div>
+
+                    <div>
+                        {{session('resultadoFinalComportamentoAnalitico')}}
+                    </div>
+
+                    <div>
+                        {{session('resultadoFinalComportamentoPlanejador')}}
+                    </div>
+
                     <p class="avisoResultado">Enviamos o PDF com o resultado detalhado para seu e-mail, favor consultar a caixa de entrada, caixa de spam e outros!</p>
                 </div>
                 <div class="suporte">

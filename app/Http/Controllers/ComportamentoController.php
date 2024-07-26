@@ -2493,35 +2493,63 @@ class ComportamentoController extends Controller
                 'd' => 0
             ];
 
+            // Convert the userComportamento object to an array
             $comportamentos = $userComportamento->toArray();
 
+            // Count the occurrences of each response
             foreach ($comportamentos as $key => $value) {
                 if (str_starts_with($key, 'comportamento')) {
                     $contagem[$value]++;
                 }
             }
 
-            dd('Respostas', 'a: ' . $contagem['a'], 'b: ' . $contagem['b'], 'c: ' . $contagem['c'], 'd: ' . $contagem['d']);
+            // Calculate total responses
+            $totalResponses = array_sum($contagem);
+
+            // Initialize percentage variables
+            $percentA = $percentB = $percentC = $percentD = 0;
+
+            // Calculate percentages for each response
+            if ($totalResponses > 0) {
+                $percentA = ($contagem['a'] / $totalResponses) * 100;
+                $percentB = ($contagem['b'] / $totalResponses) * 100;
+                $percentC = ($contagem['c'] / $totalResponses) * 100;
+                $percentD = ($contagem['d'] / $totalResponses) * 100;
+            }
+
+            // Prepare the output
+            $output = '';
+            $outputComunicador1 = $output .= 'Comunicador: ' . number_format($percentA, 2) . '%';
+            $outputExecutor1 = $output .= 'Executor: ' . number_format($percentB, 2) . '%';
+            $outputAnalitico1 = $output .= 'Analítico: ' . number_format($percentC, 2) . '%';
+            $outputPlanejador1 = $output .= 'Planejador: ' . number_format($percentD, 2) . '%';
+
+            // dd($output);
         } else {
             dd('No user comportamento found for the given user ID.');
         }
 
+
         $fullName = session(['fullName' => $fullName]);
+        $outputComunicador = session(['resultadoFinalComportamentoComunicador' => $outputComunicador1]);
+        $outputExecutor = session(['resultadoFinalComportamentoExecutor' => $outputExecutor1]);
+        $outputAnalitico = session(['resultadoFinalComportamentoAnalitico' => $outputAnalitico1]);
+        $outputPlanejador = session(['resultadoFinalComportamentoPlanejador' => $outputPlanejador1]);
 
         // Gerar o PDF
-        $pdf = PDF::loadView('layouts.mail.mailPdfResultComportamento', [
-            'fullName' => $fullName,
-            'resultadoFinalComportamento' => $resultadoFinalComportamento
-        ]);
+        // $pdf = PDF::loadView('layouts.mail.mailPdfResultComportamento', [
+        //     'fullName' => $fullName,
+        //     'resultadoFinalComportamento' => $resultadoFinalComportamento
+        // ]);
 
         // Enviar o email com o PDF anexado
-        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultComportamento', ['fullName' => $fullName, 'resultadoFinalComportamento' => $resultadoFinalComportamento], function($message) use ($pdf, $email) {
-            $message->to($email)
-                    ->subject('Perfil Comportamental - Resultado do Teste')
-                    ->attachData($pdf->output(), 'resultadoComportamento.pdf');
-        });
+        // \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultComportamento', ['fullName' => $fullName, 'resultadoFinalComportamento' => $resultadoFinalComportamento], function($message) use ($pdf, $email) {
+        //     $message->to($email)
+        //             ->subject('Perfil Comportamental - Resultado do Teste')
+        //             ->attachData($pdf->output(), 'resultadoComportamento.pdf');
+        // });
 
-        return view('layouts/comportamentos/resultComportamento')->with(['fullName' => $fullName, 'resultadoFinalComportamento' => $maiorResultChaveComportamento]);
+        return view('layouts/comportamentos/resultComportamento')->with(['fullName' => $fullName, 'resultadoFinalComportamentoComunicador' => $outputComunicador, 'resultadoFinalComportamentoExecutor' => $outputExecutor, 'resultadoFinalComportamentoAnalitico' => $outputAnalitico, 'resultadoFinalComportamentoPlanejador' => $outputPlanejador]);
     }
     public function MailResultComportamento() {
         // Busca dados no banco
