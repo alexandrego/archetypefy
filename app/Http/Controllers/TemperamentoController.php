@@ -22,6 +22,7 @@ class TemperamentoController extends Controller
 
             return view('layouts/temper/temper1')->with(['answer' => $answer]);
         } else {
+            $answer = session()->forget('answer');
             return view('layouts/temper/temper1');
         }
     }
