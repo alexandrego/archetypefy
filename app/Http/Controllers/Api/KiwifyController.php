@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 // client_secret = 9b2c4f9467bd0668d69264452caca0e839243ef7fed5ca90e3a1e5113f9402c3
@@ -26,10 +27,20 @@ class KiwifyController extends Controller
             // $orderData = $data['webhook_event_type'];
 
             // Salvar os dados do cliente no banco de dados
-            $customer = Customer::updateOrCreate(
+            // $customer = Customer::updateOrCreate(
+            //     ['email' => $customerData['email']],
+            //     $customerData
+            // );
+            Customer::updateOrCreate(
                 ['email' => $customerData['email']],
                 $customerData
             );
+
+            User::updateOrCreate([
+                'name' => $customerData['full_name'],
+                'email' => $customerData['email'],
+                'mobile' => $customerData['mobile'],
+            ]);
 
             // Retornar uma resposta de sucesso
             return response()->json(['message' => 'Webhook recebido e dados salvos com sucesso'], 200);

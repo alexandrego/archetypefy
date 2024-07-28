@@ -19,10 +19,10 @@
             <div class="formulario">
                 <form action="/dataArchetypefy" method="POST" onsubmit="entrar()">
                 @csrf
-                <fieldset>
+                <!-- <fieldset>
                     <legend>Nome</legend>
                     <input type="text" id="nome" name="nome" placeholder="Informe seu nome" required />
-                </fieldset>
+                </fieldset> -->
 
                 <div class="message roboto-thin">
                     Seja bem-vindo! Para realizar o seu teste, por favor, utilize o mesmo e-mail utilizado na compra. (Atenção: certifique-se de que o e-mail está correto, pois será nele que será enviado o resultado).
@@ -33,10 +33,10 @@
                     <input type="text" id="email" name="email" placeholder="Informe o e-mail utilizado na compra" required />
                 </fieldset>
 
-                <fieldset>
+                <!-- <fieldset>
                     <legend>Celular</legend>
                     <input type="text" id="celular" name="celular" placeholder="Informe seu WhastApp (XX) X.XXXX-XXXX" maxlength="15" onkeyup="handlePhone(event)" required />
-                </fieldset>
+                </fieldset> -->
 
                 <div id="buttonCadastrar" class="buttonCadastrar">
                     <button>Entrar</button>
