@@ -40,6 +40,7 @@ class KiwifyController extends Controller
                 'name' => $customerData['full_name'],
                 'email' => $customerData['email'],
                 'mobile' => $customerData['mobile'],
+                $customerData
             ]);
 
             // Retornar uma resposta de sucesso
