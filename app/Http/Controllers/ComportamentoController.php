@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comportamentos;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -2475,6 +2476,68 @@ class ComportamentoController extends Controller
         }
     }
 
+    public function ResultPdfComportamento(Request $request) {
+        $user = Auth::user();
+        $fullName = $user->name;
+        $email = $user->email;
+        $userID = $user->id;
+
+        // Verifica o banco de dados
+        $userComportamento = Comportamentos::where('user_id', $userID)->first();
+
+        if ($userComportamento) {
+            $contagem = [
+                'a' => 0,
+                'b' => 0,
+                'c' => 0,
+                'd' => 0
+            ];
+
+            // Convert the userComportamento object to an array
+            $comportamentos = $userComportamento->toArray();
+
+            // Count the occurrences of each response
+            foreach ($comportamentos as $key => $value) {
+                if (str_starts_with($key, 'comportamento')) {
+                    $contagem[$value]++;
+                }
+            }
+
+            // Calculate total responses
+            $totalResponses = array_sum($contagem);
+
+            // Initialize percentage variables
+            $percentA = $percentB = $percentC = $percentD = 0;
+
+            // Calculate percentages for each response
+            if ($totalResponses > 0) {
+                $percentA = ($contagem['a'] / $totalResponses) * 100;
+                $percentB = ($contagem['b'] / $totalResponses) * 100;
+                $percentC = ($contagem['c'] / $totalResponses) * 100;
+                $percentD = ($contagem['d'] / $totalResponses) * 100;
+            }
+
+            // Prepare the output
+            $output = '';
+            $output .= 'Comunicador: ' . number_format($percentA, 2) . '%;';
+            $output .= 'Executor: ' . number_format($percentB, 2) . '%;';
+            $output .= 'Analítico: ' . number_format($percentC, 2) . '%;';
+            $output .= 'Planejador: ' . number_format($percentD, 2) . '%;';
+
+            $output = explode(';', $output);
+        } else {
+            dd('No user comportamento found for the given user ID.');
+        }
+
+        session(['fullName' => $fullName]);
+        session(['output' => $output]);
+
+        return view('layouts.mail.mailPdfResultComportamento')->with(
+            [
+                'fullName' => $fullName,
+                'output' => $output
+            ]);
+    }
 
     public function ResultComportamento(Request $request) {
         $user = Auth::user();
@@ -2519,37 +2582,41 @@ class ComportamentoController extends Controller
 
             // Prepare the output
             $output = '';
-            $outputComunicador1 = $output .= 'Comunicador: ' . number_format($percentA, 2) . '%';
-            $outputExecutor1 = $output .= 'Executor: ' . number_format($percentB, 2) . '%';
-            $outputAnalitico1 = $output .= 'Analítico: ' . number_format($percentC, 2) . '%';
-            $outputPlanejador1 = $output .= 'Planejador: ' . number_format($percentD, 2) . '%';
+            $output .= 'Comunicador: ' . number_format($percentA, 2) . '%;';
+            $output .= 'Executor: ' . number_format($percentB, 2) . '%;';
+            $output .= 'Analítico: ' . number_format($percentC, 2) . '%;';
+            $output .= 'Planejador: ' . number_format($percentD, 2) . '%;';
 
-            // dd($output);
+            $output = explode(';', $output);
         } else {
             dd('No user comportamento found for the given user ID.');
         }
 
-
-        $fullName = session(['fullName' => $fullName]);
-        $outputComunicador = session(['resultadoFinalComportamentoComunicador' => $outputComunicador1]);
-        $outputExecutor = session(['resultadoFinalComportamentoExecutor' => $outputExecutor1]);
-        $outputAnalitico = session(['resultadoFinalComportamentoAnalitico' => $outputAnalitico1]);
-        $outputPlanejador = session(['resultadoFinalComportamentoPlanejador' => $outputPlanejador1]);
+        session(['fullName' => $fullName]);
+        session(['output' => $output]);
 
         // Gerar o PDF
-        // $pdf = PDF::loadView('layouts.mail.mailPdfResultComportamento', [
-        //     'fullName' => $fullName,
-        //     'resultadoFinalComportamento' => $resultadoFinalComportamento
-        // ]);
+        $pdf = PDF::loadView('layouts.mail.mailPdfResultComportamento', [
+            'fullName' => $fullName,
+            'output' => $output
+        ]);
 
         // Enviar o email com o PDF anexado
-        // \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultComportamento', ['fullName' => $fullName, 'resultadoFinalComportamento' => $resultadoFinalComportamento], function($message) use ($pdf, $email) {
-        //     $message->to($email)
-        //             ->subject('Perfil Comportamental - Resultado do Teste')
-        //             ->attachData($pdf->output(), 'resultadoComportamento.pdf');
-        // });
+        \Illuminate\Support\Facades\Mail::send('layouts.mail.mailResultComportamento',
+        [
+            'fullName' => $fullName,
+            'output' => $output
+        ], function($message) use ($pdf, $email) {
+            $message->to($email)
+                    ->subject('Perfil Comportamental - Resultado do Teste')
+                    ->attachData($pdf->output(), 'resultadoComportamento.pdf');
+        });
 
-        return view('layouts/comportamentos/resultComportamento')->with(['fullName' => $fullName, 'resultadoFinalComportamentoComunicador' => $outputComunicador, 'resultadoFinalComportamentoExecutor' => $outputExecutor, 'resultadoFinalComportamentoAnalitico' => $outputAnalitico, 'resultadoFinalComportamentoPlanejador' => $outputPlanejador]);
+        return view('layouts/comportamentos/resultComportamento')->with(
+        [
+            'fullName' => $fullName,
+            'output' => $output
+        ]);
     }
     public function MailResultComportamento() {
         // Busca dados no banco

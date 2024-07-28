@@ -39,22 +39,17 @@
                 </div>
 
                 <div class="divResultadoFinal">
-                    <!-- <p>Nome do Comportamento <span class="resultadoFinal"> {{ session('resultadoFinalComportamento') }} </span></p> -->
-                    <div>
-                        {{session('resultadoFinalComportamentoComunicador')}}
-                    </div>
-
-                    <div>
-                        {{session('resultadoFinalComportamentoExecutor')}}
-                    </div>
-
-                    <div>
-                        {{session('resultadoFinalComportamentoAnalitico')}}
-                    </div>
-
-                    <div>
-                        {{session('resultadoFinalComportamentoPlanejador')}}
-                    </div>
+                    @if(is_array(session('output')))
+                        <div class="listaResultComportamentos">
+                            @foreach(session('output') as $item)
+                                <div class="resultComportamento">
+                                    {{ $item }}
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div>{{ session('output') }}</div>
+                    @endif
 
                     <p class="avisoResultado">Enviamos o PDF com o resultado detalhado para seu e-mail, favor consultar a caixa de entrada, caixa de spam e outros!</p>
                 </div>

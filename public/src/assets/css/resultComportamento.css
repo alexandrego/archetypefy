@@ -1,0 +1,11 @@
+.listaResultComportamentos {
+    width: 100%;
+}
+.resultComportamento {
+    max-width: 100%;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

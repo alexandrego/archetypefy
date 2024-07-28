@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="src/assets/css/startTest.css">
   <link rel="stylesheet" href="src/assets/css/questions.css">
   <link rel="stylesheet" href="src/assets/css/result.css">
+  <link rel="stylesheet" href="src/assets/css/resultComportamento.css">
 
   <!-- Scripts -->
   <script src="src/assets/js/scripts.js"></script>
