@@ -36,11 +36,13 @@ class KiwifyController extends Controller
                 $customerData
             );
 
-            User::updateOrCreate([
+            User::updateOrCreate(
+            ['email' => $customerData['email']], // Condição para encontrar o usuário
+
+            [
                 'name' => $customerData['full_name'],
                 'email' => $customerData['email'],
-                'mobile' => $customerData['mobile'],
-                $customerData
+                'mobile' => $customerData['mobile']
             ]);
 
             // Retornar uma resposta de sucesso
