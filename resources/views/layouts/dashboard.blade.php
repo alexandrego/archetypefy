@@ -9,7 +9,9 @@
                 <div class="logout">
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-danger">Sair</button>
+                        <button type="submit" class="btn btn-danger">
+                            <img src="src/assets/img/out.svg" />Sair
+                        </button>
                     </form>
                 </div>
             @endauth
