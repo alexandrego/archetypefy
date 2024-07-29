@@ -87,191 +87,191 @@
                                     </div>
                                 @elseif($firstNullColumn == 'question_3')
                                     <div class="cardDesc">
-                                        <a href="../question3">Continuar</a>
+                                        <a href="../question3">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_4')
                                     <div class="cardDesc">
-                                        <a href="../question4">Continuar</a>
+                                        <a href="../question4">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_5')
                                     <div class="cardDesc">
-                                        <a href="../question5">Continuar</a>
+                                        <a href="../question5">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_6')
                                     <div class="cardDesc">
-                                        <a href="../question6">Continuar</a>
+                                        <a href="../question6">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_7')
                                     <div class="cardDesc">
-                                        <a href="../question7">Continuar</a>
+                                        <a href="../question7">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_8')
                                     <div class="cardDesc">
-                                        <a href="../question8">Continuar</a>
+                                        <a href="../question8">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_9')
                                     <div class="cardDesc">
-                                        <a href="../question9">Continuar</a>
+                                        <a href="../question9">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_10')
                                     <div class="cardDesc">
-                                        <a href="../question10">Continuar</a>
+                                        <a href="../question10">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_11')
                                     <div class="cardDesc">
-                                        <a href="../question11">Continuar</a>
+                                        <a href="../question11">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_12')
                                     <div class="cardDesc">
-                                        <a href="../question12">Continuar</a>
+                                        <a href="../question12">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_13')
                                     <div class="cardDesc">
-                                        <a href="../question13">Continuar</a>
+                                        <a href="../question13">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_14')
                                     <div class="cardDesc">
-                                        <a href="../question14">Continuar</a>
+                                        <a href="../question14">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_15')
                                     <div class="cardDesc">
-                                        <a href="../question15">Continuar</a>
+                                        <a href="../question15">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_16')
                                     <div class="cardDesc">
-                                        <a href="../question16">Continuar</a>
+                                        <a href="../question16">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_17')
                                     <div class="cardDesc">
-                                        <a href="../question17">Continuar</a>
+                                        <a href="../question17">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_18')
                                     <div class="cardDesc">
-                                        <a href="../question18">Continuar</a>
+                                        <a href="../question18">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_19')
                                     <div class="cardDesc">
-                                        <a href="../question19">Continuar</a>
+                                        <a href="../question19">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_20')
                                     <div class="cardDesc">
-                                        <a href="../question20">Continuar</a>
+                                        <a href="../question20">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_21')
                                     <div class="cardDesc">
-                                        <a href="../question21">Continuar</a>
+                                        <a href="../question21">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_22')
                                     <div class="cardDesc">
-                                        <a href="../question22">Continuar</a>
+                                        <a href="../question22">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_23')
                                     <div class="cardDesc">
-                                        <a href="../question23">Continuar</a>
+                                        <a href="../question23">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_24')
                                     <div class="cardDesc">
-                                        <a href="../question24">Continuar</a>
+                                        <a href="../question24">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_25')
                                     <div class="cardDesc">
-                                        <a href="../question25">Continuar</a>
+                                        <a href="../question25">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_26')
                                     <div class="cardDesc">
-                                        <a href="../question26">Continuar</a>
+                                        <a href="../question26">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_27')
                                     <div class="cardDesc">
-                                        <a href="../question27">Continuar</a>
+                                        <a href="../question27">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_28')
                                     <div class="cardDesc">
-                                        <a href="../question28">Continuar</a>
+                                        <a href="../question28">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_29')
                                     <div class="cardDesc">
-                                        <a href="../question29">Continuar</a>
+                                        <a href="../question29">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_30')
                                     <div class="cardDesc">
-                                        <a href="../question30">Continuar</a>
+                                        <a href="../question30">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_31')
                                     <div class="cardDesc">
-                                        <a href="../question31">Continuar</a>
+                                        <a href="../question31">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_32')
                                     <div class="cardDesc">
-                                        <a href="../question32">Continuar</a>
+                                        <a href="../question32">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_33')
                                     <div class="cardDesc">
-                                        <a href="../question33">Continuar</a>
+                                        <a href="../question33">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_34')
                                     <div class="cardDesc">
-                                        <a href="../question34">Continuar</a>
+                                        <a href="../question34">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_35')
                                     <div class="cardDesc">
-                                        <a href="../question35">Continuar</a>
+                                        <a href="../question35">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_36')
                                     <div class="cardDesc">
-                                        <a href="../question36">Continuar</a>
+                                        <a href="../question36">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_37')
                                     <div class="cardDesc">
-                                        <a href="../question37">Continuar</a>
+                                        <a href="../question37">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_38')
                                     <div class="cardDesc">
-                                        <a href="../question38">Continuar</a>
+                                        <a href="../question38">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_39')
                                     <div class="cardDesc">
-                                        <a href="../question39">Continuar</a>
+                                        <a href="../question39">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_40')
                                     <div class="cardDesc">
-                                        <a href="../question40">Continuar</a>
+                                        <a href="../question40">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_41')
                                     <div class="cardDesc">
-                                        <a href="../question41">Continuar</a>
+                                        <a href="../question41">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_42')
                                     <div class="cardDesc">
-                                        <a href="../question42">Continuar</a>
+                                        <a href="../question42">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_43')
                                     <div class="cardDesc">
-                                        <a href="../question43">Continuar</a>
+                                        <a href="../question43">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_44')
                                     <div class="cardDesc">
-                                        <a href="../question44">Continuar</a>
+                                        <a href="../question44">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_45')
                                     <div class="cardDesc">
-                                        <a href="../question45">Continuar</a>
+                                        <a href="../question45">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_46')
                                     <div class="cardDesc">
-                                        <a href="../question46">Continuar</a>
+                                        <a href="../question46">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_47')
                                     <div class="cardDesc">
-                                        <a href="../question47">Continuar</a>
+                                        <a href="../question47">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_48')
                                     <div class="cardDesc">
-                                        <a href="../question48">Continuar</a>
+                                        <a href="../question48">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'result')
                                     <div class="cardDesc">
-                                        <a href="../result">Ver resultado</a>
+                                        <a href="../result">Ver resultado <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @endif
                             </div>
