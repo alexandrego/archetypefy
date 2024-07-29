@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="compras">
-                    @if($firstNullColumn == 0)
+                    @if($firstNullColumn == '0')
                         <a href="/atention">
                             <div class="card" title="Clique para começar o teste!">
                                 <div class="cardImgAr">
