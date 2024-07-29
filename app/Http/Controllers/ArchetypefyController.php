@@ -72,10 +72,10 @@ class ArchetypefyController extends Controller
                         break;
                     }
                 }
-                // dd($firstNullColumn);
+                dd($firstNullColumn);
             } else {
-                $firstTime;
-                dd($firstTime);
+                $firstNullColumn = 'result';
+                dd($firstNullColumn);
             }
         }
 
