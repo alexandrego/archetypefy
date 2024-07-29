@@ -56,6 +56,7 @@ class ArchetypefyController extends Controller
         // $firstTime = $lastQuestion->times_exec;
         if (empty($lastQuestion->times_exec)) {
             // $firstTime = 0;
+            dd($lastQuestion);
 
             if ($lastQuestion) {
                 $columnNames = array_keys($lastQuestion->getAttributes());
