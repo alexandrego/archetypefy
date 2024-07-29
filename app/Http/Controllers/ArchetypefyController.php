@@ -53,6 +53,9 @@ class ArchetypefyController extends Controller
         $lastTemper = Temperamentos::where('id', $userID)->first();
         $lastComportamento = Comportamentos::where('id', $userID)->first();
 
+        $firstTime = $lastQuestion->times_exec;
+        dd($firstTime);
+
         if ($lastQuestion) {
             $columnNames = array_keys($lastQuestion->getAttributes());
             $firstNullColumn = null;
