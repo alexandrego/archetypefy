@@ -54,7 +54,6 @@
 }
 .cardImg {
     width: 100%;
-    /* border: 1px solid rgba(184, 116, 46, 1); */
 
     display: flex;
     flex-direction: column;
@@ -63,6 +62,17 @@
 }
 .cardImg img {
     width: 50px;
+}
+.cardImgAr {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cardImgAr img {
+    width: 115px;
 }
 .cardDesc {
     width: 140px;

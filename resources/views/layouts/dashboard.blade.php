@@ -41,7 +41,7 @@
                     @if($firstNullColumn == 0)
                         <a href="/atention">
                             <div class="card" title="Clique para começar o teste!">
-                                <div class="cardImg">
+                                <div class="cardImgAr">
                                     <img src="src/assets/img/teste.svg" />
                                 </div>
                                 <div class="cardDesc">
@@ -72,7 +72,7 @@
                     @else
                         {{-- <a href="/atention"> --}}
                             <div class="card" title="Clique para continuar o teste!">
-                                <div class="cardImg">
+                                <div class="cardImgAr">
                                     <img src="src/assets/img/teste.svg" />
                                 </div>
                                 <div class="cardDesc">
