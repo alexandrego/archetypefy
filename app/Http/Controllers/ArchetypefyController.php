@@ -143,7 +143,7 @@ class ArchetypefyController extends Controller
         return view('layouts/dashboard')->with(
             [
                 'firstName' => $firstName,
-                'firstTime' => $firstTime,
+                // 'firstTime' => $firstTime,
                 'firstNullColumn' => $firstNullColumn,
                 'firstNullColumnTemper' => $firstNullColumnTemper,
                 'firstNullColumnComportamento' => $firstNullColumnComportamento
