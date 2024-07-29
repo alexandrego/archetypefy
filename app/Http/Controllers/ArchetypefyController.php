@@ -70,7 +70,7 @@ class ArchetypefyController extends Controller
             }
 
             if ($firstNullColumn) {
-                if($firstNullColumn === "question_1"){
+                if($firstNullColumn == "question_1"){
                     // Exibe inicar teste
                     $firstNullColumn = "iniciar";
                     dd($firstNullColumn);
