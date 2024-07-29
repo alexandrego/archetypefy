@@ -51,13 +51,17 @@ class ArchetypefyController extends Controller
 
         $lastQuestion = Questions::where('user_id', $userID)->first();
         // $lastQuestion = Questions::latest()->first(); // Exemplo de busca pela última pergunta
-        dd($lastQuestion);
+        // dd($lastQuestion);
         $lastTemper = Temperamentos::where('id', $userID)->first();
         $lastComportamento = Comportamentos::where('id', $userID)->first();
 
         // $firstTime = $lastQuestion->times_exec;
-        if (empty($lastQuestion->times_exec)) {
-            // $firstTime = 0;
+        if (empty($lastQuestion)) {
+
+            $firstNullColumn = 0;
+            dd($firstNullColumn);
+
+        } else {
 
             $columnNames = array_keys($lastQuestion->getAttributes());
             $firstNullColumn = null;
