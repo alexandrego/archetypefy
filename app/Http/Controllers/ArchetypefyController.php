@@ -55,36 +55,37 @@ class ArchetypefyController extends Controller
 
         // $firstTime = $lastQuestion->times_exec;
         if (empty($lastQuestion->times_exec)) {
-            $firstTime = 0;
-        }
+            // $firstTime = 0;
 
-        if ($lastQuestion) {
-            $columnNames = array_keys($lastQuestion->getAttributes());
-            $firstNullColumn = null;
+            if ($lastQuestion) {
+                $columnNames = array_keys($lastQuestion->getAttributes());
+                $firstNullColumn = null;
 
-            foreach ($columnNames as $column) {
-                if ($lastQuestion->$column === null) {
-                    $firstNullColumn = $column;
-                    break;
+                foreach ($columnNames as $column) {
+                    if ($lastQuestion->$column == null) {
+                        $firstNullColumn = $column;
+                        break;
+                    }
                 }
-            }
+                dd($firstNullColumn);
 
-            if ($firstNullColumn) {
-                if($firstNullColumn == "question_1"){
-                    // Exibe inicar teste
-                    $firstNullColumn = "iniciar";
-                    dd($firstNullColumn);
-                    session(['firstNullColumn' => $firstNullColumn]);
+                if ($firstNullColumn) {
+                    if($firstNullColumn == "question_1"){
+                        // Exibe inicar teste
+                        $firstNullColumn = "iniciar";
+                        dd($firstNullColumn);
+                        session(['firstNullColumn' => $firstNullColumn]);
+                    } else {
+                        session(['firstNullColumn' => $firstNullColumn]);
+                    }
                 } else {
+                    $firstNullColumn = 'result';
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
             } else {
-                $firstNullColumn = 'result';
+                $firstNullColumn = 'nao_iniciado';
                 session(['firstNullColumn' => $firstNullColumn]);
             }
-        } else {
-            $firstNullColumn = 'nao_iniciado';
-            session(['firstNullColumn' => $firstNullColumn]);
         }
 
         if ($lastTemper) {
