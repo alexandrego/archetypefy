@@ -49,8 +49,8 @@ class ArchetypefyController extends Controller
 
         session(['firstName' => $firstName]);
 
-        // $lastQuestion = Questions::where('id', $userID)->first();
-        $lastQuestion = Questions::latest()->first(); // Exemplo de busca pela última pergunta
+        $lastQuestion = Questions::where('user_id', $userID)->first();
+        // $lastQuestion = Questions::latest()->first(); // Exemplo de busca pela última pergunta
         dd($lastQuestion);
         $lastTemper = Temperamentos::where('id', $userID)->first();
         $lastComportamento = Comportamentos::where('id', $userID)->first();
