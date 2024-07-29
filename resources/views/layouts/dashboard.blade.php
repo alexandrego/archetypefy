@@ -42,7 +42,7 @@
                         <a href="/atention">
                             <div class="card" title="Clique para começar o teste!">
                                 <div class="cardImg">
-                                    <img src="src/assets/img/cardEnabled.svg" />
+                                    <img src="src/assets/img/teste.svg" />
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
@@ -52,11 +52,28 @@
                                 </div>
                             </div>
                         </a>
+                    @elseif($firstNullColumn == 'result')
+                        <a href="/result">
+                            <div class="card" title="Clique para ver o resultado!">
+                                <div class="testeOk">
+                                    <img src="src/assets/img/ok.svg"/>
+                                </div>
+                                <div class="cardImg">
+                                    <img src="src/assets/img/prancheta.svg" />
+                                </div>
+                                <div class="cardDesc">
+                                    Identidade de Arquétipo
+                                </div>
+                                <div class="cardDesc">
+                                    <a href="../result">Ver resultado</a>
+                                </div>
+                            </div>
+                        </a>
                     @else
                         {{-- <a href="/atention"> --}}
                             <div class="card" title="Clique para continuar o teste!">
                                 <div class="cardImg">
-                                    <img src="src/assets/img/cardEnabled.svg" />
+                                    <img src="src/assets/img/teste.svg" />
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
