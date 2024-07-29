@@ -10,7 +10,7 @@
                     <form action="/logout" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-danger">
-                            <img src="src/assets/img/out.svg" />Sair
+                            <img src="src/assets/img/out.svg" class="btnOut" />Sair
                         </button>
                     </form>
                 </div>
@@ -50,7 +50,7 @@
                                     Identidade de Arquétipo
                                 </div>
                                 <div class="cardDesc">
-                                    <a href="../atention">Iniciar</a>
+                                    <a href="../atention">Iniciar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                 </div>
                             </div>
                         </a>
