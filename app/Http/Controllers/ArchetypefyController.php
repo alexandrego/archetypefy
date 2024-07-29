@@ -52,37 +52,26 @@ class ArchetypefyController extends Controller
         $lastQuestion = Questions::where('user_id', $userID)->first();
         // $lastQuestion = Questions::latest()->first(); // Exemplo de busca pela última pergunta
         // dd($lastQuestion);
-        $lastTemper = Temperamentos::where('id', $userID)->first();
-        $lastComportamento = Comportamentos::where('id', $userID)->first();
+        $lastTemper = Temperamentos::where('user_id', $userID)->first();
+        $lastComportamento = Comportamentos::where('user_id', $userID)->first();
 
-        // $firstTime = $lastQuestion->times_exec;
         if (empty($lastQuestion)) {
-
+            // Informa que não tem teste iniciado
             $firstNullColumn = 0;
-            // dd($firstNullColumn);
 
         } else {
+            $firstTime = $lastQuestion->times_exec; //Verifica se é a primeira vez
 
-            $columnNames = array_keys($lastQuestion->getAttributes());
-            $firstNullColumn = null;
+            if(empty($firstTime)){
+                $columnNames = array_keys($lastQuestion->getAttributes());
+                $firstNullColumn = null;
 
-            foreach ($columnNames as $column) {
-                if ($lastQuestion->$column == null) {
-                    $firstNullColumn = $column;
-                    break;
+                foreach ($columnNames as $column) {
+                    if ($lastQuestion->$column == null) {
+                        $firstNullColumn = $column;
+                        break;
+                    }
                 }
-            }
-
-            // if ($lastQuestion) {
-                // $columnNames = array_keys($lastQuestion->getAttributes());
-                // $firstNullColumn = null;
-
-                // foreach ($columnNames as $column) {
-                //     if ($lastQuestion->$column == null) {
-                //         $firstNullColumn = $column;
-                //         break;
-                //     }
-                // }
                 dd($firstNullColumn);
 
                 if ($firstNullColumn) {
@@ -98,10 +87,7 @@ class ArchetypefyController extends Controller
                     $firstNullColumn = 'result';
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
-            // } else {
-            //     $firstNullColumn = 'nao_iniciado';
-            //     session(['firstNullColumn' => $firstNullColumn]);
-            // }
+            }
         }
 
         if ($lastTemper) {

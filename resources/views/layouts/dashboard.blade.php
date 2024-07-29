@@ -48,7 +48,7 @@
                                     Identidade de Arquétipo
                                 </div>
                                 <div class="cardDesc">
-                                    <a>Iniciar</a>
+                                    <a href="../atention">Iniciar</a>
                                 </div>
                             </div>
                         </a>
