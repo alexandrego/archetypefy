@@ -56,18 +56,28 @@ class ArchetypefyController extends Controller
         // $firstTime = $lastQuestion->times_exec;
         if (empty($lastQuestion->times_exec)) {
             // $firstTime = 0;
-            dd($lastQuestion);
+
+            $columnNames = array_keys($lastQuestion->getAttributes());
+            $firstNullColumn = null;
+
+            foreach ($columnNames as $column) {
+                if ($lastQuestion->$column == null) {
+                    $firstNullColumn = $column;
+                    break;
+                }
+            }
+            dd($firstNullColumn);
 
             if ($lastQuestion) {
-                $columnNames = array_keys($lastQuestion->getAttributes());
-                $firstNullColumn = null;
+                // $columnNames = array_keys($lastQuestion->getAttributes());
+                // $firstNullColumn = null;
 
-                foreach ($columnNames as $column) {
-                    if ($lastQuestion->$column == null) {
-                        $firstNullColumn = $column;
-                        break;
-                    }
-                }
+                // foreach ($columnNames as $column) {
+                //     if ($lastQuestion->$column == null) {
+                //         $firstNullColumn = $column;
+                //         break;
+                //     }
+                // }
                 dd($firstNullColumn);
 
                 if ($firstNullColumn) {
