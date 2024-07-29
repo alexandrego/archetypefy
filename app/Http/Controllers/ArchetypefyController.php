@@ -59,7 +59,7 @@ class ArchetypefyController extends Controller
         if (empty($lastQuestion)) {
 
             $firstNullColumn = 0;
-            dd($firstNullColumn);
+            // dd($firstNullColumn);
 
         } else {
 
