@@ -83,7 +83,7 @@
 
                                 @if($firstNullColumn == 'question_2')
                                     <div class="cardDesc">
-                                        <a href="../question2">Continuar</a>
+                                        <a href="../question2">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_3')
                                     <div class="cardDesc">
