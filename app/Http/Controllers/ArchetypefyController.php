@@ -57,7 +57,6 @@ class ArchetypefyController extends Controller
         if (empty($lastQuestion->times_exec)) {
             $firstTime = 0;
         }
-        dd($firstTime);
 
         if ($lastQuestion) {
             $columnNames = array_keys($lastQuestion->getAttributes());
@@ -143,6 +142,7 @@ class ArchetypefyController extends Controller
         return view('layouts/dashboard')->with(
             [
                 'firstName' => $firstName,
+                'firstTime' => $firstTime,
                 'firstNullColumn' => $firstNullColumn,
                 'firstNullColumnTemper' => $firstNullColumnTemper,
                 'firstNullColumnComportamento' => $firstNullColumnComportamento
