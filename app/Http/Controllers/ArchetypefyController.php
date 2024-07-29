@@ -67,9 +67,8 @@ class ArchetypefyController extends Controller
                     break;
                 }
             }
-            dd($firstNullColumn);
 
-            if ($lastQuestion) {
+            // if ($lastQuestion) {
                 // $columnNames = array_keys($lastQuestion->getAttributes());
                 // $firstNullColumn = null;
 
@@ -94,10 +93,10 @@ class ArchetypefyController extends Controller
                     $firstNullColumn = 'result';
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
-            } else {
-                $firstNullColumn = 'nao_iniciado';
-                session(['firstNullColumn' => $firstNullColumn]);
-            }
+            // } else {
+            //     $firstNullColumn = 'nao_iniciado';
+            //     session(['firstNullColumn' => $firstNullColumn]);
+            // }
         }
 
         if ($lastTemper) {
