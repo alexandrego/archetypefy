@@ -9,7 +9,7 @@
                 <div class="logout">
                     <form action="/dashboard" method="GET">
                         @csrf
-                        <button type="submit" class="btn btn-danger">Voltar</button>
+                        <button type="submit" class="btn btn-danger"> <img src="src/assets/img/back.svg" class="btnBackStartTest" />Voltar</button>
                     </form>
                 </div>
             @endauth
