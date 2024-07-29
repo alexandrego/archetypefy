@@ -176,21 +176,45 @@ class ArchetypefyController extends Controller
             $newUserEmail = $user->email;
             $newUserMobile = $user->mobile;
 
-            dd($newUserName, $newUserEmail, $newUserMobile);
+            // dd($newUserName, $newUserEmail, $newUserMobile);
 
-            // Atualiza a senha do usuário
-            // $user->password = Hash::make($confirmCode);
-            // $user->save();
+            // Verifica se o email existe no banco de dados
+            $user = User::where('email', $email)->first();
+            if ($user) {
+                // Atualiza a senha do usuário
+                $user->password = Hash::make($confirmCode);
+                $user->save();
 
-            // Envia dados por e-mail
-            return redirect('/mailCode')->with(
-                [
-                    // 'nome' => $nome,
-                    'email' => $email,
-                    // 'mobile' => $mobile,
-                    'confirmCode' => $confirmCode
-                ]
-            );
+                // Envia dados por e-mail
+                return redirect('/mailCode')->with(
+                    [
+                        // 'nome' => $nome,
+                        'email' => $email,
+                        // 'mobile' => $mobile,
+                        'confirmCode' => $confirmCode
+                    ]
+                );
+            } else {
+                $lead = new User();
+
+                $lead->name = $newUserName;
+                $lead->email = $newUserEmail;
+                $lead->mobile = $newUserMobile;
+                $lead->password = Hash::make($confirmCode);
+                $lead->save();
+
+                // Envia dados por e-mail
+                return redirect('/mailCode')->with(
+                    [
+                        // 'nome' => $nome,
+                        'email' => $newUserEmail,
+                        // 'mobile' => $mobile,
+                        'confirmCode' => $confirmCode
+                    ]
+                );
+            }
+
+
         } else {
             $email   = $request->email;
             // session(['emailNaoEncontrado' => $email]);
