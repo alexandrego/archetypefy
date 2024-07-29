@@ -27,22 +27,10 @@ class KiwifyController extends Controller
             // $orderData = $data['webhook_event_type'];
 
             // Salvar os dados do cliente no banco de dados
-            // $customer = Customer::updateOrCreate(
-            //     ['email' => $customerData['email']],
-            //     $customerData
-            // );
             Customer::updateOrCreate(
                 ['email' => $customerData['email']],
                 $customerData
             );
-
-            $lead = new User();
-
-            $lead->name   = $customerData['full_name'];
-            $lead->email  = $customerData['email'];
-            $lead->mobile = $customerData['mobile'];
-
-            $lead->save();
 
             // Retornar uma resposta de sucesso
             return response()->json(['message' => 'Webhook recebido e dados salvos com sucesso'], 200);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comportamentos;
+use App\Models\Customer;
 use App\Models\Questions;
 use App\Models\Temperamentos;
 use App\Models\User;
@@ -168,12 +169,18 @@ class ArchetypefyController extends Controller
         // $mobile = $request->celular;
 
         // Verifica se o email existe no banco de dados
-        $user = User::where('email', $email)->first();
+        $user = Customer::where('email', $email)->first();
 
         if ($user) {
+            $newUser = $user->full_name;
+            $newUser = $user->email;
+            $newUser = $user->mobile;
+
+            dd($newUser);
+
             // Atualiza a senha do usuário
-            $user->password = Hash::make($confirmCode);
-            $user->save();
+            // $user->password = Hash::make($confirmCode);
+            // $user->save();
 
             // Envia dados por e-mail
             return redirect('/mailCode')->with(
