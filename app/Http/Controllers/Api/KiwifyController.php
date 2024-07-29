@@ -36,14 +36,17 @@ class KiwifyController extends Controller
                 $customerData
             );
 
-            User::updateOrCreate(
-            ['email' => $customerData['email']], // Condição para encontrar o usuário
+            $saveUsers = array(
+                [
+                    'name' => $customerData['full_name'],
+                    'email' => $customerData['email'],
+                    'mobile' => $customerData['mobile']
+                ]);
 
-            [
-                'name' => $customerData['full_name'],
-                'email' => $customerData['email'],
-                'mobile' => $customerData['mobile']
-            ]);
+            User::updateOrCreate(
+                ['email' => $customerData['email']], // Condição para encontrar o usuário
+                $saveUsers
+            );
 
             // Retornar uma resposta de sucesso
             return response()->json(['message' => 'Webhook recebido e dados salvos com sucesso'], 200);

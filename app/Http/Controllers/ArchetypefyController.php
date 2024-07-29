@@ -156,16 +156,16 @@ class ArchetypefyController extends Controller
         $confirmCode =  array_map('strval', array_map('rand', array(0, 1, 2, 3), array(4, 5, 6, 7)));
         $confirmCode = implode('', $confirmCode);
 
-        $lead = new User();
+        // $lead = new User();
 
-        $lead->name = $request->nome;
-        $lead->email = $request->email;
-        $lead->mobile = $request->celular;
-        $lead->password = $confirmCode;
+        // $lead->name = $request->nome;
+        // $lead->email = $request->email;
+        // $lead->mobile = $request->celular;
+        // $lead->password = $confirmCode;
 
-        $nome    = $request->nome;
+        // $nome    = $request->nome;
         $email   = $request->email;
-        $mobile = $request->celular;
+        // $mobile = $request->celular;
 
         // Verifica se o email existe no banco de dados
         $user = User::where('email', $email)->first();
@@ -178,25 +178,28 @@ class ArchetypefyController extends Controller
             // Envia dados por e-mail
             return redirect('/mailCode')->with(
                 [
-                    'nome' => $nome,
+                    // 'nome' => $nome,
                     'email' => $email,
-                    'mobile' => $mobile,
+                    // 'mobile' => $mobile,
                     'confirmCode' => $confirmCode
                 ]
             );
         } else {
+            $email   = $request->email;
+            // session(['emailNaoEncontrado' => $email]);
+            return redirect('/')->with('error', 'Email não encontrado!');
             // Salva os dados no banco de dados
-            $lead->save();
+            // $lead->save();
 
             // Envia dados por e-mail
-            return redirect('/mailCode')->with(
-                [
-                    'nome' => $nome,
-                    'email' => $email,
-                    'mobile' => $mobile,
-                    'confirmCode' => $confirmCode
-                ]
-            );
+            // return redirect('/mailCode')->with(
+            //     [
+            //         'nome' => $nome,
+            //         'email' => $email,
+            //         'mobile' => $mobile,
+            //         'confirmCode' => $confirmCode
+            //     ]
+            // );
         }
     }
 }
