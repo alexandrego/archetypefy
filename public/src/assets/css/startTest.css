@@ -5,7 +5,7 @@
 .messageStartTest p {
     color: rgba(68, 68, 68, 1);
 }
-.btnBack {
+.btnBackStartTest {
     width: 28px;
-    margin: 0 0 0 8px;
+    margin: 0 8px 0 0;
 }

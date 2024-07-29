@@ -9,7 +9,7 @@
                 <div class="logout">
                     <form action="/atention" method="GET">
                         @csrf
-                        <button type="submit" class="btn btn-danger"> <img src="src/assets/img/back.svg" class="btnBack" />Voltar</button>
+                        <button type="submit" class="btn btn-danger"> <img src="src/assets/img/back.svg" class="btnBackStartTest" />Voltar</button>
                     </form>
                 </div>
             @endauth
@@ -29,7 +29,7 @@
           </div>
 
           <div class="buttonCadastrar">
-            <button>Começar teste <img src="src/assets/img/back.svg" class="btnGo" /></button>
+            <button>Começar teste</button>
           </div>
         </form>
       </div>
