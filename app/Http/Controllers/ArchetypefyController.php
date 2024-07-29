@@ -66,8 +66,11 @@ class ArchetypefyController extends Controller
 
             if ($firstNullColumn) {
                 if($firstNullColumn === "question_1"){
-                    // Não exiba nada
-                } else if ($firstNullColumn === "question_2"){
+                    // Exibe inicar teste
+                    $firstNullColumn = "iniciar";
+                    dd($firstNullColumn);
+                    session(['firstNullColumn' => $firstNullColumn]);
+                } else {
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
             } else {
@@ -131,7 +134,14 @@ class ArchetypefyController extends Controller
             session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
         }
 
-        return view('layouts/dashboard')->with(['firstName' => $firstName, 'firstNullColumn' => $firstNullColumn, 'firstNullColumnTemper' => $firstNullColumnTemper, 'firstNullColumnComportamento' => $firstNullColumnComportamento]);
+        return view('layouts/dashboard')->with(
+            [
+                'firstName' => $firstName,
+                'firstNullColumn' => $firstNullColumn,
+                'firstNullColumnTemper' => $firstNullColumnTemper,
+                'firstNullColumnComportamento' => $firstNullColumnComportamento
+            ]
+        );
     }
     public function Atention() {
         return view('layouts/atention');
