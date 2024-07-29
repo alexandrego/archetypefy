@@ -72,21 +72,10 @@ class ArchetypefyController extends Controller
                         break;
                     }
                 }
-                dd($firstNullColumn);
-
-                if ($firstNullColumn) {
-                    if($firstNullColumn == "question_1"){
-                        // Exibe inicar teste
-                        $firstNullColumn = "iniciar";
-                        dd($firstNullColumn);
-                        session(['firstNullColumn' => $firstNullColumn]);
-                    } else {
-                        session(['firstNullColumn' => $firstNullColumn]);
-                    }
-                } else {
-                    $firstNullColumn = 'result';
-                    session(['firstNullColumn' => $firstNullColumn]);
-                }
+                // dd($firstNullColumn);
+            } else {
+                $firstTime;
+                dd($firstTime);
             }
         }
 
