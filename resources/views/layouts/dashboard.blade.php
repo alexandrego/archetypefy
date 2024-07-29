@@ -248,7 +248,7 @@
                                     @endif
                             </div>
                         </a>
-                    @elseif
+                    @elseif($firstTime == 1)
                         {{-- <a href="/atention"> --}}
                             <div class="card" title="Clique para continuar o teste!">
                                 <div class="cardImg">
