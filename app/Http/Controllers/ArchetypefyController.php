@@ -172,11 +172,11 @@ class ArchetypefyController extends Controller
         $user = Customer::where('email', $email)->first();
 
         if ($user) {
-            $newUser = $user->full_name;
-            $newUser = $user->email;
-            $newUser = $user->mobile;
+            $newUserName = $user->full_name;
+            $newUserEmail = $user->email;
+            $newUserMobile = $user->mobile;
 
-            dd($newUser);
+            dd($newUserName, $newUserEmail, $newUserMobile);
 
             // Atualiza a senha do usuário
             // $user->password = Hash::make($confirmCode);
