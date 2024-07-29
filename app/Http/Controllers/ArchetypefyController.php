@@ -50,6 +50,7 @@ class ArchetypefyController extends Controller
         session(['firstName' => $firstName]);
 
         $lastQuestion = Questions::where('id', $userID)->first();
+        dd($lastQuestion);
         $lastTemper = Temperamentos::where('id', $userID)->first();
         $lastComportamento = Comportamentos::where('id', $userID)->first();
 
