@@ -8,7 +8,7 @@ function entrar() {
     `;
 }
 
-function confirmCode() {
+function confSec() {
     const btnSaveLead = document.getElementById('buttonCadastrar');
 
     btnSaveLead.innerHTML = `
@@ -16,6 +16,7 @@ function confirmCode() {
             <button disabled>Confirmando ...</button>
         </div>
     `;
+    console.log("funcionando");
 }
 function avancando() {
     const btnSaveLead = document.getElementById('btnQuestion');

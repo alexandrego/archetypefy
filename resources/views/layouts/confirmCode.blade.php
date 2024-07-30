@@ -51,7 +51,7 @@
                 @endif
             </div>
 
-        <form action="/checkCode" method="POST" onsubmit="confirmCode()">
+        <form action="/checkCode" method="POST" onsubmit="confSec()">
         @csrf
           <fieldset>
             <legend>Código de verificação</legend>
@@ -63,10 +63,8 @@
           <div id="buttonCadastrar" class="buttonCadastrar">
             <button>Confirmar código</button>
           </div>
-
         </form>
       </div>
-
     </div>
   </div>
 @endsection
