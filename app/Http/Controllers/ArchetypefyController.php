@@ -196,7 +196,7 @@ class ArchetypefyController extends Controller
                 // Envia dados por e-mail
                 return redirect('/mailCode')->with(
                     [
-                        // 'nome' => $nome,
+                        'nome' => $newUserName,
                         'email' => $email,
                         // 'mobile' => $mobile,
                         'confirmCode' => $confirmCode
@@ -214,7 +214,7 @@ class ArchetypefyController extends Controller
                 // Envia dados por e-mail
                 return redirect('/mailCode')->with(
                     [
-                        // 'nome' => $nome,
+                        'nome' => $newUserName,
                         'email' => $newUserEmail,
                         // 'mobile' => $mobile,
                         'confirmCode' => $confirmCode

@@ -34,3 +34,9 @@ function btnVoltar() {
         <a href="/startTest" id="btnVoltar" onclick="btnVoltar()" class="btnSDisabled">Voltando ...</a>
     `;
 }
+
+// Mostra a página somente após todos os elementos carregados na tela
+window.onload = function() {
+    const myDiv = document.getElementById('fade-in');
+    myDiv.classList.add('visible'); // Adiciona a classe 'visible' após o carregamento
+};

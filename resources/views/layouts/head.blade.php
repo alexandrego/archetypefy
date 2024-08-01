@@ -22,7 +22,7 @@
 
   <title>@yield('title')</title>
 </head>
-<body class="roboto-regular">
+<body class="roboto-regular fade-in" id="fade-in">
   @yield('content')
 
   <script src="/src/assets/js/pageQuestions.js"></script>

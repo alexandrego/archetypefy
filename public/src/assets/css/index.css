@@ -72,8 +72,18 @@ button:hover {
     font-size: 12px;
 } */
 
+/* Efeito de mostrar o conteudo suavemente */
+.fade-in {
+    opacity: 0; /* Começa invisível */
+    transition: opacity 2s ease-in; /* Transição suave */
+}
+
+.fade-in.visible {
+    opacity: 1; /* Torna visível */
+}
+
 @media (max-width: 450px) {
     .contentHome {
-        width: 350px;
+        max-width: 95%;
     }
   }
