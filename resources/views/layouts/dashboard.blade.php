@@ -3,17 +3,32 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    <!-- Lista os usuarios que podem acessar as configurações -->
+    @php
+        $allowedUserIds = [1, 2, 5, 8]; // IDs dos usuários permitidos
+    @endphp
+
     <div class="content">
         <div class="contentHome">
             @auth
-                <div class="logout">
+            <div class="guestConfig">
+                @if($userID && in_array($userID, $allowedUserIds))
+                    <div class="iconsConfig">
+                        <a href="/configDashboard">
+                            <i class="fa-solid fa-gear btnOut"></i>
+                        </a>
+                    </div>
+                @endif
+
+                <div class="iconsConfig">
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-danger">
-                            <img src="src/assets/img/out.svg" class="btnOut" />Sair
+                        <button type="submit">
+                            <i class="fa-solid fa-arrow-right-from-bracket btnOut" alt="Sair"></i>
                         </button>
                     </form>
                 </div>
+            </div>
             @endauth
 
             <div class="logo">
@@ -44,13 +59,14 @@
                         <a href="/atention">
                             <div class="card" title="Clique para começar o teste!">
                                 <div class="cardImgAr">
-                                    <img src="src/assets/img/teste.svg" />
+                                    <!-- <img src="src/assets/img/teste.svg" /> -->
+                                    <i class="fa-regular fa-clipboard"></i>
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
                                 </div>
                                 <div class="cardDesc">
-                                    <a href="../atention">Iniciar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                    <a href="../atention">Iniciar  <i class="fa-solid fa-circle-right btnGo"></i></a>
                                 </div>
                             </div>
                         </a>
@@ -61,13 +77,14 @@
                                     <img src="src/assets/img/ok.svg"/>
                                 </div>
                                 <div class="cardImg">
-                                    <img src="src/assets/img/prancheta.svg" />
+                                    <!-- <img src="src/assets/img/prancheta.svg" /> -->
+                                    <i class="fa-solid fa-clipboard-check"></i>
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
                                 </div>
                                 <div class="cardDesc">
-                                    <a href="../result">Ver resultado</a>
+                                    <a href="../result">Ver resultado <i class="fa-solid fa-circle-right btnGo"></i></a>
                                 </div>
                             </div>
                         </a>
@@ -75,7 +92,9 @@
                         {{-- <a href="/atention"> --}}
                             <div class="card" title="Clique para continuar o teste!">
                                 <div class="cardImgAr">
-                                    <img src="src/assets/img/teste.svg" />
+                                    <!-- <img src="src/assets/img/teste.svg" /> -->
+                                    <!-- <i class="fa-regular fa-clipboard iconTest"></i> -->
+                                    <i class="fa-solid fa-clipboard-list iconTest"></i>
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
@@ -83,19 +102,19 @@
 
                                 @if($firstNullColumn == 'question_2')
                                     <div class="cardDesc">
-                                        <a href="../question2">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                        <a href="../question2">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_3')
                                     <div class="cardDesc">
-                                        <a href="../question3">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                        <a href="../question3">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_4')
                                     <div class="cardDesc">
-                                        <a href="../question4">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                        <a href="../question4">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_5')
                                     <div class="cardDesc">
-                                        <a href="../question5">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                        <a href="../question5">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_6')
                                     <div class="cardDesc">
@@ -281,7 +300,8 @@
                     {{-- <a href="/comportamento1"> --}}
                         <div class="cardDisabled" title="Em breve ...">
                             <div class="cardImg">
-                                <img src="src/assets/img/cardDisabled.svg" />
+                                <!-- <img src="src/assets/img/cardDisabled.svg" /> -->
+                                <i class="fa-regular fa-clipboard iconTest"></i>
                             </div>
                             <div class="cardDesc">
                                 Perfil Comportamental
@@ -455,7 +475,8 @@
                     {{-- <a href="/temper1"> --}}
                         <div class="cardDisabled" title="Em breve ...">
                             <div class="cardImg">
-                                <img src="src/assets/img/cardDisabled.svg" />
+                                <!-- <img src="src/assets/img/cardDisabled.svg" /> -->
+                                <i class="fa-regular fa-clipboard iconTest"></i>
                             </div>
                             <div class="cardDesc">
                                 Identidade de Temperamentos

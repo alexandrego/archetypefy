@@ -100,12 +100,26 @@
     border: 1px solid rgba(184, 116, 46, 1);
     border-radius: 5px;
 }
-.logout {
+.guestConfig {
+    width: 120px;
     position: absolute;
     right: 30px;
 
-    width: 115px;
-    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+.iconsConfig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btnOut {
+    font-size: 25px;
+    color: rgba(184, 116, 46, 1);
 }
 .testeOk {
     max-width: 100%;
@@ -119,14 +133,13 @@
     width: 20px;
     position: absolute;
 }
-.btnOut {
-    width: 20px;
-    margin: 0 8px 0 0;
+.iconTest {
+    font-size: 65px;
 }
 .btnGo {
-    width: 28px;
+    font-size: 15px;
     margin: 0 0 0 8px;
-    transform: rotate(180deg);
+    /* transform: rotate(180deg); */
 }
 
 @media (max-width: 450px) {

@@ -30,6 +30,7 @@
 
                 <fieldset>
                     <legend>E-mail</legend>
+                    <i class="fa-regular fa-envelope" style="font-size:25px;margin:0 10px 0 0;"></i>
                     <input type="text" id="email" name="email" placeholder="Informe o e-mail utilizado na compra" required />
                 </fieldset>
 
