@@ -40,7 +40,7 @@
                 </fieldset> -->
 
                 <div id="buttonCadastrar" class="buttonCadastrar">
-                    <button>Entrar</button>
+                    <button>Entrar <i class="fa-solid fa-arrow-right-to-bracket" style="margin:0 0 0 15px;font-size:25px;background-color:transparent;color:#fff;"></i></button>
                 </div>
                 </form>
                 <a href="https://pay.kiwify.com.br/yd54E7h" class="comprarTeste">
