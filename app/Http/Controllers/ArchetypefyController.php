@@ -39,6 +39,12 @@ class ArchetypefyController extends Controller
     }
 
     public function Dashboard(Request $request) {
+        if(Auth::guest()){
+            //Se não estiver logado, volta para o login
+            return redirect()->route('login')->with('error', 'Preencha todos os dados');
+        } else {
+            return view('layouts/dashboard');
+        }
 
         // $nome = session(['nome' => $request->nome]);
         $user = Auth::user();
@@ -142,6 +148,7 @@ class ArchetypefyController extends Controller
             ]
         );
     }
+
     public function ConfigDashboard(Request $request)
     {
 
