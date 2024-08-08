@@ -60,6 +60,11 @@
                 </div>
 
                 <div class="compras">
+                    @if(isset($firstNullColumn))
+                        @php
+                            return redirect('/');
+                        @endphp
+                    @endif
                     @if($firstNullColumn == 0)
                         <a href="/atention">
                             <div class="card" title="Clique para começar o teste!">
