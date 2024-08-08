@@ -13,6 +13,7 @@
             @auth
                 @php
                     $userID = Auth::id();
+                    $fullName = Auth::name();
                 @endphp
             <div class="guestConfig">
                 @if($userID && in_array($userID, $allowedUserIds))
