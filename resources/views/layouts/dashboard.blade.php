@@ -11,11 +11,13 @@
     <div class="content">
         <div class="contentHome">
             @auth
-                {{-- @php
-                    $userID = Auth::id();
-                    $fullName = Auth::user();
-                    $firstName = strtok($fullName, " ");
-                @endphp --}}
+                @php
+                    // $userID = Auth::id();
+                    // $fullName = Auth::user();
+                    // $firstName = strtok($fullName, " ");
+                    $userID = session('userID');
+                    $firstName = session('firstName');
+                @endphp
             <div class="guestConfig">
                 @if($userID && in_array($userID, $allowedUserIds))
                     <div class="iconsConfig">
