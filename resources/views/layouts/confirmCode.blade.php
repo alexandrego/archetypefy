@@ -55,13 +55,14 @@
         @csrf
           <fieldset>
             <legend>Código de verificação</legend>
+            <i class="fa-solid fa-key" style="margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
             <input type="text" id="confirmCode" name="confirmCode" placeholder="Informe o código recebido no e-mail" maxlength="4" onkeyup="handleCode(event)" required />
-            <input type="hidden" id="email" name="sessionEmail" value="{{ session('sessionEmail') }}" />
-            <input type="hidden" id="email" name="email" value="{{ session('email') }}" />
+            <input type="hidden" id="email" name="sessionEmail" value="{{ $email }}" />
+            <input type="hidden" id="email" name="email" value="{{ $email }}" />
           </fieldset>
 
           <div id="buttonCadastrar" class="buttonCadastrar">
-            <button>Confirmar código</button>
+            <button>Confirmar código <i class="fa-solid fa-unlock" style="margin:0 0 0 8px;font-size:17px;background-color:transparent;color:#fff;"></i></button>
           </div>
         </form>
       </div>

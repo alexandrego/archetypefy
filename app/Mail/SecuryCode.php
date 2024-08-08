@@ -14,12 +14,17 @@ class SecuryCode extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $userName; // Variável para o nome
+    public $confirmCode; // Variável para o código
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($userName, $confirmCode)
     {
         //
+        $this->userName = $userName; // Atribui o nome
+        $this->confirmCode = $confirmCode; // Atribui o código
     }
 
     /**

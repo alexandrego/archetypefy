@@ -30,7 +30,7 @@
 
                 <fieldset>
                     <legend>E-mail</legend>
-                    <i class="fa-regular fa-envelope" style="font-size:25px;margin:0 10px 0 0;"></i>
+                    <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
                     <input type="text" id="email" name="email" placeholder="Informe o e-mail utilizado na compra" required />
                 </fieldset>
 
@@ -40,12 +40,12 @@
                 </fieldset> -->
 
                 <div id="buttonCadastrar" class="buttonCadastrar">
-                    <button>Entrar <i class="fa-solid fa-arrow-right-to-bracket" style="margin:0 0 0 15px;font-size:25px;background-color:transparent;color:#fff;"></i></button>
+                    <button>Entrar <i class="fa-solid fa-arrow-right-to-bracket" style="margin:0 0 0 15px;font-size:20px;background-color:transparent;color:#fff;"></i></button>
                 </div>
                 </form>
                 <a href="https://pay.kiwify.com.br/yd54E7h" class="comprarTeste">
                     <div class="buttonComprarTeste">
-                        <button>Compre seu teste</button>
+                        <button>Compre seu teste <i class="fa-solid fa-store fa-fade" style="margin:0 0 0 15px;font-size:20px;background-color:transparent;color:rgba(187, 129, 53, 1);"></i></button>
                     </div>
                 </a>
             </div>

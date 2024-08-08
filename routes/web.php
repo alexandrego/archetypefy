@@ -21,7 +21,7 @@ use App\Http\Controllers\TemperamentoController;
     Route::get('/resultPdfComportamento', [ComportamentoController::class, 'ResultPdfComportamento'])->middleware('auth');
 
 // Rotas para envio de emails
-    Route::get('/mailCode', [ArchetypefyController::class, 'MailCode']);
+    // Route::get('/mailCode', [ArchetypefyController::class, 'MailCode']);
     Route::post('/dataArchetypefy', [ArchetypefyController::class, 'store']);
     Route::get('/mailResult', [QuestionController::class, 'MailResult']);
 

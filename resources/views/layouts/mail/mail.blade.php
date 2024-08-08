@@ -5,11 +5,11 @@
     </div>
 
     <div style="width:100%;font-size:16px;text-align:justify;color:#000;">
-            Olá, {{ session('nome') }}, se você tentou acessar sua conta conosco segue abaixo seu código para acesso a sua conta, se não foi você pode desconsiderar esse e-mail, alguém pode ter digitado o e-mail por engano.
+            Olá {{ $userName }}, se você tentou acessar sua conta conosco segue abaixo seu código para acesso a sua conta, se não foi você pode desconsiderar esse e-mail, alguém pode ter digitado o e-mail por engano.
     </div>
 
     <div style="width:100%;margin:20px 0;font-size:14px;align-items:center;color:#000;">
-            Código de confirmação: <strong>{{ session('confirmCode') }}</strong>
+            Código de confirmação: <strong>{{ $confirmCode }}</strong>
     </div>
 
     <div style="width:100%;font-size:12px;text-align:justify;color:#000;">
