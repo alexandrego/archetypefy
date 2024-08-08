@@ -11,6 +11,9 @@
     <div class="content">
         <div class="contentHome">
             @auth
+                @php
+                    $userID = Auth::id();
+                @endphp
             <div class="guestConfig">
                 @if($userID && in_array($userID, $allowedUserIds))
                     <div class="iconsConfig">
