@@ -13,7 +13,8 @@
             @auth
                 @php
                     $userID = Auth::id();
-                    $fullName = Auth::name();
+                    $fullName = Auth::user();
+                    $firstName = strtok($fullName, " ");
                 @endphp
             <div class="guestConfig">
                 @if($userID && in_array($userID, $allowedUserIds))
