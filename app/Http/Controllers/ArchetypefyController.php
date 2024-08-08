@@ -50,7 +50,8 @@ class ArchetypefyController extends Controller
 
             $firstName = strtok($fullName, " ");
 
-            // session(['firstName' => $firstName]);
+            session(['firstName' => $firstName]);
+            session(['userID' => $userID]);
 
             $lastQuestion = Questions::where('user_id', $userID)->first();
             // $lastQuestion = Questions::latest()->first(); // Exemplo de busca pela última pergunta
@@ -72,6 +73,7 @@ class ArchetypefyController extends Controller
                     foreach ($columnNames as $column) {
                         if ($lastQuestion->$column == null) {
                             $firstNullColumn = $column;
+                            session(['firstNullColumn' => $firstNullColumn]);
                             break;
                         }
                     }
@@ -79,6 +81,7 @@ class ArchetypefyController extends Controller
                 } else {
                     $firstNullColumn = 'result';
                     // dd($firstNullColumn);
+                    session(['firstNullColumn' => $firstNullColumn]);
                 }
             }
 
@@ -136,12 +139,12 @@ class ArchetypefyController extends Controller
 
             return view('layouts/dashboard')->with(
                 [
-                    'firstName' => $firstName,
-                    'userID' => $userID,
+                    // 'firstName' => $firstName,
+                    // 'userID' => $userID,
                     // 'firstTime' => $firstTime,
-                    'firstNullColumn' => $firstNullColumn,
-                    'firstNullColumnTemper' => $firstNullColumnTemper,
-                    'firstNullColumnComportamento' => $firstNullColumnComportamento
+                    // 'firstNullColumn' => $firstNullColumn,
+                    // 'firstNullColumnTemper' => $firstNullColumnTemper,
+                    // 'firstNullColumnComportamento' => $firstNullColumnComportamento
                 ]
             );
         }
