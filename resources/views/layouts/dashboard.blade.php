@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="compras">
-                    @if(isset($firstNullColumn))
+                    @if(!isset($firstNullColumn))
                         @php
                             return redirect('/');
                         @endphp
