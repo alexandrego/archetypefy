@@ -171,17 +171,21 @@ class ArchetypefyController extends Controller
     // }
 
     public function store(Request $request) {
-        // Gera uma sequência de 4 números aleatórios
-        $confirmCode =  array_map('strval', array_map('rand', array(0, 1, 2, 3), array(4, 5, 6, 7)));
-        $confirmCode = implode('', $confirmCode);
 
+        // Recebe o e-mail digitado
         $email   = $request->email;
 
         // Verifica se o email existe no banco de dados
         $user = Customer::where('email', $email)->first();
-        $userName = $user->first_name;
 
         if ($user) {
+            // Gera uma sequência de 4 números aleatórios
+            $confirmCode =  array_map('strval', array_map('rand', array(0, 1, 2, 3), array(4, 5, 6, 7)));
+            $confirmCode = implode('', $confirmCode);
+
+            // Passa o nome para o e-mail
+            $userName = $user->first_name;
+
             $newUserName = $user->full_name;
             $newUserEmail = $user->email;
             $newUserMobile = $user->mobile;
