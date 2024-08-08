@@ -17,6 +17,7 @@
                     // $firstName = strtok($fullName, " ");
                     $userID = session('userID');
                     $firstName = session('firstName');
+                    $firstNullColumn = session('firstNullColumn');
                 @endphp
             <div class="guestConfig">
                 @if($userID && in_array($userID, $allowedUserIds))
