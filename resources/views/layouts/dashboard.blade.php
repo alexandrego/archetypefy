@@ -11,11 +11,11 @@
     <div class="content">
         <div class="contentHome">
             @auth
-                @php
+                {{-- @php
                     $userID = Auth::id();
                     $fullName = Auth::user();
                     $firstName = strtok($fullName, " ");
-                @endphp
+                @endphp --}}
             <div class="guestConfig">
                 @if($userID && in_array($userID, $allowedUserIds))
                     <div class="iconsConfig">
@@ -60,15 +60,6 @@
                 </div>
 
                 <div class="compras">
-                    @if(!isset($firstNullColumn))
-                        @php
-                            // Destrói a sessão
-                            session()->flush(); // Limpa todos os dados da sessão
-
-                            // Redireciona para a rota de login com uma mensagem de erro
-                            return redirect()->route('login')->with('error', 'Preencha todos os dados');
-                        @endphp
-                    @endif
                     @if($firstNullColumn == 0)
                         <a href="/atention">
                             <div class="card" title="Clique para começar o teste!">
