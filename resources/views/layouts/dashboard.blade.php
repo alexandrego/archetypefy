@@ -62,7 +62,7 @@
                 <div class="compras">
                     @if(!isset($firstNullColumn))
                         @php
-                            return redirect('/');
+                            return redirect()->route('login')->with('error', 'Preencha todos os dados');
                         @endphp
                     @endif
                     @if($firstNullColumn == 0)
