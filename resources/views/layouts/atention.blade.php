@@ -9,7 +9,8 @@
                 <div class="logout">
                     <form action="/dashboard" method="GET">
                         @csrf
-                        <button type="submit" class="btn btn-danger"> <img src="src/assets/img/back.svg" class="btnBackStartTest" />Voltar</button>
+                        <!-- <button type="submit" class="btn btn-danger"> <img src="src/assets/img/back.svg" class="btnBackStartTest" />Voltar</button> -->
+                        <button type="submit" class="btn btn-danger"> <i class="fa-solid fa-circle-left" style="margin: 0 8px 0 0;"></i>Voltar</button>
                     </form>
                 </div>
             @endauth
@@ -27,7 +28,7 @@
             </div>
 
             <div class="buttonCadastrar">
-            <button>Próximo</button>
+            <button>Próximo <i class="fa-solid fa-circle-right btnGo"></i></button>
             </div>
         </form>
       </div>

@@ -9,3 +9,8 @@
     width: 28px;
     margin: 0 8px 0 0;
 }
+.logout {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}

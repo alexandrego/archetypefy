@@ -137,16 +137,17 @@ class ArchetypefyController extends Controller
                 session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
             }
 
-            return view('layouts/dashboard')->with(
-                [
+            return view('layouts/dashboard');
+            // ->with(
+            //     [
                     // 'firstName' => $firstName,
                     // 'userID' => $userID,
                     // 'firstTime' => $firstTime,
                     // 'firstNullColumn' => $firstNullColumn,
                     // 'firstNullColumnTemper' => $firstNullColumnTemper,
                     // 'firstNullColumnComportamento' => $firstNullColumnComportamento
-                ]
-            );
+            //     ]
+            // );
         }
     }
 
