@@ -67,8 +67,7 @@
                         <a href="/atention">
                             <div class="card" title="Clique para começar o teste!">
                                 <div class="cardImgAr">
-                                    <!-- <img src="src/assets/img/teste.svg" /> -->
-                                    <i class="fa-regular fa-clipboard"></i>
+                                    <img src="src/assets/img/identidade-de-arquetipo.svg" />
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
@@ -85,8 +84,7 @@
                                     <img src="src/assets/img/ok.svg"/>
                                 </div>
                                 <div class="cardImg">
-                                    <!-- <img src="src/assets/img/prancheta.svg" /> -->
-                                    <i class="fa-solid fa-clipboard-check"></i>
+                                    <img src="src/assets/img/identidade-de-arquetipo.svg" />
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
@@ -100,9 +98,7 @@
                         {{-- <a href="/atention"> --}}
                             <div class="card" title="Clique para continuar o teste!">
                                 <div class="cardImgAr">
-                                    <!-- <img src="src/assets/img/teste.svg" /> -->
-                                    <!-- <i class="fa-regular fa-clipboard iconTest"></i> -->
-                                    <i class="fa-solid fa-clipboard-list iconTest"></i>
+                                    <img src="src/assets/img/identidade-de-arquetipo.svg" />
                                 </div>
                                 <div class="cardDesc">
                                     Identidade de Arquétipo
@@ -308,11 +304,13 @@
                     {{-- <a href="/comportamento1"> --}}
                         <div class="cardDisabled" title="Em breve ...">
                             <div class="cardImg">
-                                <!-- <img src="src/assets/img/cardDisabled.svg" /> -->
-                                <i class="fa-regular fa-clipboard iconTest"></i>
+                                <img src="src/assets/img/perfil-comportamental.svg" />
                             </div>
                             <div class="cardDesc">
                                 Perfil Comportamental
+                            </div>
+                            <div class="cardDesc">
+                                <a href="#">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
                             </div>
                             @if(isset($firstNullColumnComportamento))
                                 @if($firstNullColumnComportamento == 'comportamento2')
@@ -483,11 +481,13 @@
                     {{-- <a href="/temper1"> --}}
                         <div class="cardDisabled" title="Em breve ...">
                             <div class="cardImg">
-                                <!-- <img src="src/assets/img/cardDisabled.svg" /> -->
-                                <i class="fa-regular fa-clipboard iconTest"></i>
+                                <img src="src/assets/img/identidade-de-temperamento.svg" />
                             </div>
                             <div class="cardDesc">
                                 Identidade de Temperamentos
+                            </div>
+                            <div class="cardDesc">
+                                <a href="#">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
                             </div>
                             @if(isset($firstNullColumnTemper))
                                     @if($firstNullColumnTemper == 'temper2')
