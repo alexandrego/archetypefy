@@ -105,7 +105,7 @@
     transition: 0.5s linear;
 }
 .suporteAction:hover {
-    border: 1px solid #fff;
+    border: 1px solid rgba(184, 116, 46, 1);
     background: rgba(184, 116, 46, 1);
     color: #fff;
 }
