@@ -103,6 +103,7 @@
     border: 1px solid rgba(184, 116, 46, 1);
     border-radius: 5px;
     transition: 0.5s linear;
+    cursor: pointer;
 }
 .suporteAction:hover {
     border: 1px solid rgba(184, 116, 46, 1);

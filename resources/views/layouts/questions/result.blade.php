@@ -42,17 +42,9 @@
                     <p>Nome do Arquétipo <span class="resultadoFinal"> {{ session('resultadoFinal') }} </span></p>
                     <p class="avisoResultado">Enviamos o PDF com o resultado detalhado para seu e-mail, favor consultar a caixa de entrada, caixa de spam e outros!</p>
                 </div>
-                <div class="suporte">
-                    <div class="suporteName">
-                        Suporte
-                    </div>
-                    <div class="suportePhoto">
-                        <img src="src/assets/img/suporte.svg" />
-                    </div>
-                    <div class="suporteAction">
-                        Conversar via WhatsApp
-                    </div>
-                </div>
+
+                <x-suporte />
+
             </div>
         </div>
     </div>
