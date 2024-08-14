@@ -28,7 +28,7 @@
             </div>
 
             <div class="buttonCadastrar">
-                <button>Próximo <i class="fa-solid fa-circle-right btnGo"></i></button>
+                <button>Próximo <i class="fa-solid fa-circle-right btnGo btnGoAtention"></i></button>
             </div>
         </form>
       </div>
