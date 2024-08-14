@@ -149,7 +149,8 @@
 .btnGo {
     font-size: 15px;
     margin: 0 0 0 8px;
-    /* transform: rotate(180deg); */
+    color: #fff;
+    background-color: transparent;
 }
 
 @media (max-width: 450px) {
