@@ -56,7 +56,7 @@
                             </span>
                         </div>
 
-                        <hr>
+                        <hr class="hrArc">
 
                         <div class="suasCompras">
                             Aqui estão suas compras
@@ -67,7 +67,7 @@
                 <div class="compras">
                     @if($firstNullColumn == 0)
                         <a href="/atention">
-                            <div class="card" title="Clique para começar o teste!">
+                            <div class="cardArc" title="Clique para começar o teste!">
                                 <div class="cardImgAr">
                                     <img src="src/assets/img/identidade-de-arquetipo.svg" />
                                 </div>
@@ -81,7 +81,7 @@
                         </a>
                     @elseif($firstNullColumn == 'result')
                         <a href="/result">
-                            <div class="card" title="Clique para ver o resultado!">
+                            <div class="cardArc" title="Clique para ver o resultado!">
                                 <div class="testeOk">
                                     <img src="src/assets/img/ok.svg"/>
                                 </div>
@@ -98,7 +98,7 @@
                         </a>
                     @else
                         {{-- <a href="/atention"> --}}
-                            <div class="card" title="Clique para continuar o teste!">
+                            <div class="cardArc" title="Clique para continuar o teste!">
                                 <div class="cardImgAr">
                                     <img src="src/assets/img/identidade-de-arquetipo.svg" />
                                 </div>
