@@ -14,9 +14,6 @@
   <link rel="stylesheet" href="src/assets/css/resultComportamento.css">
   <link rel="stylesheet" href="src/assets/css/configDashboard.css">
 
-  <!-- Scripts -->
-  <script src="src/assets/js/scripts.js"></script>
-
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('src/assets/img/favicon.png') }}">
 
@@ -28,6 +25,8 @@
 <body class="roboto-regular fade-in" id="fade-in">
   @yield('content')
 
+  <!-- Scripts -->
+  <script src="src/assets/js/scripts.js"></script>
   <script src="/src/assets/js/pageQuestions.js"></script>
   <script src="/src/assets/js/buttonEffect.js"></script>
   <script src="/src/assets/js/maskPhone.js"></script>
