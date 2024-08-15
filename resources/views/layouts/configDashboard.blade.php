@@ -27,25 +27,66 @@
                             <i class="fa-solid fa-magnifying-glass fa-archetypefy searchUsers" data-toggle="modal" data-target="#modalExemplo"></i>
 
                             {{-- Adicionar usuário --}}
-                            <i class="fa-solid fa-user-plus fa-archetypefy"></i>
+                            <i class="fa-solid fa-user-plus fa-archetypefy" data-toggle="modalAdicionar" data-target="#modalExemploAdicionar"></i>
                         </div>
 
-                        <!-- Modal -->
+                        <!-- Modal Buscar -->
                         <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Buscar Usuário</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
                                 <div class="modal-body">
-                                ...
+                                    <fieldset>
+                                        <legend>E-mail</legend>
+                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                                        <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" />
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <legend>CPF</legend>
+                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                                        <input type="text" id="cpf" name="cpf" placeholder="Informe o do usuário" />
+                                    </fieldset>
                                 </div>
                                 <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> --}}
+                                <button type="button" class="btn btn-primary">Buscar</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Adicionar -->
+                        <div class="modalAdicionar fade" id="modalExemploAdicionar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Usuário</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <fieldset>
+                                        <legend>Nome</legend>
+                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                                        <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" />
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <legend>CPF</legend>
+                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                                        <input type="text" id="cpf" name="cpf" placeholder="Informe o do usuário" />
+                                    </fieldset>
+                                </div>
+                                <div class="modal-footer">
+                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> --}}
+                                <button type="button" class="btn btn-primary">Buscar</button>
                                 </div>
                             </div>
                             </div>
