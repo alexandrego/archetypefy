@@ -23,7 +23,8 @@
                 @if($userID && in_array($userID, $allowedUserIds))
                     <div class="iconsConfig">
                         <a href="/configDashboard">
-                            <i class="fa-solid fa-gear btnOut"></i>
+                            {{-- <i class="fa-solid fa-gear btnOut"></i> --}}
+                            <i class="fa-solid fa-user-gear btnOut"></i>
                         </a>
                     </div>
                 @endif

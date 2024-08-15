@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="src/assets/css/questions.css">
   <link rel="stylesheet" href="src/assets/css/result.css">
   <link rel="stylesheet" href="src/assets/css/resultComportamento.css">
+  <link rel="stylesheet" href="src/assets/css/configDashboard.css">
 
   <!-- Scripts -->
   <script src="src/assets/js/scripts.js"></script>
