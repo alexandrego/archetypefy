@@ -24,16 +24,22 @@
                     <div class="formUser">
                         <div class="addUser">
                             {{-- Icone adicionar usuário --}}
+                            <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-user-plus"></i>
                         </div>
 
                         <div class="searchUser">
-                            <fieldset>
+                            {{-- <fieldset>
                                 <legend>Buscar usuário</legend>
                                 <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
                                 <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" required />
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                            </fieldset>
+                            </fieldset> --}}
+                            <h2>Usuários</h2>
+                            <ul>
+                                <li>Alexandre</li>
+                                <li>Samuel</li>
+                            </ul>
                         </div>
                     </div>
                 </form>
