@@ -27,7 +27,7 @@
                             <i class="fa-solid fa-magnifying-glass fa-archetypefy searchUsers" data-toggle="modal" data-target="#modalExemplo"></i>
 
                             {{-- Adicionar usuário --}}
-                            <i class="fa-solid fa-user-plus fa-archetypefy" data-toggle="modalAdicionar" data-target="#modalExemploAdicionar"></i>
+                            <i class="fa-solid fa-user-plus fa-archetypefy" data-toggle="modal" data-target="#modalExemploAdicionar"></i>
                         </div>
 
                         <!-- Modal Buscar -->
