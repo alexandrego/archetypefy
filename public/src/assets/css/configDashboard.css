@@ -14,9 +14,9 @@
     align-items: center;
     justify-content: flex-end;
 }
-.searchUser {
-    width: 90%;
+.searchUsers {
+    margin: 0 25px 0 0;
 }
-.searchUser input{
+.searchUser {
     width: 90%;
 }

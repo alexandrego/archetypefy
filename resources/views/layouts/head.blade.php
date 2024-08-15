@@ -31,5 +31,6 @@
   <script src="/src/assets/js/pageQuestions.js"></script>
   <script src="/src/assets/js/buttonEffect.js"></script>
   <script src="/src/assets/js/maskPhone.js"></script>
+  <script src="/src/assets/js/configDashboard.js"></script>
 </body>
 </html>

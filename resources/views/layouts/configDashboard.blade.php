@@ -22,10 +22,30 @@
                 <form action="#" method="POST" onsubmit="buscando()">
                     @csrf
                     <div class="formUser">
-                        <div class="addUser">
-                            {{-- Icone adicionar usuário --}}
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                        {{-- <div class="addUser">
+                            {{-- Buscar usuário --}
+                            <i class="fa-solid fa-magnifying-glass searchUsers"></i>
+
+                            {{-- Adicionar usuário --}
                             <i class="fa-solid fa-user-plus"></i>
+                        </div> --}}
+
+                        <div class="addUser">
+                            {{-- Buscar usuário --}}
+                            <i class="fa-solid fa-magnifying-glass searchUsers" onclick="openPopup()"></i>
+
+                            {{-- Adicionar usuário --}}
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <div id="userSearchPopup" class="popup">
+                            <div class="popup-content">
+                                <span class="close-button" onclick="closePopup()">&times;</span>
+                                <h2>Buscar Usuários</h2>
+                                <input type="text" id="searchInput" placeholder="Digite o nome do usuário">
+                                <button onclick="searchUsers()">Buscar</button>
+                                <div id="searchResults"></div>
+                            </div>
                         </div>
 
                         <div class="searchUser">
