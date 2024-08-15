@@ -7,8 +7,16 @@
     justify-content: center;
 }
 .addUser {
+    width: 90%;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+}
+.searchUser {
+    width: 90%;
+}
+.searchUser input{
+    width: 90%;
 }

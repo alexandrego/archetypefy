@@ -24,7 +24,7 @@
                     <div class="formUser">
                         <div class="addUser">
                             {{-- Icone adicionar usuário --}}
-                            <i class="fa-solid fa-user-plus fa-beat-fade"></i>
+                            <i class="fa-solid fa-user-plus"></i>
                         </div>
 
                         <div class="searchUser">
