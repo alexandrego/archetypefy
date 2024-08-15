@@ -15,6 +15,7 @@
 .bemVindo hr {
     width: 230px;
     color: rgba(68, 68, 68, 1);
+    border: 0.8px solid;
 }
 .sejaBemVindo, .suasCompras {
     margin: 5px 0;
