@@ -92,7 +92,7 @@
                                     Identidade de Arquétipo
                                 </div>
                                 <div class="cardDesc">
-                                    <a href="../result">Ver resultado <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                    <a href="../result" class="links">Ver resultado <i class="fa-solid fa-circle-right btnGo"></i></a>
                                 </div>
                             </div>
                         </a>
