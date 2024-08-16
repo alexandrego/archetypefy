@@ -85,6 +85,22 @@
     margin: 0px;
     padding: 0 5px;
 }
+.fieldsetConfirmCode {
+  border: 1px solid rgba(184, 116, 46, 1);
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fieldsetConfirmCode legend {
+    width: 185px;
+    margin: 0px;
+    padding: 0 5px;
+    font-size: 18px;
+}
 input {
   width: 100%;
   height: 25px;
