@@ -70,7 +70,7 @@
   font-weight: 900;
   font-style: italic;
 }
-fieldset {
+.fieldsetArch {
   border: 1px solid rgba(184, 116, 46, 1);
   margin: 10px 0;
   padding: 5px 10px;
@@ -80,7 +80,7 @@ fieldset {
   align-items: center;
   justify-content: center;
 }
-fieldset legend {
+.fieldsetArch legend {
   padding: 0 5px;
 }
 input {

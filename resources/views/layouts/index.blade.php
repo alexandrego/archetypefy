@@ -28,7 +28,7 @@
                     Seja bem-vindo! Para realizar o seu teste, por favor, utilize o mesmo e-mail utilizado na compra. (Atenção: certifique-se de que o e-mail está correto, pois será nele que será enviado o resultado).
                 </div>
 
-                <fieldset>
+                <fieldset class="fieldsetArch">
                     <legend>E-mail</legend>
                     <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
                     <input type="text" id="email" name="email" placeholder="Informe o e-mail utilizado na compra" required />
