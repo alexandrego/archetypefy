@@ -56,6 +56,7 @@ button {
 .buttonCadastrar button{
     width: 100%;
     height: 45px;
+    margin: 0 0 20px 0;
 
     color: aliceblue;
     background: rgba(187, 129, 53, 1);
