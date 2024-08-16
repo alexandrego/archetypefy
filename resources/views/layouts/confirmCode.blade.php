@@ -53,7 +53,7 @@
 
         <form action="/checkCode" method="POST" onsubmit="confSec()">
         @csrf
-          <fieldset>
+          <fieldset class="fieldsetArch">
             <legend>Código de verificação</legend>
             <i class="fa-solid fa-key" style="margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
             <input type="text" id="confirmCode" name="confirmCode" placeholder="Informe o código recebido no e-mail" maxlength="4" onkeyup="handleCode(event)" required />
