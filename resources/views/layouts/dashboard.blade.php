@@ -66,7 +66,7 @@
 
                 <div class="compras">
                     @if($firstNullColumn == 0)
-                        <a href="/atention">
+                        <a href="/atention" class="links">
                             <div class="cardArc" title="Clique para começar o teste!">
                                 <div class="cardImgAr">
                                     <img src="src/assets/img/identidade-de-arquetipo.svg" />
@@ -80,7 +80,7 @@
                             </div>
                         </a>
                     @elseif($firstNullColumn == 'result')
-                        <a href="/result">
+                        <a href="/result" class="links">
                             <div class="cardArc" title="Clique para ver o resultado!">
                                 <div class="testeOk">
                                     <img src="src/assets/img/ok.svg"/>
@@ -108,11 +108,11 @@
 
                                 @if($firstNullColumn == 'question_2')
                                     <div class="cardDesc">
-                                        <a href="../question2">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                        <a href="../question2" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_3')
                                     <div class="cardDesc">
-                                        <a href="../question3">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                        <a href="../question3" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
                                     </div>
                                 @elseif($firstNullColumn == 'question_4')
                                     <div class="cardDesc">
@@ -296,7 +296,7 @@
                                     </div>
                                 @elseif($firstNullColumn == 'result')
                                     <div class="cardDesc">
-                                        <a href="../result">Ver resultado <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                        <a href="../result" class="links">Ver resultado <img src="src/assets/img/back.svg" class="btnGo" /></a>
                                     </div>
                                 @endif
                             </div>

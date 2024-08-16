@@ -18,7 +18,6 @@
     border: 0.8px solid;
 }
 .sejaBemVindo, .suasCompras {
-    margin: 5px 0;
     color: rgba(68, 68, 68, 1);
 }
 .wordOrange {
@@ -35,7 +34,7 @@
 
     margin: 50px 0;
 }
-.compras a {
+.links {
     text-decoration: none;
 }
 .cardArc {
