@@ -18,7 +18,7 @@
     margin: 0 25px 0 0;
 }
 .searchUser {
-    width: 90%;
+    width: 100%;
     margin: 20px 0 0 0;
     border: 1px solid #fff;
 }
@@ -42,10 +42,18 @@
 }
 .showNameUserAndAction {
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.showEvery {
+    width: 100%;
     padding: 8px 0;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }

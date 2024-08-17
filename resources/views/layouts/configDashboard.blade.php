@@ -106,13 +106,15 @@
 
                                 <div class="showNameUserAndAction">
                                     @foreach($customers as $customer)
-                                    <div class="showNameUser">
-                                        {{ $customer->full_name }}
-                                    </div>
+                                    <div class="showEvery">
+                                        <div class="showNameUser">
+                                            {{ $customer->full_name }}
+                                        </div>
 
-                                    <div class="viewDetail">
-                                        Detalhes
-                                        <i class="fa-solid fa-info-circle" data-toggle="modal" data-target="#modalExemploDetalhes"></i>
+                                        <div class="viewDetail">
+                                            Detalhes
+                                            <i class="fa-solid fa-info-circle"></i>
+                                        </div>
                                     </div>
                                     @endforeach
                                 </div>
