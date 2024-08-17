@@ -119,7 +119,31 @@
                                     @endforeach
                                 </div>
 
-                                {{ $customers->links() }}
+                                <!-- Links de paginação personalizados -->
+                                <div class="pagination">
+                                    {{-- Link para a página anterior --}}
+                                    @if ($customers->onFirstPage())
+                                        <span class="disabled">« Anterior</span>
+                                    @else
+                                        <a href="{{ $customers->previousPageUrl() }}">« Anterior</a>
+                                    @endif
+
+                                    {{-- Links para as páginas --}}
+                                    @for ($i = 1; $i <= $customers->lastPage(); $i++)
+                                        @if ($i == $customers->currentPage())
+                                            <span class="current">{{ $i }}</span> <!-- Página atual -->
+                                        @else
+                                            <a href="{{ $customers->url($i) }}">{{ $i }}</a> <!-- Link para outras páginas -->
+                                        @endif
+                                    @endfor
+
+                                    {{-- Link para a próxima página --}}
+                                    @if ($customers->hasMorePages())
+                                        <a href="{{ $customers->nextPageUrl() }}">Próximo »</a>
+                                    @else
+                                        <span class="disabled">Próximo »</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
