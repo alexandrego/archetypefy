@@ -56,3 +56,12 @@
     align-items: center;
     justify-content: space-between;
 }
+.pagination {
+    width: 100%;
+    margin: 20px 0 0 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
