@@ -19,7 +19,33 @@
 }
 .searchUser {
     width: 90%;
+    margin: 20px 0 0 0;
+    border: 1px solid #fff;
+}
+.userTitle {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .fa-archetypefy {
     cursor: pointer;
+}
+.orderUserTags {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.showNameUserAndAction {
+    width: 100%;
+    padding: 8px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }

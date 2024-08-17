@@ -157,7 +157,10 @@ class ArchetypefyController extends Controller
             //Se não estiver logado, volta para o login
             return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
         } else {
-            return view('layouts/configDashboard');
+            // Buscar todos os usuários
+             $customers = Customer::paginate(10);
+
+            return view('layouts/configDashboard', compact('customers'));
         }
 
     }

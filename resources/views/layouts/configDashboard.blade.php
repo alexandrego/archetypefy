@@ -19,8 +19,6 @@
             </div>
 
             <div class="formulario">
-                <form action="#" method="POST" onsubmit="buscando()">
-                    @csrf
                     <div class="formUser">
                         <div class="addUser">
                             {{-- Buscar usuário --}}
@@ -40,23 +38,26 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <div class="modal-body">
-                                    <fieldset>
-                                        <legend>E-mail</legend>
-                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-                                        <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" />
-                                    </fieldset>
+                                <form action="#" method="POST" onsubmit="buscando()">
+                                    @csrf
+                                    <div class="modal-body">
+                                        <fieldset class="fieldsetArch">
+                                            <legend>E-mail</legend>
+                                            <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                                            <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" />
+                                        </fieldset>
 
-                                    <fieldset>
-                                        <legend>CPF</legend>
-                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-                                        <input type="text" id="cpf" name="cpf" placeholder="Informe o do usuário" />
-                                    </fieldset>
-                                </div>
-                                <div class="modal-footer">
-                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> --}}
-                                <button type="button" class="btn btn-primary">Buscar</button>
-                                </div>
+                                        <fieldset class="fieldsetArch">
+                                            <legend>CPF</legend>
+                                            <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                                            <input type="text" id="cpf" name="cpf" placeholder="Informe o CPF do usuário" />
+                                        </fieldset>
+                                    </div>
+                                    <div class="modal-footer">
+                                    {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> --}}
+                                    <button type="button" class="btn btn-primary">Buscar</button>
+                                    </div>
+                                </form>
                             </div>
                             </div>
                         </div>
@@ -86,27 +87,40 @@
                                 </div>
                                 <div class="modal-footer">
                                 {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> --}}
-                                <button type="button" class="btn btn-primary">Buscar</button>
+                                <button type="button" class="btn btn-primary">Cadastrar</button>
                                 </div>
                             </div>
                             </div>
                         </div>
 
                         <div class="searchUser">
-                            {{-- <fieldset>
-                                <legend>Buscar usuário</legend>
-                                <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-                                <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" required />
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </fieldset> --}}
-                            <h2>Usuários</h2>
-                            <ul>
-                                <li>Alexandre</li>
-                                <li>Samuel</li>
-                            </ul>
+                            <div class="userTitle">
+                                <span>Usuários</span>
+                            </div>
+
+                            <div class="userList">
+                                <div class="orderUserTags">
+                                    <div class="userName">Nome</div>
+                                    <div class="viewDetaill">Ação</div>
+                                </div>
+
+                                <div class="showNameUserAndAction">
+                                    @foreach($customers as $customer)
+                                    <div class="showNameUser">
+                                        {{ $customer->full_name }}
+                                    </div>
+
+                                    <div class="viewDetail">
+                                        Detalhes
+                                        <i class="fa-solid fa-info-circle" data-toggle="modal" data-target="#modalExemploDetalhes"></i>
+                                    </div>
+                                    @endforeach
+                                </div>
+
+                                {{ $customers->links() }}
+                            </div>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </div>
