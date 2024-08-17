@@ -33,6 +33,9 @@
 }
 .orderUserTags {
     width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #dddada;
+    border-bottom: 1px solid #dddada;
 
     display: flex;
     flex-direction: row;
@@ -41,6 +44,8 @@
 }
 .showNameUserAndAction {
     width: 100%;
+    border-bottom: 1px solid #dddada;
+    padding: 0 0 15px 0;
 
     display: flex;
     flex-direction: column;
