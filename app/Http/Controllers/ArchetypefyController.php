@@ -158,7 +158,7 @@ class ArchetypefyController extends Controller
             return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
         } else {
             // Buscar todos os usuários
-             $customers = Customer::paginate(10);
+             $customers = Customer::paginate(4);
 
             return view('layouts/configDashboard', compact('customers'));
         }
