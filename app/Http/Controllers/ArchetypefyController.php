@@ -184,7 +184,6 @@ class ArchetypefyController extends Controller
             // Buscar todos os usuários
             $customers = Customer::paginate(4);
 
-            // return view('layouts/configDashboard', compact('customers'))->with('success', 'Dados do cliente atualizados com sucesso!');
             return redirect()->route('configDashboard', compact('customers'))->with('success', 'Dados do cliente atualizados com sucesso!');
         }
     }
