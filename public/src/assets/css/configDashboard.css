@@ -73,3 +73,36 @@
 .viewDetail {
     cursor: pointer;
 }
+.userFullNameAndFirstName {
+    width: 100%;
+    padding: 8px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.userEmail {
+    max-width: 100%;
+    padding: 8px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.divUserEmailInput {
+    width: 100%
+}
+.userEmailInput {
+    width: 100%;
+}
+.userCpfAndMobile {
+    width: 100%;
+    padding: 8px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
