@@ -82,7 +82,7 @@
     align-items: center;
     justify-content: space-between;
 }
-.userEmail {
+.divUser {
     max-width: 100%;
     padding: 8px 0;
 
@@ -91,10 +91,15 @@
     align-items: center;
     justify-content: center;
 }
-.divUserEmailInput {
-    width: 100%
+.divUserInput {
+    width: 100%;
+
+    display: flex;
 }
-.userEmailInput {
+.userIcon {
+    padding: 0 8px 0 0;
+}
+.userInput {
     width: 100%;
 }
 .userCpfAndMobile {

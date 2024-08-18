@@ -36,6 +36,14 @@
 .codeError p {
     color: brown;
 }
+.codeSuccess {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.codeSuccess p {
+    color: rgb(3, 139, 56);
+}
 button {
   /* width: 100%;
   height: 45px; */

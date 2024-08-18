@@ -164,6 +164,30 @@ class ArchetypefyController extends Controller
         }
 
     }
+
+    public function UpdateUser(Request $request)
+    {
+        if(Auth::guest()){
+            //Se não estiver logado, volta para o login
+            return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
+        } else {
+            // Atualiza usuário
+            $user = $request->all();
+
+            // Busca o cliente pelo ID
+            $userID = $user['id'];
+            $customer = Customer::findOrFail($userID);
+
+            // Atualiza os dados do cliente
+            $customer->update($request->all());
+
+            // Buscar todos os usuários
+            $customers = Customer::paginate(4);
+
+            // return view('layouts/configDashboard', compact('customers'))->with('success', 'Dados do cliente atualizados com sucesso!');
+            return redirect()->route('configDashboard', compact('customers'))->with('success', 'Dados do cliente atualizados com sucesso!');
+        }
+    }
     public function Atention() {
         return view('layouts/atention');
     }

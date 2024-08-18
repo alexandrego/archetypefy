@@ -94,6 +94,11 @@
                         </div>
 
                         <div class="searchUser">
+                            <div class="codeSuccess">
+                                @if(session('success'))
+                                    <p>{{ session('success') }}</p>
+                                @endif
+                            </div>
                             <div class="userTitle">
                                 <span>Usuários</span>
                             </div>
@@ -121,41 +126,48 @@
                                         <div class="modal fade" id="user{{ $customer->id }}" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="TituloModalCentralizado">Atualizar Usuário</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Id do usuário -> {{ $customer->id }}</p>
-                                                <div class="userFullNameAndFirstName">
-                                                    <div>
-                                                        <input type="text" value="{{ $customer->full_name }}" />
-                                                    </div>
-                                                    <div>
-                                                        <input type="text" value="{{ $customer->first_name }}" />
-                                                    </div>
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="TituloModalCentralizado">Atualizar Usuário</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                 </div>
+                                                <form action="/updateUser" method="POST">
+                                                @csrf
+                                                    <div class="modal-body">
+                                                        <div class="divUser">
+                                                            <div class="divUserInput">
+                                                            <i class="fa-solid fa-circle-user userIcon"></i><input type="text" class="userInput" name="full_name" value="{{ $customer->full_name }}" />
+                                                            </div>
+                                                        </div>
 
-                                                <div class="userEmail">
-                                                    <div class="divUserEmailInput">
-                                                        <input type="text" class="userEmailInput" value="{{ $customer->email }}" />
+                                                        <div class="divUser">
+                                                            <div class="divUserInput">
+                                                            <i class="fa-regular fa-circle-user userIcon"></i><input type="text" name="first_name" class="userInput" value="{{ $customer->first_name }}" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="divUser">
+                                                            <div class="divUserInput">
+                                                            <i class="fa-solid fa-envelope-circle-check userIcon"></i><input type="text" name="email" class="userInput" value="{{ $customer->email }}" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="userCpfAndMobile">
+                                                            <div class="divUserInput">
+                                                            <i class="fa-regular fa-id-card userIcon"></i><input type="text" name="CPF" value="{{ $customer->CPF }}" />
+                                                            </div>
+                                                            <div class="divUserInput">
+                                                            <i class="fa-solid fa-mobile-screen userIcon"></i><input type="text" name="mobile" value="{{ $customer->mobile }}" />
+                                                            </div>
+                                                        </div>
+                                                        <input type="hidden" name="id" value="{{ $customer->id }}" />
                                                     </div>
-                                                </div>
-                                                <div class="userCpfAndMobile">
-                                                    <div>
-                                                        <input type="text" value="{{ $customer->CPF }}" />
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
                                                     </div>
-                                                    <div>
-                                                        <input type="text" value="{{ $customer->mobile }}" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                <button type="button" class="btn btn-primary">Salvar mudanças</button>
-                                            </div>
+                                                </form>
                                             </div>
                                         </div>
                                         </div>
