@@ -38,24 +38,26 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <form action="#" method="POST" onsubmit="buscando()">
+                                <form action="/buscaUser" method="POST">
                                     @csrf
                                     <div class="modal-body">
-                                        <fieldset class="fieldsetArch">
-                                            <legend>E-mail</legend>
-                                            <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-                                            <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" />
-                                        </fieldset>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">Email</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="basic-url" name="email" aria-describedby="basic-addon3">
+                                        </div>
 
-                                        <fieldset class="fieldsetArch">
-                                            <legend>CPF</legend>
-                                            <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-                                            <input type="text" id="cpf" name="cpf" placeholder="Informe o CPF do usuário" />
-                                        </fieldset>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">CPF</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="cpf" name="CPF" aria-describedby="basic-addon3" oninput="mascaraCPF(this)" maxlength="14">
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                    {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> --}}
-                                    <button type="button" class="btn btn-primary">Buscar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
                                     </div>
                                 </form>
                             </div>
@@ -67,38 +69,104 @@
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Usuário</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                    <h5 class="modal-title" id="exampleModalLabel">Cadastrar Usuário</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <div class="modal-body">
-                                    <fieldset>
-                                        <legend>Nome</legend>
-                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-                                        <input type="text" id="email" name="email" placeholder="Informe o e-mail do usuário" />
-                                    </fieldset>
+                                <form action="/saveUser" method="POST">
+                                    @csrf
+                                    <div class="modal-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">Nome Completo</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="basic-url" name="full_name" placeholder="Informe o nome completo" aria-describedby="basic-addon3" required>
+                                        </div>
 
-                                    <fieldset>
-                                        <legend>CPF</legend>
-                                        <i class="fa-regular fa-envelope" style="font-size:17px;margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-                                        <input type="text" id="cpf" name="cpf" placeholder="Informe o do usuário" />
-                                    </fieldset>
-                                </div>
-                                <div class="modal-footer">
-                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> --}}
-                                <button type="button" class="btn btn-primary">Cadastrar</button>
-                                </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">Primeiro Nome</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="basic-url" name="first_name" placeholder="Informe o primeiro nome" aria-describedby="basic-addon3" required>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">Email</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="basic-url" name="email" placeholder="Informe o email" aria-describedby="basic-addon3" required>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">CPF</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="basic-url" name="CPF" placeholder="Informe o CPF" aria-describedby="basic-addon3" oninput="mascaraCPF(this)" maxlength="14" required>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">Celular</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="basic-url" name="mobile" placeholder="Informe o celular" aria-describedby="basic-addon3" oninput="mascaraCelular(this)" maxlength="15"  required>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Teste de Temperamentos</span>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect01" name="temperamentos">
+                                            <option value="1">Ativo</option>
+                                            <option value="0" selected>Inativo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Perfil Comportamental</span>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect01" name="comportamental">
+                                            <option value="1">Ativo</option>
+                                            <option value="0" selected>Inativo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Teste de Arquétipos</span>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect01" name="arquetipos">
+                                            <option value="1">Ativo</option>
+                                            <option value="0" selected>Inativo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    </div>
+                                </form>
                             </div>
                             </div>
                         </div>
 
                         <div class="searchUser">
-                            <div class="codeSuccess">
+
                                 @if(session('success'))
-                                    <p>{{ session('success') }}</p>
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
                                 @endif
-                            </div>
+
+                                @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                                @endif
+
+
                             <div class="userTitle">
                                 <span>Usuários</span>
                             </div>
@@ -135,34 +203,75 @@
                                                 <form action="/updateUser" method="POST">
                                                 @csrf
                                                     <div class="modal-body">
-                                                        <div class="divUser">
-                                                            <div class="divUserInput">
-                                                            <i class="fa-solid fa-circle-user userIcon"></i><input type="text" class="userInput" name="full_name" value="{{ $customer->full_name }}" />
+
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon3">Nome Completo</span>
                                                             </div>
+                                                            <input type="text" class="form-control" id="basic-url" name="full_name" value="{{ $customer->full_name }}" aria-describedby="basic-addon3">
                                                         </div>
 
-                                                        <div class="divUser">
-                                                            <div class="divUserInput">
-                                                            <i class="fa-regular fa-circle-user userIcon"></i><input type="text" name="first_name" class="userInput" value="{{ $customer->first_name }}" />
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon3">Primeiro Nome</span>
                                                             </div>
+                                                            <input type="text" class="form-control" id="basic-url" name="first_name" value="{{ $customer->first_name }}" aria-describedby="basic-addon3">
                                                         </div>
 
-                                                        <div class="divUser">
-                                                            <div class="divUserInput">
-                                                            <i class="fa-solid fa-envelope-circle-check userIcon"></i><input type="text" name="email" class="userInput" value="{{ $customer->email }}" />
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon3">Email</span>
                                                             </div>
+                                                            <input type="text" class="form-control" id="basic-url" name="email" value="{{ $customer->email }}" aria-describedby="basic-addon3">
                                                         </div>
 
-                                                        <div class="userCpfAndMobile">
-                                                            <div class="divUserInput">
-                                                            <i class="fa-regular fa-id-card userIcon"></i><input type="text" name="CPF" value="{{ $customer->CPF }}" />
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon3">CPF</span>
                                                             </div>
-                                                            <div class="divUserInput">
-                                                            <i class="fa-solid fa-mobile-screen userIcon"></i><input type="text" name="mobile" value="{{ $customer->mobile }}" />
-                                                            </div>
+                                                            <input type="text" class="form-control" id="basic-url" name="CPF" value="{{ $customer->CPF }}" aria-describedby="basic-addon3">
                                                         </div>
+
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-addon3">Celular</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="basic-url" name="mobile" value="{{ $customer->mobile }}" aria-describedby="basic-addon3">
+                                                        </div>
+
                                                         <input type="hidden" name="id" value="{{ $customer->id }}" />
                                                     </div>
+
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon3">Teste de Temperamentos</span>
+                                                        </div>
+                                                        <select class="custom-select" id="inputGroupSelect01" name="temperamentos">
+                                                            <option value="1" {{ $customer->temperamentos == 1 ? 'selected' : '' }}>Ativo</option>
+                                                            <option value="0"  {{ $customer->temperamentos == 0 ? 'selected' : '' }}>Inativo</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon3">Perfil Comportamental</span>
+                                                        </div>
+                                                        <select class="custom-select" id="inputGroupSelect01" name="comportamental">
+                                                            <option value="1" {{ $customer->comportamental == 1 ? 'selected' : '' }}>Ativo</option>
+                                                            <option value="0"  {{ $customer->comportamental == 0 ? 'selected' : '' }}>Inativo</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon3">Teste de Arquétipos</span>
+                                                        </div>
+                                                        <select class="custom-select" id="inputGroupSelect01" name="arquetipos">
+                                                            <option value="1" {{ $customer->arquetipos == 1 ? 'selected' : '' }}>Ativo</option>
+                                                            <option value="0"  {{ $customer->arquetipos == 0 ? 'selected' : '' }}>Inativo</option>
+                                                        </select>
+                                                    </div>
+
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                                                         <button type="submit" class="btn btn-primary">Salvar mudanças</button>

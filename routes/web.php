@@ -17,6 +17,8 @@ use App\Http\Controllers\TemperamentoController;
     Route::get('/startTest', [ArchetypefyController::class, 'StartTest'])->middleware('auth');
     Route::get('/configDashboard', [ArchetypefyController::class, 'ConfigDashboard'])->name('configDashboard')->middleware('auth');
     Route::post('/updateUser', [ArchetypefyController::class, 'UpdateUser'])->middleware('auth');
+    Route::post('/buscaUser', [ArchetypefyController::class, 'BuscaUser'])->name('buscaUser')->middleware('auth');
+    Route::post('/saveUser', [ArchetypefyController::class, 'SaveUser'])->name('saveUser')->middleware('auth');
 
     // Mostra a formatação do teste de comportamento enviado no email
     Route::get('/resultPdfComportamento', [ComportamentoController::class, 'ResultPdfComportamento'])->middleware('auth');

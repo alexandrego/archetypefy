@@ -20,6 +20,9 @@ class Customer extends Model
         'mobile',
         'CPF',
         'ip',
+        'temperamentos',
+        'comportamental',
+        'arquetipos',
     ];
 
     /**

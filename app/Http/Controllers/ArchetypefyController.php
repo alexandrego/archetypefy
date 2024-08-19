@@ -171,6 +171,17 @@ class ArchetypefyController extends Controller
             //Se não estiver logado, volta para o login
             return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
         } else {
+             // Validação dos dados recebidos
+            $request->validate([
+                'full_name' => 'required|string|max:255',
+                'first_name' => 'required|string|max:255',
+                'email' => 'required|email|unique:customers,email,' . $request->id,
+                'CPF' => 'required|string|max:14', // Ajuste conforme necessário
+                'mobile' => 'required|string|max:15', // Ajuste conforme necessário
+                'temperamentos' => 'required|boolean',
+                'comportamental' => 'required|boolean',
+                'arquetipos' => 'required|boolean',
+            ]);
             // Atualiza usuário
             $user = $request->all();
 
@@ -179,14 +190,81 @@ class ArchetypefyController extends Controller
             $customer = Customer::findOrFail($userID);
 
             // Atualiza os dados do cliente
-            $customer->update($request->all());
+            $customer->update($user);
 
             // Buscar todos os usuários
             $customers = Customer::paginate(4);
 
-            return redirect()->route('configDashboard', compact('customers'))->with('success', 'Dados do cliente atualizados com sucesso!');
+            return redirect()->route('configDashboard', compact('customers'))->with('success', 'Dados do usuário atualizados com sucesso!');
         }
     }
+    public function BuscaUser(Request $request)
+    {
+        if (Auth::guest()) {
+            // Se não estiver logado, volta para o login
+            return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
+        } else {
+            // Fatora as informações do usuário
+            $userEmail = $request->email;
+            $userCPF = preg_replace('/\D/', '',$request->CPF); // Remove tudo que não é número
+
+            // Verifica se ambos os campos estão vazios
+            if (empty($userEmail) && empty($userCPF)) {
+                // Buscar todos os usuários
+                $customers = Customer::paginate(4);
+
+                return redirect()->route('configDashboard', compact('customers'))->with('error', 'Por favor, forneça um email ou CPF para busca.');
+            }
+
+            $customers = Customer::where('email', $userEmail)->first();
+
+            if ($customers) {
+                return redirect()->route('configDashboard', compact('customers'))->with('success', 'Usuário encontrado!');
+            }
+
+            $customers = Customer::where('CPF', $userCPF)->first();
+
+            if ($customers) {
+                return redirect()->route('configDashboard', compact('customers'))->with('success', 'Usuário encontrado!');
+            }
+
+            // Se nenhum cliente foi encontrado, redireciona com erro
+            // Buscar todos os usuários
+            $customers = Customer::paginate(4);
+            return redirect()->route('configDashboard', compact('customers'))->with('error', 'Usuário não encontrado!');
+        }
+    }
+    public function SaveUser(Request $request)
+{
+    // Validação dos dados recebidos
+    $request->validate([
+        'full_name' => 'required|string|max:255',
+        'first_name' => 'required|string|max:255',
+        'email' => 'required|email|unique:customers,email',
+        'CPF' => 'required|string|max:14|unique:customers,CPF',
+        'mobile' => 'required|string|max:15',
+        'temperamentos' => 'required|boolean',
+        'comportamental' => 'required|boolean',
+        'arquetipos' => 'required|boolean',
+    ]);
+
+    // Cria um novo cliente
+    $customer = new Customer();
+    $customer->full_name = $request->full_name;
+    $customer->first_name = $request->first_name;
+    $customer->email = $request->email;
+    $customer->CPF = preg_replace('/\D/', '',$request->CPF); // Remove tudo que não é número
+    $customer->mobile = $request->mobile;
+    $customer->temperamentos = $request->temperamentos;
+    $customer->comportamental = $request->comportamental;
+    $customer->arquetipos = $request->arquetipos;
+    $customer->save();
+
+    // Busca o último usuário cadastrado
+    $customers = Customer::latest()->first();
+    // Redireciona com mensagem de sucesso
+    return redirect()->route('configDashboard', compact('customers'))->with('success', 'Usuário cadastrado com sucesso!');
+}
     public function Atention() {
         return view('layouts/atention');
     }
