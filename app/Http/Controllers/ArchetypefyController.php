@@ -77,7 +77,8 @@ class ArchetypefyController extends Controller
         session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
 
         // return view('layouts/dashboard');
-        return redirect()->route('dashboard');
+        // return redirect()->route('dashboard');
+        return view('/');
     }
 
     /**
