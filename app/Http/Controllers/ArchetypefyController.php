@@ -76,7 +76,8 @@ class ArchetypefyController extends Controller
         $firstNullColumnComportamento = $this->getFirstNullColumn($lastComportamento, 'resultComportamento', ['comportamento1', 'comportamento2']);
         session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
 
-        return view('layouts/dashboard');
+        // return view('layouts/dashboard');
+        return redirect()->route('dashboard');
     }
 
     /**
