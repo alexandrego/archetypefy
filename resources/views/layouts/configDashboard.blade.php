@@ -21,13 +21,10 @@
             <div class="formulario">
                     <div class="formUser">
                         <div class="addUser">
-                            <!-- Mostra todos os usuários -->
-                            <a href="/configDashboard"><i class="fa-solid fa-users searchUsers"></i></a>
-
-                            <!-- Buscar usuário -->
+                            {{-- Buscar usuário --}}
                             <i class="fa-solid fa-magnifying-glass fa-archetypefy searchUsers" data-toggle="modal" data-target="#modalExemplo"></i>
 
-                            <!-- Adicionar usuário -->
+                            {{-- Adicionar usuário --}}
                             <i class="fa-solid fa-user-plus fa-archetypefy" data-toggle="modal" data-target="#modalExemploAdicionar"></i>
                         </div>
 
@@ -169,10 +166,7 @@
                                 </div>
                                 @endif
 
-                            @if (session('customer'))
-                                @php
-                                    $customer = session('customer');
-                                @endphp
+                            @if(isset($customer))
                                 <div class="userTitle">
                                     <span>Usuário</span>
                                 </div>

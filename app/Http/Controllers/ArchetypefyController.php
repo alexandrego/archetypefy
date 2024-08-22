@@ -38,68 +38,117 @@ class ArchetypefyController extends Controller
         return view('layouts/confirmCode')->with('email', $email);
     }
 
-    public function Dashboard(Request $request)
-    {
-        if (Auth::guest()) {
-            // Se não estiver logado, volta para o login
+    public function Dashboard(Request $request) {
+        if(Auth::guest()){
+            //Se não estiver logado, volta para o login
             return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
-        }
+        } else {
+            // $nome = session(['nome' => $request->nome]);
+            $user = Auth::user();
+            $userID = $user->id;
+            $fullName = $user->name;
 
-        $user = Auth::user();
-        $userID = $user->id;
-        $fullName = $user->name;
-        $firstName = strtok($fullName, " ");
+            $firstName = strtok($fullName, " ");
 
-        // Definindo sessões
-        session(['firstName' => $firstName, 'userID' => $userID]);
+            session(['firstName' => $firstName]);
+            session(['userID' => $userID]);
 
-        // Obtendo os últimos dados dos testes
-        $lastQuestion = Questions::where('user_id', $userID)->first();
-        $lastTemper = Temperamentos::where('user_id', $userID)->first();
-        $lastComportamento = Comportamentos::where('user_id', $userID)->first();
+            $lastQuestion = Questions::where('user_id', $userID)->first();
+            // $lastQuestion = Questions::latest()->first(); // Exemplo de busca pela última pergunta
+            // dd($lastQuestion);
+            $lastTemper = Temperamentos::where('user_id', $userID)->first();
+            $lastComportamento = Comportamentos::where('user_id', $userID)->first();
 
-        // Verifica o status de cada teste
-        $checkTest = Customer::findOrFail($userID);
-        session(['checkArquetipos' => $checkTest->arquetipos]);
-        session(['checkTemperamentos' => $checkTest->temperamentos]);
-        session(['checkComportamental' => $checkTest->comportamental]);
+            if (empty($lastQuestion)) {
+                // Informa que não tem teste iniciado
+                $firstNullColumn = 0;
 
-        // Verificação e definição de colunas nulas para o último Question
-        $firstNullColumn = $this->getFirstNullColumn($lastQuestion, 'result');
-        session(['firstNullColumn' => $firstNullColumn]);
+            } else {
+                $firstTime = $lastQuestion->times_exec; //Verifica se é a primeira vez
 
-        // Verificação e definição de colunas nulas para o último Temperamentos
-        $firstNullColumnTemper = $this->getFirstNullColumn($lastTemper, 'resultTemper', ['temper1', 'temper2']);
-        session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                if(empty($firstTime)){
+                    $columnNames = array_keys($lastQuestion->getAttributes());
+                    $firstNullColumn = null;
 
-        // Verificação e definição de colunas nulas para o último Comportamentos
-        $firstNullColumnComportamento = $this->getFirstNullColumn($lastComportamento, 'resultComportamento', ['comportamento1', 'comportamento2']);
-        session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
-
-        return view('layouts/dashboard');
-    }
-
-    /**
-     * Obtém o nome da primeira coluna nula ou retorna o valor padrão se não houver colunas nulas.
-     *
-     * @param  mixed  $model
-     * @param  string  $default
-     * @param  array   $excludeColumns
-     * @return string
-     */
-    private function getFirstNullColumn($model, $default, $excludeColumns = [])
-    {
-        if (is_null($model)) {
-            return 'nao_iniciado_' . $default;
-        }
-
-        foreach ($model->getAttributes() as $column => $value) {
-            if (is_null($value) && !in_array($column, $excludeColumns)) {
-                return $column;
+                    foreach ($columnNames as $column) {
+                        if ($lastQuestion->$column == null) {
+                            $firstNullColumn = $column;
+                            session(['firstNullColumn' => $firstNullColumn]);
+                            break;
+                        }
+                    }
+                    // dd($firstNullColumn);
+                } else {
+                    $firstNullColumn = 'result';
+                    // dd($firstNullColumn);
+                    session(['firstNullColumn' => $firstNullColumn]);
+                }
             }
-        }
 
-        return $default;
+            if ($lastTemper) {
+                $columnNamesTemper = array_keys($lastTemper->getAttributes());
+                $firstNullColumnTemper = null;
+
+                foreach ($columnNamesTemper as $columnTemper) {
+                    if ($lastTemper->$columnTemper === null) {
+                        $firstNullColumnTemper = $columnTemper;
+                        break;
+                    }
+                }
+
+                if ($firstNullColumnTemper) {
+                    if($firstNullColumnTemper == "temper1"){
+                        // Não exiba nada
+                    } else if ($firstNullColumnTemper == "temper2"){
+                        session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                    }
+                } else {
+                    $firstNullColumnTemper = 'resultTemper';
+                    session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                }
+            } else {
+                $firstNullColumnTemper = 'nao_iniciado_temper';
+                session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+            }
+
+            if ($lastComportamento) {
+                $columnNamesComportamento = array_keys($lastComportamento->getAttributes());
+                $firstNullColumnComportamento = null;
+
+                foreach ($columnNamesComportamento as $columnComportamento) {
+                    if ($lastComportamento->$columnComportamento === null) {
+                        $firstNullColumnComportamento = $columnComportamento;
+                        break;
+                    }
+                }
+
+                if ($firstNullColumnComportamento) {
+                    if($firstNullColumnComportamento == "comportamento1"){
+                        // Não exiba nada
+                    } else if ($firstNullColumnComportamento == "comportamento2"){
+                        session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                    }
+                } else {
+                    $firstNullColumnComportamento = 'resultComportamento';
+                    session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                }
+            } else {
+                $firstNullColumnComportamento = 'nao_iniciado_Comportamento';
+                session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+            }
+
+            return view('layouts/dashboard');
+            // ->with(
+            //     [
+                    // 'firstName' => $firstName,
+                    // 'userID' => $userID,
+                    // 'firstTime' => $firstTime,
+                    // 'firstNullColumn' => $firstNullColumn,
+                    // 'firstNullColumnTemper' => $firstNullColumnTemper,
+                    // 'firstNullColumnComportamento' => $firstNullColumnComportamento
+            //     ]
+            // );
+        }
     }
 
     public function ConfigDashboard(Request $request)
@@ -143,10 +192,10 @@ class ArchetypefyController extends Controller
             // Atualiza os dados do cliente
             $customer->update($user);
 
-            // Retorna os dados do usuário atualizados
-            return redirect()->route('configDashboard')
-                                ->with('customer', $customer)
-                                ->with('success', 'Dados do usuário atualizados com sucesso!');
+            // Buscar todos os usuários
+            $customers = Customer::paginate(4);
+
+            return redirect()->route('configDashboard', compact('customers'))->with('success', 'Dados do usuário atualizados com sucesso!');
         }
     }
     public function BuscaUser(Request $request)
@@ -154,79 +203,68 @@ class ArchetypefyController extends Controller
         if (Auth::guest()) {
             // Se não estiver logado, volta para o login
             return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
-        }
+        } else {
+            // Fatora as informações do usuário
+            $userEmail = $request->email;
+            $userCPF = preg_replace('/\D/', '',$request->CPF); // Remove tudo que não é número
 
-        // Fatora as informações do usuário
-        $userEmail = $request->input('email');
-        $userCPF = preg_replace('/\D/', '', $request->input('CPF')); // Remove tudo que não é número
+            // Verifica se ambos os campos estão vazios
+            if (empty($userEmail) && empty($userCPF)) {
+                // Buscar todos os usuários
+                $customers = Customer::paginate(4);
 
-        // Verifica se ambos os campos estão vazios
-        if (empty($userEmail) && empty($userCPF)) {
+                return redirect()->route('configDashboard', compact('customers'))->with('error', 'Por favor, forneça um email ou CPF para busca.');
+            }
+
+            $customer = Customer::where('email', $userEmail)->first();
+
+            if ($customer) {
+                return redirect()->route('configDashboard', compact('customer'))->with('success', 'Usuário encontrado!');
+            }
+
+            $customer = Customer::where('CPF', $userCPF)->first();
+
+            if ($customer) {
+                return redirect()->route('configDashboard', compact('customer'))->with('success', 'Usuário encontrado!');
+            }
+
+            // Se nenhum cliente foi encontrado, redireciona com erro
             // Buscar todos os usuários
             $customers = Customer::paginate(4);
-            return redirect()->route('configDashboard')
-                            ->with('customers', $customers)
-                            ->with('error', 'Por favor, forneça um email ou CPF para busca.');
+            return redirect()->route('configDashboard', compact('customers'))->with('error', 'Usuário não encontrado!');
         }
-
-        // Primeiro verifica pelo CPF
-        $customer = Customer::where('CPF', $userCPF)->first();
-
-        if ($customer) {
-            return redirect()->route('configDashboard')
-                            ->with('customer', $customer)
-                            ->with('success', 'Usuário encontrado!');
-        }
-
-        // Se não encontrado pelo CPF, verifica pelo email
-        $customer = Customer::where('email', $userEmail)->first();
-
-        if ($customer) {
-            return redirect()->route('configDashboard')
-                            ->with('customer', $customer)
-                            ->with('success', 'Usuário encontrado!');
-        }
-
-        // Se nenhum cliente foi encontrado, buscar todos os usuários
-        $customers = Customer::paginate(4);
-        return redirect()->route('configDashboard')
-                        ->with('customers', $customers)
-                        ->with('error', 'Usuário não encontrado!');
     }
-
     public function SaveUser(Request $request)
-    {
-        // Validação dos dados recebidos
-        $request->validate([
-            'full_name' => 'required|string|max:255',
-            'first_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:customers,email',
-            'CPF' => 'required|string|max:14|unique:customers,CPF',
-            'mobile' => 'required|string|max:15',
-            'temperamentos' => 'required|boolean',
-            'comportamental' => 'required|boolean',
-            'arquetipos' => 'required|boolean',
-        ]);
+{
+    // Validação dos dados recebidos
+    $request->validate([
+        'full_name' => 'required|string|max:255',
+        'first_name' => 'required|string|max:255',
+        'email' => 'required|email|unique:customers,email',
+        'CPF' => 'required|string|max:14|unique:customers,CPF',
+        'mobile' => 'required|string|max:15',
+        'temperamentos' => 'required|boolean',
+        'comportamental' => 'required|boolean',
+        'arquetipos' => 'required|boolean',
+    ]);
 
-        // Cria um novo cliente
-        $customer = new Customer();
-        $customer->full_name = $request->full_name;
-        $customer->first_name = $request->first_name;
-        $customer->email = $request->email;
-        $customer->CPF = preg_replace('/\D/', '',$request->CPF); // Remove tudo que não é número
-        $customer->mobile = $request->mobile;
-        $customer->temperamentos = $request->temperamentos;
-        $customer->comportamental = $request->comportamental;
-        $customer->arquetipos = $request->arquetipos;
-        $customer->save();
+    // Cria um novo cliente
+    $customer = new Customer();
+    $customer->full_name = $request->full_name;
+    $customer->first_name = $request->first_name;
+    $customer->email = $request->email;
+    $customer->CPF = preg_replace('/\D/', '',$request->CPF); // Remove tudo que não é número
+    $customer->mobile = $request->mobile;
+    $customer->temperamentos = $request->temperamentos;
+    $customer->comportamental = $request->comportamental;
+    $customer->arquetipos = $request->arquetipos;
+    $customer->save();
 
-        // Busca o último usuário cadastrado
-        $customer = Customer::latest()->first();
-        // Redireciona com mensagem de sucesso
-        return redirect()->route('configDashboard')
-                                ->with('customer', $customer)
-                                ->with('success', 'Usuário cadastrado com sucesso!');
-    }
+    // Busca o último usuário cadastrado
+    $customers = Customer::latest()->first();
+    // Redireciona com mensagem de sucesso
+    return redirect()->route('configDashboard', compact('customers'))->with('success', 'Usuário cadastrado com sucesso!');
+}
     public function Atention() {
         return view('layouts/atention');
     }
