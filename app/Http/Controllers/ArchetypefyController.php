@@ -219,13 +219,23 @@ class ArchetypefyController extends Controller
             $customer = Customer::where('email', $userEmail)->first();
 
             if ($customer) {
-                return redirect()->route('configDashboard', compact('customer'))->with('success', 'Usuário encontrado!');
+                return redirect()->route('configDashboard')->with(
+                    [
+                        'success' => 'Usuário encontrado!',
+                        'customer' => $customer
+                    ]
+                );
             }
 
             $customer = Customer::where('CPF', $userCPF)->first();
 
             if ($customer) {
-                return redirect()->route('configDashboard', compact('customer'))->with('success', 'Usuário encontrado!');
+                return redirect()->route('configDashboard')->with(
+                    [
+                        'success' => 'Usuário encontrado!',
+                        'customer' => $customer
+                    ]
+                );
             }
 
             // Se nenhum cliente foi encontrado, redireciona com erro

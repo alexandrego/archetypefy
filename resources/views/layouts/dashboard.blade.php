@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="compras">
-                    @if(firstNullColumn == 0)
+                    @if($firstNullColumn == 0)
                         <a href="/atention" class="links">
                             <div class="cardArc" title="Clique para começar o teste!">
                                 <div class="cardImgAr">
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </a>
-                    @elseif(firstNullColumn == 'result')
+                    @elseif($firstNullColumn == 'result')
                         <a href="/result" class="links">
                             <div class="cardArc" title="Clique para ver o resultado!">
                                 <div class="testeOk">

@@ -21,10 +21,14 @@
             <div class="formulario">
                     <div class="formUser">
                         <div class="addUser">
-                            {{-- Buscar usuário --}}
+                            <!-- Todos os usuários -->
+                             <a href="/configDashboard">
+                                <i class="fa-solid fa-users searchUsers"></i>
+                             </a>
+                            <!-- Buscar usuário -->
                             <i class="fa-solid fa-magnifying-glass fa-archetypefy searchUsers" data-toggle="modal" data-target="#modalExemplo"></i>
 
-                            {{-- Adicionar usuário --}}
+                            <!-- Adicionar usuário -->
                             <i class="fa-solid fa-user-plus fa-archetypefy" data-toggle="modal" data-target="#modalExemploAdicionar"></i>
                         </div>
 
@@ -154,17 +158,21 @@
 
                         <div class="searchUser">
 
-                                @if(session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                                @endif
+                            @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                            @endif
 
-                                @if(session('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                                @endif
+                            @if(session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                            @endif
+
+                            @php
+                                $customer = session('customer');
+                            @endphp
 
                             @if(isset($customer))
                                 <div class="userTitle">
@@ -200,7 +208,7 @@
                                                         </button>
                                                     </div>
                                                     <form action="/updateUser" method="POST">
-                                                    @csrf
+                                                        @csrf
                                                         <div class="modal-body">
 
                                                             <div class="input-group mb-3">
