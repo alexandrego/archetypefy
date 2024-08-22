@@ -65,20 +65,18 @@ class ArchetypefyController extends Controller
         session(['checkComportamental' => $checkTest->comportamental]);
 
         // Verificação e definição de colunas nulas para o último Question
-        // $firstNullColumn = $this->getFirstNullColumn($lastQuestion, 'result');
-        // session(['firstNullColumn' => $firstNullColumn]);
+        $firstNullColumn = $this->getFirstNullColumn($lastQuestion, 'result');
+        session(['firstNullColumn' => $firstNullColumn]);
 
         // Verificação e definição de colunas nulas para o último Temperamentos
-        // $firstNullColumnTemper = $this->getFirstNullColumn($lastTemper, 'resultTemper', ['temper1', 'temper2']);
-        // session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+        $firstNullColumnTemper = $this->getFirstNullColumn($lastTemper, 'resultTemper', ['temper1', 'temper2']);
+        session(['firstNullColumnTemper' => $firstNullColumnTemper]);
 
         // Verificação e definição de colunas nulas para o último Comportamentos
-        // $firstNullColumnComportamento = $this->getFirstNullColumn($lastComportamento, 'resultComportamento', ['comportamento1', 'comportamento2']);
-        // session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+        $firstNullColumnComportamento = $this->getFirstNullColumn($lastComportamento, 'resultComportamento', ['comportamento1', 'comportamento2']);
+        session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
 
         return view('layouts/dashboard');
-        // return redirect()->route('dashboard');
-        // return view('/');
     }
 
     /**
