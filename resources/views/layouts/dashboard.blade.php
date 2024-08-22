@@ -12,9 +12,6 @@
         <div class="contentHome">
             @auth
                 @php
-                    // $userID = Auth::id();
-                    // $fullName = Auth::user();
-                    // $firstName = strtok($fullName, " ");
                     $userID = session('userID');
                     $firstName = session('firstName');
                     $firstNullColumn = session('firstNullColumn');
@@ -23,8 +20,6 @@
                 @if($userID && in_array($userID, $allowedUserIds))
                     <div class="iconsConfig">
                         <a href="/configDashboard">
-                            {{-- <i class="fa-solid fa-gear btnOut"></i> --}}
-                            {{-- <i class="fa-solid fa-user-gear btnOut"></i> --}}
                             <i class="fa-solid fa-users-gear btnOut"></i>
                         </a>
                     </div>

@@ -12,7 +12,7 @@ use App\Http\Controllers\TemperamentoController;
     Route::get('/confirmCode', [ArchetypefyController::class, 'ConfirmCode']);
 
 // Rotas quando logado
-    Route::get('/dashboard', [ArchetypefyController::class, 'Dashboard'])->name('dashboard')->middleware('auth');
+    Route::get('/dashboard', [ArchetypefyController::class, 'Dashboard'])->middleware('auth');
     Route::get('/atention', [ArchetypefyController::class, 'Atention'])->middleware('auth');
     Route::get('/startTest', [ArchetypefyController::class, 'StartTest'])->middleware('auth');
     Route::get('/configDashboard', [ArchetypefyController::class, 'ConfigDashboard'])->name('configDashboard')->middleware('auth');
