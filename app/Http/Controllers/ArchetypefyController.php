@@ -7,6 +7,8 @@ use App\Models\Customer;
 use App\Models\Questions;
 use App\Models\Temperamentos;
 use App\Models\User;
+use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -176,8 +178,8 @@ class ArchetypefyController extends Controller
                 'full_name' => 'required|string|max:255',
                 'first_name' => 'required|string|max:255',
                 'email' => 'required|email|unique:customers,email,' . $request->id,
-                'CPF' => 'required|string|max:14', // Ajuste conforme necessário
-                'mobile' => 'required|string|max:15', // Ajuste conforme necessário
+                'CPF' => 'required|string|max:14',
+                'mobile' => 'required|string|max:15',
                 'temperamentos' => 'required|boolean',
                 'comportamental' => 'required|boolean',
                 'arquetipos' => 'required|boolean',
@@ -187,15 +189,26 @@ class ArchetypefyController extends Controller
 
             // Busca o cliente pelo ID
             $userID = $user['id'];
-            $customer = Customer::findOrFail($userID);
 
-            // Atualiza os dados do cliente
-            $customer->update($user);
+            try {
+                $customer = Customer::findOrFail($userID);
 
-            // Buscar todos os usuários
-            $customers = Customer::paginate(4);
+                // Atualiza os dados do cliente
+                $customer->update($user);
 
-            return redirect()->route('configDashboard', compact('customers'))->with('success', 'Dados do usuário atualizados com sucesso!');
+                return redirect()->route('configDashboard')->with([
+                    'success' => 'Dados do usuário atualizados com sucesso!',
+                    'customer' => $customer
+                ]);
+
+            } catch (ModelNotFoundException $e) {
+                // Cliente não encontrado
+                return redirect()->route('configDashboard')->with('error', 'Usuário não encontrado!');
+
+            } catch (Exception $e) {
+                // Outra exceção durante a atualização
+                return redirect()->route('configDashboard')->with('error', 'Erro ao atualizar os dados do usuário, tente novamente!');
+            }
         }
     }
     public function BuscaUser(Request $request)
