@@ -51,20 +51,51 @@
                 @endif
             </div>
 
-        <form action="/checkCode" method="POST" onsubmit="confSec()">
-        @csrf
-          <fieldset class="fieldsetConfirmCode">
-            <legend>Código de verificação</legend>
-            <i class="fa-solid fa-key" style="margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
-            <input type="text" id="confirmCode" name="confirmCode" placeholder="Informe o código recebido no e-mail" maxlength="4" onkeyup="handleCode(event)" required />
-            <input type="hidden" id="email" name="sessionEmail" value="{{ $email }}" />
-            <input type="hidden" id="email" name="email" value="{{ $email }}" />
-          </fieldset>
+            @php
+                $adm = session('adm');
+                $usuario = session('usuario');
+            @endphp
 
-          <div id="buttonCadastrar" class="buttonCadastrar">
-            <button>Confirmar código <i class="fa-solid fa-unlock" style="margin:0 0 0 8px;font-size:17px;background-color:transparent;color:#fff;"></i></button>
-          </div>
-        </form>
+        <!-- Formulário para criar senha -->
+        <!-- Formulário para criar senha -->
+
+        <!-- Formulário para Administradores -->
+            @if(isset($adm))
+                <form action="/checkCode" method="POST" onsubmit="confSec()">
+                    @csrf
+                <fieldset class="fieldsetConfirmCode">
+                    <legend>Informe sua senha</legend>
+                    <i class="fa-solid fa-key" style="margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                    <input type="text" id="confirmCode" name="confirmCode" placeholder="Informe a sua senha" maxlength="4" onkeyup="handleCode(event)" required />
+                    <input type="hidden" id="email" name="sessionEmail" value="{{ $email }}" />
+                    <input type="hidden" id="email" name="email" value="{{ $email }}" />
+                </fieldset>
+
+                <div id="buttonCadastrar" class="buttonCadastrar">
+                    <button>Confirmar código <i class="fa-solid fa-unlock" style="margin:0 0 0 8px;font-size:17px;background-color:transparent;color:#fff;"></i></button>
+                </div>
+                </form>
+            @endif
+        <!-- Formulário para Administradores -->
+
+        <!-- Formulário para usuário comum! -->
+            @if(isset($usuario))
+                <form action="/checkCode" method="POST" onsubmit="confSec()">
+                    @csrf
+                <fieldset class="fieldsetConfirmCode">
+                    <legend>Código de verificação</legend>
+                    <i class="fa-solid fa-key" style="margin: 0 8px 0 0;border-right: 1px solid;padding: 0 8px 0 0;"></i>
+                    <input type="text" id="confirmCode" name="confirmCode" placeholder="Informe o código recebido no e-mail" maxlength="4" onkeyup="handleCode(event)" required />
+                    <input type="hidden" id="email" name="sessionEmail" value="{{ $email }}" />
+                    <input type="hidden" id="email" name="email" value="{{ $email }}" />
+                </fieldset>
+
+                <div id="buttonCadastrar" class="buttonCadastrar">
+                    <button>Confirmar código <i class="fa-solid fa-unlock" style="margin:0 0 0 8px;font-size:17px;background-color:transparent;color:#fff;"></i></button>
+                </div>
+                </form>
+                @endif
+        <!-- Formulário para usuário comum! -->
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@ use App\Http\Controllers\TemperamentoController;
 
 // Rotas públicas
     Route::get('/', [ArchetypefyController::class, 'Index'])->name('login');
-    Route::get('/confirmCode', [ArchetypefyController::class, 'ConfirmCode']);
+    Route::get('/confirmCode', [ArchetypefyController::class, 'ConfirmCode'])->name('confirmCode');
 
 // Rotas quando logado
     Route::get('/dashboard', [ArchetypefyController::class, 'Dashboard'])->middleware('auth');

@@ -307,7 +307,7 @@
                                 Perfil Comportamental
                             </div>
                             <div class="cardDesc">
-                                <a href="#">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                <a href="#" class="links">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
                             </div>
                             @if(isset($firstNullColumnComportamento))
                                 @if($firstNullColumnComportamento == 'comportamento2')
@@ -484,7 +484,7 @@
                                 Identidade de Temperamentos
                             </div>
                             <div class="cardDesc">
-                                <a href="#">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                <a href="#" class="links">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
                             </div>
                             @if(isset($firstNullColumnTemper))
                                     @if($firstNullColumnTemper == 'temper2')

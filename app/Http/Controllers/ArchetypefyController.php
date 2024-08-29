@@ -29,15 +29,43 @@ class ArchetypefyController extends Controller
     public function ConfirmCode(Request $request) {
 
         $email = $request->email;
+        $email1 = session('email'); // Recupera a variável 'email'
+        $user = session('adm'); // Recupera a variável 'adm'
+
         $email = session('sessionEmail');
 
-        if(!$email){
+         // Verifica se é um admin
+         $allowedUserIds = [1, 2, 5, 8]; // IDs dos usuários permitidos
+
+         if (in_array($user->id, $allowedUserIds))
+         {
+            return view('layouts/confirmCode')->with(
+                [
+                    'email' => $email,
+                    'adm' => $user
+                ]
+            );
+        } else {
+            return view('layouts/confirmCode')->with(
+                [
+                    'email' => $email,
+                    'usuario' => $user
+                ]
+            );
+    }
+
+        if(!$email && !$email1){
             //Se não tiver email, volta para o login
             return redirect()->route('login')->with('error', 'Código Inválido!');
         }
 
         // return view('layouts/confirmCode')->with('error', 'Preencha todos os dados');
-        return view('layouts/confirmCode')->with('email', $email);
+        // return view('layouts/confirmCode')->with(
+        //     [
+        //         'email' => $email,
+        //         'adm' => $user
+        //     ]
+        // );
     }
 
     public function Dashboard(Request $request) {
@@ -45,7 +73,6 @@ class ArchetypefyController extends Controller
             //Se não estiver logado, volta para o login
             return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
         } else {
-            // $nome = session(['nome' => $request->nome]);
             $user = Auth::user();
             $userID = $user->id;
             $fullName = $user->name;
@@ -56,15 +83,12 @@ class ArchetypefyController extends Controller
             session(['userID' => $userID]);
 
             $lastQuestion = Questions::where('user_id', $userID)->first();
-            // $lastQuestion = Questions::latest()->first(); // Exemplo de busca pela última pergunta
-            // dd($lastQuestion);
             $lastTemper = Temperamentos::where('user_id', $userID)->first();
             $lastComportamento = Comportamentos::where('user_id', $userID)->first();
 
             if (empty($lastQuestion)) {
                 // Informa que não tem teste iniciado
                 $firstNullColumn = 0;
-
             } else {
                 $firstTime = $lastQuestion->times_exec; //Verifica se é a primeira vez
 
@@ -79,10 +103,8 @@ class ArchetypefyController extends Controller
                             break;
                         }
                     }
-                    // dd($firstNullColumn);
                 } else {
                     $firstNullColumn = 'result';
-                    // dd($firstNullColumn);
                     session(['firstNullColumn' => $firstNullColumn]);
                 }
             }
@@ -140,16 +162,6 @@ class ArchetypefyController extends Controller
             }
 
             return view('layouts/dashboard');
-            // ->with(
-            //     [
-                    // 'firstName' => $firstName,
-                    // 'userID' => $userID,
-                    // 'firstTime' => $firstTime,
-                    // 'firstNullColumn' => $firstNullColumn,
-                    // 'firstNullColumnTemper' => $firstNullColumnTemper,
-                    // 'firstNullColumnComportamento' => $firstNullColumnComportamento
-            //     ]
-            // );
         }
     }
 
@@ -296,22 +308,6 @@ class ArchetypefyController extends Controller
         return view('layouts/startTest');
     }
 
-    // public function MailCode(Request $request) {
-    //     $email = $request->email;
-    //     dd($email);
-    //     // $email    = session('email');
-    //      // Verifica se o email está vazio
-    //     if (empty($email)) {
-    //         return redirect()->route('login')->with('error', 'O email não pode estar vazio.');
-    //     }
-
-    //     \Illuminate\Support\Facades\Mail::to($email)->send(
-    //         new \App\Mail\SecuryCode()
-    //     );
-
-    //     return view('layouts/confirmCode');
-    // }
-
     public function store(Request $request) {
 
         // Recebe o e-mail digitado
@@ -336,15 +332,42 @@ class ArchetypefyController extends Controller
             $user = User::where('email', $email)->first();
 
             if ($user) {
-                // Atualiza a senha do usuário
-                $user->password = Hash::make($confirmCode);
-                $user->save();
+                // Verifica se é um admin
+                $allowedUserIds = [1, 2, 5, 8]; // IDs dos usuários permitidos
 
-                \Illuminate\Support\Facades\Mail::to($email)->send(
-                    new \App\Mail\SecuryCode($userName, $confirmCode)
-                );
+                if (in_array($user->id, $allowedUserIds)) {
+                    // Verifica se tem senha cadastrada
+                    $passwordNow = $user->password;
 
-                return view('layouts/confirmCode')->with(['email' => $email]);
+                    if($passwordNow == null){
+                        dd('Vamos criar uma nova senha!');
+
+                        return view('layouts/confirmCode')->with(
+                            [
+                                'email' => $email,
+                                'nome' => $userName
+                            ]);
+                    } else {
+                        // dd('Vamos digitar a senha!');
+
+                        return redirect()->route('confirmCode')->with(
+                            [
+                                'adm' => $user,
+                                'email' => $email
+                            ]
+                        );
+                    }
+                } else {
+                    // Atualiza a senha do usuário
+                    $user->password = Hash::make($confirmCode);
+                    $user->save();
+
+                    \Illuminate\Support\Facades\Mail::to($email)->send(
+                        new \App\Mail\SecuryCode($userName, $confirmCode)
+                    );
+
+                    return view('layouts/confirmCode')->with(['email' => $email]);
+                }
             } else {
                 $lead = new User();
 
@@ -360,8 +383,6 @@ class ArchetypefyController extends Controller
 
                 return view('layouts/confirmCode');
             }
-
-
         } else {
             $email   = $request->email;
             return redirect('/')->with('error', 'Email não encontrado!');
