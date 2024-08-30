@@ -48,11 +48,8 @@
             </div>
 
             @php
-                $nome = session('nome');
-                $adm = session('adm');
-                $usuario = session('usuario');
-
-                dd($usuario);
+                $user = session('user');
+                $whoIs = session('whoIs');
             @endphp
 
         <!-- Formulário para criar senha -->
@@ -90,9 +87,9 @@
         <!-- Formulário para criar senha -->
 
         <!-- Formulário para Administradores -->
-            @if(isset($adm))
+            @if($whoIs == 'adm')
                 <div class="message roboto-thin">
-                    Bem vindo Sr. <span class="resultadoFinal">{{ $adm->name }}</span>
+                    Bem vindo Sr. <span class="resultadoFinal">{{ $user->name }}</span>
                 </div>
 
                 <form action="/checkCode" method="POST" onsubmit="confSec()">
@@ -114,7 +111,7 @@
         <!-- Formulário para Administradores -->
 
         <!-- Formulário para usuário comum! -->
-            @if(isset($usuario))
+            @if($whoIs == 'normalUser')
                 <div class="message roboto-thin">
                     <div class="message roboto-thin">Para garantir a segurança de nossa comunidade e proteger suas informações, utilizamos a confirmação de código númerico aleatorio via e-mail durante o processo de login.</div>
                     <div class="message roboto-thin">Isso significa que após informar seu e-mail, enviaremos um código de confirmação para o endereço fornecido. Ao informar o código de confirmação contido nesse e-mail, você nos ajudará a verificar sua identidade e a garantir que apenas você tenha acesso à sua conta.</div>

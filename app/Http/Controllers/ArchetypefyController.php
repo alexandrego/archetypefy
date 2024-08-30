@@ -28,36 +28,64 @@ class ArchetypefyController extends Controller
     }
     public function ConfirmCode(Request $request) {
 
-        $email = $request->email;
-        $email1 = session('email'); // Recupera a variável 'email'
-        $user = session('adm'); // Recupera a variável 'adm'
+        // // Busca os temperamentos
+        // $temperamentos = Temperamentos::all();
 
-        $email = session('sessionEmail');
+        // // Busca os comportamentos
+        // $comportamentos = Comportamentos::all();
 
-        if(!$email && !$email1 && !$user){
-            //Se não tiver email, volta para o login
+        // // Retorna a view com os temperamentos e comportamentos
+        // return view('layouts/confirmCode', compact('temperamentos', 'comportamentos'));
+
+        // Recebe email digitado
+        // $email = $request->email;
+
+        $email = session('email'); // Recupera a variável 'email'
+        $whoIs = session('whoIs'); // Recupera a variável 'adm'
+
+        // $email = session('sessionEmail');
+
+        //Se não tiver email, volta para o login
+        if(!$email){
             return redirect()->route('login')->with('error', 'Sua sessão expirou, por favor, faça login novamente!');
         }
 
-         // Verifica se é um admin
-         $allowedUserIds = [2, 5, 8]; // IDs dos usuários permitidos
-
-         if (in_array($user->id, $allowedUserIds))
-         {
-            return redirect()->route('confirmCode')->with(
-                [
-                    'email' => $email,
-                    'adm' => $user
-                ]
-            );
-        } else {
-            return redirect()->route('confirmCode')->with(
-                [
-                    'email' => $email,
-                    'usuario' => $user
-                ]
-            );
+        // Verifica se o email é válido
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return redirect()->route('login')->with('error', 'Email inválido');
         }
+
+        return view('layouts.confirmCode')->with(
+            [
+                'email' => $email,
+                'whoIs' => $whoIs
+            ]
+        );
+
+        // if(!$email && !$email1 && !$user){
+        //     //Se não tiver email, volta para o login
+        //     return redirect()->route('login')->with('error', 'Sua sessão expirou, por favor, faça login novamente!');
+        // }
+
+        //  // Verifica se é um admin
+        //  $allowedUserIds = [2, 5, 8]; // IDs dos usuários permitidos
+
+        //  if (in_array($user->id, $allowedUserIds))
+        //  {
+        //     return redirect()->route('confirmCode')->with(
+        //         [
+        //             'email' => $email,
+        //             'adm' => $user
+        //         ]
+        //     );
+        // } else {
+        //     return redirect()->route('confirmCode')->with(
+        //         [
+        //             'email' => $email,
+        //             'usuario' => $user
+        //         ]
+        //     );
+        // }
     }
 
     public function Dashboard(Request $request) {
@@ -301,17 +329,35 @@ class ArchetypefyController extends Controller
     }
 
     public function store(Request $request) {
+        // Recebe email digitado
+        $email = $request->email;
 
-        // Recebe o e-mail digitado
-        $email   = $request->email;
+        //Se não tiver email, volta para o login
+        if(!$email){
+            return redirect()->route('login')->with('error', 'Sua sessão expirou, por favor, faça login novamente!');
+        }
 
-        // Verifica se o email existe no banco de dados
+        // Verifica se o email é válido
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return redirect()->route('login')->with('error', 'Email inválido');
+        }
+
+        // Verifica se o email já está cadastrado
+        // $user = User::where('email', $email)->first();
+
+        // if (!$user) {
+        //     return redirect()->route('login')->with('error', 'Email não cadastrado');
+        // }
+
+        // Salva o email na sessão
+        // session(['email' => $email]);
+
+        // Verifica se o email existe no banco de dados Kiwify
         $user = Customer::where('email', $email)->first();
 
         if ($user) {
-            // Gera uma sequência de 4 números aleatórios
-            $confirmCode =  array_map('strval', array_map('rand', array(0, 1, 2, 3), array(4, 5, 6, 7)));
-            $confirmCode = implode('', $confirmCode);
+            // Salva o email na sessão
+            session(['email' => $email]);
 
             // Passa o nome para o e-mail
             $userName = $user->first_name;
@@ -320,12 +366,12 @@ class ArchetypefyController extends Controller
             $newUserEmail = $user->email;
             $newUserMobile = $user->mobile;
 
-            // Verifica se o email existe no banco de dados
+            // Verifica se o email existe no banco de dados local
             $user = User::where('email', $email)->first();
 
             if ($user) {
                 // Verifica se é um admin
-                $allowedUserIds = [2, 5, 8]; // IDs dos usuários permitidos
+                $allowedUserIds = [1, 2, 5, 8]; // IDs dos usuários permitidos
 
                 if (in_array($user->id, $allowedUserIds)) {
                     // Verifica se tem senha cadastrada
@@ -341,11 +387,12 @@ class ArchetypefyController extends Controller
                         );
                     } else {
                         // dd('Vamos digitar a senha!');
+                        $whoIs = 'adm';
 
                         return redirect()->route('confirmCode')->with(
                             [
-                                'adm' => $user,
-                                'email' => $email
+                                'user' => $user,
+                                'whoIs' => $whoIs
                             ]
                         );
                     }
@@ -359,14 +406,20 @@ class ArchetypefyController extends Controller
                     // );
 
                     // return view('layouts/confirmCode')->with(['email' => $email]);
+                    $whoIs = 'normalUser';
+
                     return redirect()->route('confirmCode')->with(
                         [
-                            'email' => $email,
-                            'adm' => $user
+                            'whoIs' => $whoIs,
+                            'user' => $user
                         ]
                     );
                 }
             } else {
+                // Gera uma sequência de 4 números aleatórios
+                $confirmCode =  array_map('strval', array_map('rand', array(0, 1, 2, 3), array(4, 5, 6, 7)));
+                $confirmCode = implode('', $confirmCode);
+
                 $lead = new User();
 
                 $lead->name = $newUserName;
@@ -385,5 +438,89 @@ class ArchetypefyController extends Controller
             $email   = $request->email;
             return redirect('/')->with('error', 'Email não encontrado!');
         }
+
+        // // Recebe o e-mail digitado
+        // $email   = $request->email;
+
+        // // Verifica se o email existe no banco de dados
+        // $user = Customer::where('email', $email)->first();
+
+        // if ($user) {
+        //     // Gera uma sequência de 4 números aleatórios
+        //     $confirmCode =  array_map('strval', array_map('rand', array(0, 1, 2, 3), array(4, 5, 6, 7)));
+        //     $confirmCode = implode('', $confirmCode);
+
+        //     // Passa o nome para o e-mail
+        //     $userName = $user->first_name;
+
+        //     $newUserName = $user->full_name;
+        //     $newUserEmail = $user->email;
+        //     $newUserMobile = $user->mobile;
+
+        //     // Verifica se o email existe no banco de dados
+        //     $user = User::where('email', $email)->first();
+
+        //     if ($user) {
+        //         // Verifica se é um admin
+        //         $allowedUserIds = [2, 5, 8]; // IDs dos usuários permitidos
+
+        //         if (in_array($user->id, $allowedUserIds)) {
+        //             // Verifica se tem senha cadastrada
+        //             $passwordNow = $user->password;
+
+        //             if($passwordNow == null){
+        //                 dd('Vamos criar uma nova senha!');
+        //                 return redirect()->route('confirmCode')->with(
+        //                     [
+        //                         'email' => $email,
+        //                         'nome' => $userName
+        //                     ]
+        //                 );
+        //             } else {
+        //                 // dd('Vamos digitar a senha!');
+
+        //                 return redirect()->route('confirmCode')->with(
+        //                     [
+        //                         'adm' => $user,
+        //                         'email' => $email
+        //                     ]
+        //                 );
+        //             }
+        //         } else {
+        //             // Atualiza a senha do usuário
+        //             // $user->password = Hash::make($confirmCode);
+        //             // $user->save();
+
+        //             // \Illuminate\Support\Facades\Mail::to($email)->send(
+        //             //     new \App\Mail\SecuryCode($userName, $confirmCode)
+        //             // );
+
+        //             // return view('layouts/confirmCode')->with(['email' => $email]);
+        //             return redirect()->route('confirmCode')->with(
+        //                 [
+        //                     'email' => $email,
+        //                     'adm' => $user
+        //                 ]
+        //             );
+        //         }
+        //     } else {
+        //         $lead = new User();
+
+        //         $lead->name = $newUserName;
+        //         $lead->email = $newUserEmail;
+        //         $lead->mobile = $newUserMobile;
+        //         $lead->password = Hash::make($confirmCode);
+        //         $lead->save();
+
+        //         \Illuminate\Support\Facades\Mail::to($email)->send(
+        //             new \App\Mail\SecuryCode($userName, $confirmCode)
+        //         );
+
+        //         return view('layouts/confirmCode');
+        //     }
+        // } else {
+        //     $email   = $request->email;
+        //     return redirect('/')->with('error', 'Email não encontrado!');
+        // }
     }
 }
