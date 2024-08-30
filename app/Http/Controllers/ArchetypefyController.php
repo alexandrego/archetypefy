@@ -34,38 +34,30 @@ class ArchetypefyController extends Controller
 
         $email = session('sessionEmail');
 
+        if(!$email && !$email1 && !$user){
+            //Se não tiver email, volta para o login
+            return redirect()->route('login')->with('error', 'Sua sessão expirou, por favor, faça login novamente!');
+        }
+
          // Verifica se é um admin
-         $allowedUserIds = [1, 2, 5, 8]; // IDs dos usuários permitidos
+         $allowedUserIds = [2, 5, 8]; // IDs dos usuários permitidos
 
          if (in_array($user->id, $allowedUserIds))
          {
-            return view('layouts/confirmCode')->with(
+            return redirect()->route('confirmCode')->with(
                 [
                     'email' => $email,
                     'adm' => $user
                 ]
             );
         } else {
-            return view('layouts/confirmCode')->with(
+            return redirect()->route('confirmCode')->with(
                 [
                     'email' => $email,
                     'usuario' => $user
                 ]
             );
-    }
-
-        if(!$email && !$email1){
-            //Se não tiver email, volta para o login
-            return redirect()->route('login')->with('error', 'Código Inválido!');
         }
-
-        // return view('layouts/confirmCode')->with('error', 'Preencha todos os dados');
-        // return view('layouts/confirmCode')->with(
-        //     [
-        //         'email' => $email,
-        //         'adm' => $user
-        //     ]
-        // );
     }
 
     public function Dashboard(Request $request) {
@@ -333,7 +325,7 @@ class ArchetypefyController extends Controller
 
             if ($user) {
                 // Verifica se é um admin
-                $allowedUserIds = [1, 2, 5, 8]; // IDs dos usuários permitidos
+                $allowedUserIds = [2, 5, 8]; // IDs dos usuários permitidos
 
                 if (in_array($user->id, $allowedUserIds)) {
                     // Verifica se tem senha cadastrada
@@ -341,12 +333,12 @@ class ArchetypefyController extends Controller
 
                     if($passwordNow == null){
                         dd('Vamos criar uma nova senha!');
-
-                        return view('layouts/confirmCode')->with(
+                        return redirect()->route('confirmCode')->with(
                             [
                                 'email' => $email,
                                 'nome' => $userName
-                            ]);
+                            ]
+                        );
                     } else {
                         // dd('Vamos digitar a senha!');
 
@@ -359,14 +351,20 @@ class ArchetypefyController extends Controller
                     }
                 } else {
                     // Atualiza a senha do usuário
-                    $user->password = Hash::make($confirmCode);
-                    $user->save();
+                    // $user->password = Hash::make($confirmCode);
+                    // $user->save();
 
-                    \Illuminate\Support\Facades\Mail::to($email)->send(
-                        new \App\Mail\SecuryCode($userName, $confirmCode)
+                    // \Illuminate\Support\Facades\Mail::to($email)->send(
+                    //     new \App\Mail\SecuryCode($userName, $confirmCode)
+                    // );
+
+                    // return view('layouts/confirmCode')->with(['email' => $email]);
+                    return redirect()->route('confirmCode')->with(
+                        [
+                            'email' => $email,
+                            'adm' => $user
+                        ]
                     );
-
-                    return view('layouts/confirmCode')->with(['email' => $email]);
                 }
             } else {
                 $lead = new User();
