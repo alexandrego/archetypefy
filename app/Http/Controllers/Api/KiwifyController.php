@@ -32,7 +32,7 @@ class KiwifyController extends Controller
 
     private function isValidKiwifyRequest(Request $request)
     {
-        $secret_key = 'f72wl8vo9va'; // Mantenha isso em um arquivo de configuração ou variável de ambiente
+        $secret_key = 'f72wl8vo9v'; // Mantenha isso em um arquivo de configuração ou variável de ambiente
 
         // Verifica se a requisição é do tipo POST
         if ($request->isMethod('HEAD')) {
@@ -62,7 +62,7 @@ class KiwifyController extends Controller
     {
         // Libera o Teste de Arquetipos (se necessário)
         // Aqui você pode definir a lógica para arquetipos, se necessário
-        $arquetipo = 1; // Exemplo de valor fixo, ajuste conforme necessário
+        $arquetipo = 0; // Exemplo de valor fixo, ajuste conforme necessário
         $customerData['arquetipos'] = $arquetipo;
 
         // Salvar os dados do cliente no banco de dados
