@@ -46,7 +46,7 @@ class KiwifyController extends Controller
 
     private function isValidKiwifyRequest(Request $request)
     {
-        $secret_key = 'f72wl8vo9v';
+        $secret_key = 'f72wl8vo9va';
 
         // handle HEAD request
         if (count($_POST) === 0) {
