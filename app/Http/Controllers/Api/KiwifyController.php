@@ -32,10 +32,17 @@ class KiwifyController extends Controller
 
     private function isValidKiwifyRequest(Request $request)
     {
-        // Acessa a chave secreta do arquivo .env
-        $secret_key = env('KIWIFY_SECRET_KEY'); // Mantenha isso em um arquivo de configuração ou variável de ambiente
+        // Acessa as chaves do arquivo .env
+        $secretKey1 = env('KIWIFY_SECRET_KEY_DEV');
+        $secretKey2 = env('KIWIFY_SECRET_KEY_PRODUCTION');
 
-        // Verifica se a requisição é do tipo POST
+        // Verifica se pelo menos uma das chaves está definida
+        if (empty($secretKey1) && empty($secretKey2)) {
+            Log::error('Nenhuma chave secreta Kiwify está definida no arquivo .env.');
+            return response()->json(['error' => 'Chave secreta não configurada'], 500);
+        }
+
+        // Verifica se a requisição é do tipo HEAD
         if ($request->isMethod('HEAD')) {
             return true; // Responde OK para HEAD requests
         }
@@ -46,11 +53,14 @@ class KiwifyController extends Controller
 
         // Verifica a assinatura
         $signature = $request->query('signature', '');
-        $calculatedSignature = hash_hmac('sha1', json_encode($order), $secret_key);
+        $calculatedSignature1 = hash_hmac('sha1', json_encode($order), $secretKey1);
+        $calculatedSignature2 = hash_hmac('sha1', json_encode($order), $secretKey2);
 
-        if (!hash_equals($signature, $calculatedSignature)) {
+        // Verifica se a assinatura corresponde a alguma das chaves
+        if (!hash_equals($signature, $calculatedSignature1) && !hash_equals($signature, $calculatedSignature2)) {
             Log::warning('Assinatura inválida recebida do webhook Kiwify', [
-                'expected_signature' => $calculatedSignature,
+                'expected_signature_1' => $calculatedSignature1,
+                'expected_signature_2' => $calculatedSignature2,
                 'received_signature' => $signature,
             ]);
             return false; // Assinatura inválida
