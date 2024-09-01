@@ -28,7 +28,7 @@ class KiwifyController extends Controller
     }
 
     // Webhook para receber conta cancelada ou reembolsada
-    public function handleKiwifyWebhook(Request $request)
+    public function KiwifyCanceledOrRefunded(Request $request)
     {
         // Verificar se a requisição é válida
         if (!$this->isValidKiwifyRequest($request)) {
