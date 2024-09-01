@@ -41,7 +41,7 @@ class KiwifyController extends Controller
         // Verificar o tipo de evento do webhook
         $eventType = $data['webhook_event_type'];
 
-        if ($eventType === 'order_refunded' || $eventType === 'order_cancelled') {
+        if ($eventType === 'order_refunded' || $eventType === 'subscription_cancelled') {
             // Obter o email do cliente
             $customerEmail = $data['Customer']['email'];
 
