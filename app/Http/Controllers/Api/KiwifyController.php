@@ -56,11 +56,13 @@ class KiwifyController extends Controller
     private function isValidKiwifyRequest(Request $request)
     {
         // Acessa as chaves do arquivo .env
-        $secretKey1 = env('KIWIFY_SECRET_KEY_DEV');
-        $secretKey2 = env('KIWIFY_SECRET_KEY_PRODUCTION');
+        $secretKey1 = env('KIWIFY_SECRET_KEY_APPROVED_DEV');
+        $secretKey2 = env('KIWIFY_SECRET_KEY_REFUNDED_DEV');
+        $secretKey3 = env('KIWIFY_SECRET_KEY_APPROVED_PRODUCTION');
+        $secretKey4 = env('KIWIFY_SECRET_KEY_REFUNDED_PRODUCTION');
 
         // Verifica se pelo menos uma das chaves está definida
-        if (empty($secretKey1) && empty($secretKey2)) {
+        if (empty($secretKey1) && empty($secretKey2) && empty($secretKey3) && empty($secretKey4)) {
             Log::error('Nenhuma chave secreta Kiwify está definida no arquivo .env.');
             return response()->json(['error' => 'Chave secreta não configurada'], 500);
         }
@@ -78,12 +80,16 @@ class KiwifyController extends Controller
         $signature = $request->query('signature', '');
         $calculatedSignature1 = hash_hmac('sha1', json_encode($order), $secretKey1);
         $calculatedSignature2 = hash_hmac('sha1', json_encode($order), $secretKey2);
+        $calculatedSignature3 = hash_hmac('sha1', json_encode($order), $secretKey3);
+        $calculatedSignature4 = hash_hmac('sha1', json_encode($order), $secretKey4);
 
         // Verifica se a assinatura corresponde a alguma das chaves
-        if (!hash_equals($signature, $calculatedSignature1) && !hash_equals($signature, $calculatedSignature2)) {
+        if (!hash_equals($signature, $calculatedSignature1) && !hash_equals($signature, $calculatedSignature2) && !hash_equals($signature, $calculatedSignature3) && !hash_equals($signature, $calculatedSignature4)) {
             Log::warning('Assinatura inválida recebida do webhook Kiwify', [
                 'expected_signature_1' => $calculatedSignature1,
                 'expected_signature_2' => $calculatedSignature2,
+                'expected_signature_3' => $calculatedSignature3,
+                'expected_signature_4' => $calculatedSignature4,
                 'received_signature' => $signature,
             ]);
             return false; // Assinatura inválida
