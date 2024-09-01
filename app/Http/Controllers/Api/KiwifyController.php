@@ -32,7 +32,7 @@ class KiwifyController extends Controller
 
     private function isValidKiwifyRequest(Request $request)
     {
-        $secret_key = 'f72wl8vo9v'; // Mantenha isso em um arquivo de configuração ou variável de ambiente
+        $secret_key = 'f72wl8vo9va'; // Mantenha isso em um arquivo de configuração ou variável de ambiente
 
         // Verifica se a requisição é do tipo POST
         if ($request->isMethod('HEAD')) {
