@@ -15,6 +15,10 @@
                     $userID = session('userID');
                     $firstName = session('firstName');
                     $firstNullColumn = session('firstNullColumn');
+
+                    $permiteArquetipos = session('permiteArquetipos');
+                    $permiteTemperamentos = session('permiteTemperamentos');
+                    $permiteComportamental = session('permiteComportamental');
                 @endphp
             <div class="guestConfig">
                 @if($userID && in_array($userID, $allowedUserIds))
@@ -40,6 +44,18 @@
                 <img src="src/assets/img/logo.svg" />
             </div>
 
+            @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="formulario">
                 <div class="infoProfile">
                     <div class="bemVindo roboto-thin">
@@ -60,243 +76,265 @@
                 </div>
 
                 <div class="compras">
-                    @if($firstNullColumn == 0)
-                        <a href="/atention" class="links">
-                            <div class="cardArc" title="Clique para começar o teste!">
-                                <div class="cardImgAr">
-                                    <img src="src/assets/img/identidade-de-arquetipo.svg" />
-                                </div>
-                                <div class="cardDesc">
-                                    Identidade de Arquétipo
-                                </div>
-                                <div class="cardDesc">
-                                    <a href="../atention">Iniciar  <i class="fa-solid fa-circle-right btnGo"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                    @elseif($firstNullColumn == 'result')
-                        <a href="/result" class="links">
-                            <div class="cardArc" title="Clique para ver o resultado!">
-                                <div class="testeOk">
-                                    <img src="src/assets/img/ok.svg"/>
-                                </div>
-                                <div class="cardImg">
-                                    <img src="src/assets/img/identidade-de-arquetipo.svg" />
-                                </div>
-                                <div class="cardDesc">
-                                    Identidade de Arquétipo
-                                </div>
-                                <div class="cardDesc">
-                                    <a href="../result" class="links">Ver resultado <i class="fa-solid fa-circle-right btnGo"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                    @else
-                        {{-- <a href="/atention"> --}}
-                            <div class="cardArc" title="Clique para continuar o teste!">
-                                <div class="cardImgAr">
-                                    <img src="src/assets/img/identidade-de-arquetipo.svg" />
-                                </div>
-                                <div class="cardDesc">
-                                    Identidade de Arquétipo
-                                </div>
-
-                                @if($firstNullColumn == 'question_2')
-                                    <div class="cardDesc">
-                                        <a href="../question2" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_3')
-                                    <div class="cardDesc">
-                                        <a href="../question3" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_4')
-                                    <div class="cardDesc">
-                                        <a href="../question4" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_5')
-                                    <div class="cardDesc">
-                                        <a href="../question5" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_6')
-                                    <div class="cardDesc">
-                                        <a href="../question6" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_7')
-                                    <div class="cardDesc">
-                                        <a href="../question7" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_8')
-                                    <div class="cardDesc">
-                                        <a href="../question8" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_9')
-                                    <div class="cardDesc">
-                                        <a href="../question9" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_10')
-                                    <div class="cardDesc">
-                                        <a href="../question10" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_11')
-                                    <div class="cardDesc">
-                                        <a href="../question11" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_12')
-                                    <div class="cardDesc">
-                                        <a href="../question12" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_13')
-                                    <div class="cardDesc">
-                                        <a href="../question13" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_14')
-                                    <div class="cardDesc">
-                                        <a href="../question14" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_15')
-                                    <div class="cardDesc">
-                                        <a href="../question15" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_16')
-                                    <div class="cardDesc">
-                                        <a href="../question16" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_17')
-                                    <div class="cardDesc">
-                                        <a href="../question17" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_18')
-                                    <div class="cardDesc">
-                                        <a href="../question18" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_19')
-                                    <div class="cardDesc">
-                                        <a href="../question19" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_20')
-                                    <div class="cardDesc">
-                                        <a href="../question20" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_21')
-                                    <div class="cardDesc">
-                                        <a href="../question21" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_22')
-                                    <div class="cardDesc">
-                                        <a href="../question22" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_23')
-                                    <div class="cardDesc">
-                                        <a href="../question23" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_24')
-                                    <div class="cardDesc">
-                                        <a href="../question24" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_25')
-                                    <div class="cardDesc">
-                                        <a href="../question25" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_26')
-                                    <div class="cardDesc">
-                                        <a href="../question26" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_27')
-                                    <div class="cardDesc">
-                                        <a href="../question27" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_28')
-                                    <div class="cardDesc">
-                                        <a href="../question28" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_29')
-                                    <div class="cardDesc">
-                                        <a href="../question29" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_30')
-                                    <div class="cardDesc">
-                                        <a href="../question30" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_31')
-                                    <div class="cardDesc">
-                                        <a href="../question31" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_32')
-                                    <div class="cardDesc">
-                                        <a href="../question32" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_33')
-                                    <div class="cardDesc">
-                                        <a href="../question33" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_34')
-                                    <div class="cardDesc">
-                                        <a href="../question34" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_35')
-                                    <div class="cardDesc">
-                                        <a href="../question35" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_36')
-                                    <div class="cardDesc">
-                                        <a href="../question36" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_37')
-                                    <div class="cardDesc">
-                                        <a href="../question37" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_38')
-                                    <div class="cardDesc">
-                                        <a href="../question38" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_39')
-                                    <div class="cardDesc">
-                                        <a href="../question39" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_40')
-                                    <div class="cardDesc">
-                                        <a href="../question40" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_41')
-                                    <div class="cardDesc">
-                                        <a href="../question41" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_42')
-                                    <div class="cardDesc">
-                                        <a href="../question42" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_43')
-                                    <div class="cardDesc">
-                                        <a href="../question43" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_44')
-                                    <div class="cardDesc">
-                                        <a href="../question44" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_45')
-                                    <div class="cardDesc">
-                                        <a href="../question45" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_46')
-                                    <div class="cardDesc">
-                                        <a href="../question46" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_47')
-                                    <div class="cardDesc">
-                                        <a href="../question47" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
-                                @elseif($firstNullColumn == 'question_48')
-                                    <div class="cardDesc">
-                                        <a href="../question48" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
+                    <!-- Verifica se tem permissão para o teste de arquetipos -->
+                        @if($permiteArquetipos == 1)
+                            <!-- Se tiver acesso -->
+                                @if($firstNullColumn == 0)
+                                    <a href="/atention" class="links">
+                                        <div class="cardArc" title="Clique para começar o teste!">
+                                            <div class="cardImgAr">
+                                                <img src="src/assets/img/identidade-de-arquetipo.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Identidade de Arquétipo
+                                            </div>
+                                            <div class="cardDesc">
+                                                <a href="../atention" class="links">Iniciar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                            </div>
+                                        </div>
+                                    </a>
                                 @elseif($firstNullColumn == 'result')
-                                    <div class="cardDesc">
-                                        <a href="../result" class="links">Ver resultado <img src="src/assets/img/back.svg" class="btnGo" /></a>
-                                    </div>
+                                    <a href="/result" class="links">
+                                        <div class="cardArc" title="Clique para ver o resultado!">
+                                            <div class="testeOk">
+                                                <img src="src/assets/img/ok.svg"/>
+                                            </div>
+                                            <div class="cardImg">
+                                                <img src="src/assets/img/identidade-de-arquetipo.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Identidade de Arquétipo
+                                            </div>
+                                            <div class="cardDesc">
+                                                <a href="../result" class="links">Ver resultado <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @else
+                                    {{-- <a href="/atention"> --}}
+                                        <div class="cardArc" title="Clique para continuar o teste!">
+                                            <div class="cardImgAr">
+                                                <img src="src/assets/img/identidade-de-arquetipo.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Identidade de Arquétipo
+                                            </div>
+
+                                            @if($firstNullColumn == 'question_2')
+                                                <div class="cardDesc">
+                                                    <a href="../question2" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_3')
+                                                <div class="cardDesc">
+                                                    <a href="../question3" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_4')
+                                                <div class="cardDesc">
+                                                    <a href="../question4" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_5')
+                                                <div class="cardDesc">
+                                                    <a href="../question5" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_6')
+                                                <div class="cardDesc">
+                                                    <a href="../question6" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_7')
+                                                <div class="cardDesc">
+                                                    <a href="../question7" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_8')
+                                                <div class="cardDesc">
+                                                    <a href="../question8" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_9')
+                                                <div class="cardDesc">
+                                                    <a href="../question9" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_10')
+                                                <div class="cardDesc">
+                                                    <a href="../question10" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_11')
+                                                <div class="cardDesc">
+                                                    <a href="../question11" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_12')
+                                                <div class="cardDesc">
+                                                    <a href="../question12" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_13')
+                                                <div class="cardDesc">
+                                                    <a href="../question13" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_14')
+                                                <div class="cardDesc">
+                                                    <a href="../question14" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_15')
+                                                <div class="cardDesc">
+                                                    <a href="../question15" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_16')
+                                                <div class="cardDesc">
+                                                    <a href="../question16" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_17')
+                                                <div class="cardDesc">
+                                                    <a href="../question17" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_18')
+                                                <div class="cardDesc">
+                                                    <a href="../question18" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_19')
+                                                <div class="cardDesc">
+                                                    <a href="../question19" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_20')
+                                                <div class="cardDesc">
+                                                    <a href="../question20" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_21')
+                                                <div class="cardDesc">
+                                                    <a href="../question21" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_22')
+                                                <div class="cardDesc">
+                                                    <a href="../question22" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_23')
+                                                <div class="cardDesc">
+                                                    <a href="../question23" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_24')
+                                                <div class="cardDesc">
+                                                    <a href="../question24" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_25')
+                                                <div class="cardDesc">
+                                                    <a href="../question25" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_26')
+                                                <div class="cardDesc">
+                                                    <a href="../question26" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_27')
+                                                <div class="cardDesc">
+                                                    <a href="../question27" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_28')
+                                                <div class="cardDesc">
+                                                    <a href="../question28" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_29')
+                                                <div class="cardDesc">
+                                                    <a href="../question29" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_30')
+                                                <div class="cardDesc">
+                                                    <a href="../question30" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_31')
+                                                <div class="cardDesc">
+                                                    <a href="../question31" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_32')
+                                                <div class="cardDesc">
+                                                    <a href="../question32" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_33')
+                                                <div class="cardDesc">
+                                                    <a href="../question33" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_34')
+                                                <div class="cardDesc">
+                                                    <a href="../question34" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_35')
+                                                <div class="cardDesc">
+                                                    <a href="../question35" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_36')
+                                                <div class="cardDesc">
+                                                    <a href="../question36" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_37')
+                                                <div class="cardDesc">
+                                                    <a href="../question37" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_38')
+                                                <div class="cardDesc">
+                                                    <a href="../question38" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_39')
+                                                <div class="cardDesc">
+                                                    <a href="../question39" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_40')
+                                                <div class="cardDesc">
+                                                    <a href="../question40" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_41')
+                                                <div class="cardDesc">
+                                                    <a href="../question41" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_42')
+                                                <div class="cardDesc">
+                                                    <a href="../question42" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_43')
+                                                <div class="cardDesc">
+                                                    <a href="../question43" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_44')
+                                                <div class="cardDesc">
+                                                    <a href="../question44" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_45')
+                                                <div class="cardDesc">
+                                                    <a href="../question45" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_46')
+                                                <div class="cardDesc">
+                                                    <a href="../question46" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_47')
+                                                <div class="cardDesc">
+                                                    <a href="../question47" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'question_48')
+                                                <div class="cardDesc">
+                                                    <a href="../question48" class="links">Continuar <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @elseif($firstNullColumn == 'result')
+                                                <div class="cardDesc">
+                                                    <a href="../result" class="links">Ver resultado <img src="src/assets/img/back.svg" class="btnGo" /></a>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    {{-- </a> --}}
                                 @endif
-                            </div>
-                        {{-- </a> --}}
-                    @endif
+                            <!-- Se tiver acesso -->
+                        @else
+                            <!-- Se não tiver acesso -->
+                                <a href="https://pay.kiwify.com.br/yd54E7h" class="links">
+                                    <div class="cardArc" title="Clique para comprar o teste!">
+                                        <div class="cardImgAr">
+                                            <img src="src/assets/img/identidade-de-arquetipo.svg" />
+                                        </div>
+                                        <div class="cardDesc">
+                                            Identidade de Arquétipo
+                                        </div>
+                                        <div class="cardDesc">
+                                            <a href="https://pay.kiwify.com.br/yd54E7h" class="links">Compre seu teste <i class="fa-solid fa-store fa-fade" style="margin:0 0 0 15px;font-size:20px;background-color:transparent;color:rgba(187, 129, 53, 1);"></i></a>
+                                        </div>
+                                    </div>
+                                </a>
+                            <!-- Se não tiver acesso -->
+                        @endif
+                    <!-- Verifica se tem permissão para o teste de arquetipos -->
 
                     {{-- <a href="/comportamento1"> --}}
                         <div class="cardDisabled" title="Em breve ...">

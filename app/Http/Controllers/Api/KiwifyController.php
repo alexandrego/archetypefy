@@ -23,6 +23,10 @@ class KiwifyController extends Controller
             // Extrair os dados do cliente
             $customerData = $data['Customer'];
 
+            // Libera o Teste de Arquetipos
+            $arquetipo = 1;
+            $customerData = $arquetipo['arquetipos'];
+
             // Extrair os dados do pedido
             // $orderData = $data['webhook_event_type'];
 
@@ -42,41 +46,35 @@ class KiwifyController extends Controller
 
     private function isValidKiwifyRequest(Request $request)
     {
-        // Implementar a lógica de validação da requisição da Kiwify
-        // Você pode verificar o cabeçalho da requisição, a assinatura, etc.
-        // Retornar true se a requisição for válida, false caso contrário
+        $secret_key = 'f72wl8vo9v';
 
-        // Exemplo simples:
-        // $secret_key = $request;
+        // handle HEAD request
+        if (count($_POST) === 0) {
+            http_response_code(200);
+            header('Content-Type: application/json');
+            echo json_encode(['status' => 'ok']);
+            exit();
+        }
 
-        // // handle HEAD request
-        // if (count($_POST) === 0) {
-        //     http_response_code(200);
-        //     header('Content-Type: application/json');
-        //     echo json_encode(['status' => 'ok']);
-        //     exit();
-        // }
+        // receive order's data
+        $payload = @file_get_contents('php://input');
+        $order = json_decode($payload, true);
 
-        // // receive order's data
-        // $payload = @file_get_contents('php://input');
-        // $order = json_decode($payload, true);
+        // verify signature
+        $signature = isset($_GET['signature']) ? trim($_GET['signature']) : '';
+        $calculatedSignature = hash_hmac('sha1', json_encode($order), $secret_key);
 
-        // // verify signature
-        // $signature = isset($_GET['signature']) ? trim($_GET['signature']) : '';
-        // $calculatedSignature = hash_hmac('sha1', json_encode($order), $secret_key);
+        if ($signature !== $calculatedSignature) {
+            http_response_code(400);
+            header('Content-Type: application/json');
+            echo json_encode(['error' => 'Incorrect signature']);
+            exit();
+        }
 
-        // if ($signature !== $calculatedSignature) {
-        //     http_response_code(400);
-        //     header('Content-Type: application/json');
-        //     echo json_encode(['error' => 'Incorrect signature']);
-        //     exit();
-        // }
+        // do any job with received order's data
 
-        // // do any job with received order's data
-
-        // http_response_code(200);
-        // header('Content-Type: application/json');
-        // echo json_encode(['status' => 'ok']);
-        return true;
+        http_response_code(200);
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'ok']);
     }
 }

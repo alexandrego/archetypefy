@@ -12,7 +12,7 @@ use App\Http\Controllers\TemperamentoController;
     Route::get('/confirmCode', [ArchetypefyController::class, 'ConfirmCode'])->name('confirmCode');
 
 // Rotas quando logado
-    Route::get('/dashboard', [ArchetypefyController::class, 'Dashboard'])->middleware('auth');
+    Route::get('/dashboard', [ArchetypefyController::class, 'Dashboard'])->name('dashboard')->middleware('auth');
     Route::get('/atention', [ArchetypefyController::class, 'Atention'])->middleware('auth');
     Route::get('/startTest', [ArchetypefyController::class, 'StartTest'])->middleware('auth');
     Route::get('/configDashboard', [ArchetypefyController::class, 'ConfigDashboard'])->name('configDashboard')->middleware('auth');
@@ -30,6 +30,7 @@ use App\Http\Controllers\TemperamentoController;
 
 // Rotas para confirmar código de verificação
     Route::post('/checkCode', [CheckCodeController::class,'store']);
+    Route::post('/createPassword', [CheckCodeController::class,'CreatePassword']);
     Route::post('/logout', [CheckCodeController::class,'destroy']);
 
 // Rotas de perguntas Identidade de Arquétipos

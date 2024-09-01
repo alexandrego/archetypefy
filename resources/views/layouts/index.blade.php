@@ -10,11 +10,11 @@
                 <img src="src/assets/img/logo.svg" />
             </div>
 
-            <div class="codeError">
-                @if(session('error'))
-                    <p>{{ session('error') }}</p>
-                @endif
-            </div>
+            @if(session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
 
             <div class="formulario">
                 <form action="/dataArchetypefy" method="POST" onsubmit="entrar()">
