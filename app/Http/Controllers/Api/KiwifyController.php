@@ -7,12 +7,9 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-// client_secret = 9b2c4f9467bd0668d69264452caca0e839243ef7fed5ca90e3a1e5113f9402c3
-// client_id = abca9aed-92bb-405a-b4e9-0d145a555deb
-// account_id = Pj9KMsmrYA4Cz7I
-
 class KiwifyController extends Controller
 {
+    // Webhook para receber compra aprovada
     public function KiwifyWebhook(Request $request)
     {
         // Verificar se a requisição é válida
@@ -28,6 +25,32 @@ class KiwifyController extends Controller
 
         // Retornar uma resposta de sucesso
         return response()->json(['message' => 'Webhook recebido e dados salvos com sucesso'], 200);
+    }
+
+    // Webhook para receber conta cancelada ou reembolsada
+    public function handleKiwifyWebhook(Request $request)
+    {
+        // Verificar se a requisição é válida
+        if (!$this->isValidKiwifyRequest($request)) {
+            return response()->json(['error' => 'Requisição inválida'], 400);
+        }
+
+        // Obter os dados do POST
+        $data = $request->all();
+
+        // Verificar o tipo de evento do webhook
+        $eventType = $data['webhook_event_type'];
+
+        if ($eventType === 'order_refunded' || $eventType === 'order_cancelled') {
+            // Obter o email do cliente
+            $customerEmail = $data['Customer']['email'];
+
+            // Atualizar o valor de $arquetipo para 0 no banco de dados
+            $this->updateCustomerArchetipo($customerEmail);
+        }
+
+        // Retornar uma resposta de sucesso
+        return response()->json(['message' => 'Webhook recebido e processado com sucesso'], 200);
     }
 
     private function isValidKiwifyRequest(Request $request)
@@ -81,5 +104,19 @@ class KiwifyController extends Controller
             ['email' => $customerData['email']],
             $customerData
         );
+    }
+
+    private function updateCustomerArchetipo($customerEmail)
+    {
+        $customer = Customer::where('email', $customerEmail)->first();
+
+        if ($customer) {
+            $customer->arquetipos = 0; // Definir $arquetipo como 0
+            $customer->save();
+
+            Log::info('Valor de $arquetipo atualizado para 0 para o cliente com email: ' . $customerEmail);
+        } else {
+            Log::warning('Cliente não encontrado com o email: ' . $customerEmail);
+        }
     }
 }

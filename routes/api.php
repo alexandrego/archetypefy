@@ -14,3 +14,4 @@ Route::get('/users/{user}', [UserController::class, 'Show']); // Get - http://12
 Route::post('/users', [UserController::class, 'Store']); // Post - http://127.0.0.1:8000/api/users
 
 Route::post('/kiwify', [KiwifyController::class, 'KiwifyWebhook']);
+Route::post('/kiwifyCanceledOrRefunded', [KiwifyController::class, 'KiwifyCanceledOrRefunded']);
