@@ -91,7 +91,7 @@ class CheckCodeController extends Controller
             // Se atualizar vai para a Dashboard com uma mensagem de sucesso
             return redirect()->route('dashboard')->with(
                 [
-                    'success' => 'Senha atualizada com sucesso!',
+                    'success' => 'Senha criada com sucesso!',
                     'nome' => $user->name
                 ]
             );

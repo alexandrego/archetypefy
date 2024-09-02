@@ -55,7 +55,7 @@ class KiwifyController extends Controller
 
     private function isValidKiwifyRequest(Request $request)
     {
-        // Acessa as chaves do arquivo .env
+        // Chaves do Teste de Arquetipos
         $secretKey1 = env('KIWIFY_SECRET_KEY_APPROVED_DEV');
         $secretKey2 = env('KIWIFY_SECRET_KEY_REFUNDED_DEV');
         $secretKey3 = env('KIWIFY_SECRET_KEY_APPROVED_PRODUCTION');

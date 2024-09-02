@@ -14,7 +14,10 @@
                 @php
                     $userID = session('userID');
                     $firstName = session('firstName');
+
                     $firstNullColumn = session('firstNullColumn');
+                    $firstNullColumnTemper = session('firstNullColumnTemper');
+                    $firstNullColumnComportamento = session('firstNullColumnComportamento');
 
                     $permiteArquetipos = session('permiteArquetipos');
                     $permiteTemperamentos = session('permiteTemperamentos');
@@ -336,279 +339,377 @@
                         @endif
                     <!-- Verifica se tem permissão para o teste de arquetipos -->
 
-                    {{-- <a href="/comportamento1"> --}}
-                        <div class="cardDisabled" title="Em breve ...">
-                            <div class="cardImg">
-                                <img src="src/assets/img/perfil-comportamental.svg" />
-                            </div>
-                            <div class="cardDesc">
-                                Perfil Comportamental
-                            </div>
-                            <div class="cardDesc">
-                                <a href="#" class="links">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
-                            </div>
-                            @if(isset($firstNullColumnComportamento))
-                                @if($firstNullColumnComportamento == 'comportamento2')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento2">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento3')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento3">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento4')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento4">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento5')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento5">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento6')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento6">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento7')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento7">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento8')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento8">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento9')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento9">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento10')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento10">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento11')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento11">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento12')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento12">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento13')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento13">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento14')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento14">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento15')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento15">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento16')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento16">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento17')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento17">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento18')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento18">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento19')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento19">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento20')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento20">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento21')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento21">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento22')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento22">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento23')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento23">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento24')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento24">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento25')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento25">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento26')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento26">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento27')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento27">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento28')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento28">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento29')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento29">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento30')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento30">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento31')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento31">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento32')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento32">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento33')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento33">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento34')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento34">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento35')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento35">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento36')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento36">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento37')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento37">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento38')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento38">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento39')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento39">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'comportamento40')
-                                    <div class="cardDesc">
-                                        <a href="../comportamento40">Continuar</a>
-                                    </div>
-                                @elseif($firstNullColumnComportamento == 'resultComportamento')
-                                    <div class="cardDesc">
-                                        <a href="../resultComportamento">Ver resultado</a>
-                                    </div>
+                    <!-- Verifica se tem permissão para o teste comportamental -->
+                        @if($permiteComportamental == 1)
+                            <!-- Se tiver acesso -->
+                                @if($firstNullColumnComportamento == 0)
+                                    <a href="/comportamento1" class="links">
+                                        <div class="cardArc" title="Clique para começar o teste!">
+                                            <div class="cardImg">
+                                                <img src="src/assets/img/perfil-comportamental.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Perfil Comportamental
+                                            </div>
+                                            <div class="cardDesc">
+                                                <a href="/comportamento1" class="links">Iniciar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @elseif($firstNullColumnComportamento == 'resultComp')
+                                    <!-- <a href="/comportamento1" class="links"> -->
+                                        <div class="cardArc" title="Clique para ver o resultado!">
+                                            <div class="cardImg">
+                                                <img src="src/assets/img/perfil-comportamental.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Perfil Comportamental
+                                            </div>
+                                            <div class="cardDesc">
+                                                <a href="/resultComportamento" class="links">Ver resultado  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                            </div>
+                                        </div>
+                                    <!-- </a> -->
+                                @else
+                                    <!-- <a href="/comportamento1" class="links"> -->
+                                        <div class="cardArc" title="Clique para continuar o teste!">
+                                            <div class="cardImg">
+                                                <img src="src/assets/img/perfil-comportamental.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Perfil Comportamental
+                                            </div>
+                                            @if(isset($firstNullColumnComportamento))
+                                                @if($firstNullColumnComportamento == 'comportamento2')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento2" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento3')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento3" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento4')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento4" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento5')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento5" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento6')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento6" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento7')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento7" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento8')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento8" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento9')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento9" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento10')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento10" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento11')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento11" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento12')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento12" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento13')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento13" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento14')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento14" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento15')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento15" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento16')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento16" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento17')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento17" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento18')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento18" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento19')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento19" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento20')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento20" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento21')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento21" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento22')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento22" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento23')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento23" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento24')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento24" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento25')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento25" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento26')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento26" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento27')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento27" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento28')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento28" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento29')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento29" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento30')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento30" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento31')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento31" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento32')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento32" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento33')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento33" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento34')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento34" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento35')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento35" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento36')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento36" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento37')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento37" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento38')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento38" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento39')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento39" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'comportamento40')
+                                                    <div class="cardDesc">
+                                                        <a href="../comportamento40" class="links">Continuar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @elseif($firstNullColumnComportamento == 'resultComp')
+                                                    <div class="cardDesc">
+                                                        <a href="../resultComportamento" class="links">Ver resultado  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                    </div>
+                                                @endif
+                                            @endif
+                                        </div>
+                                    <!-- </a> -->
                                 @endif
-                                @endif
-                        </div>
-                    {{-- </a> --}}
+                            <!-- Se tiver acesso -->
+                        @else
+                            <!-- Se não tiver acesso -->
+                                <a href="https://pay.kiwify.com.br/ZMEFoFc" class="links">
+                                    <div class="cardArc" title="Clique para comprar o teste!">
+                                        <div class="cardImg">
+                                            <img src="src/assets/img/perfil-comportamental.svg" />
+                                        </div>
+                                        <div class="cardDesc">
+                                            Perfil Comportamental
+                                        </div>
+                                        <div class="cardDesc">
+                                            <a href="https://pay.kiwify.com.br/ZMEFoFc" class="links">Compre seu teste <i class="fa-solid fa-store fa-fade" style="margin:0 0 0 15px;font-size:20px;background-color:transparent;color:rgba(187, 129, 53, 1);"></i></a>
+                                        </div>
+                                    </div>
+                                </a>
+                            <!-- Se não tiver acesso -->
+                        @endif
+                    <!-- Verifica se tem permissão para o teste comportamental -->
 
-                    {{-- <a href="/temper1"> --}}
-                        <div class="cardDisabled" title="Em breve ...">
-                            <div class="cardImg">
-                                <img src="src/assets/img/identidade-de-temperamento.svg" />
-                            </div>
-                            <div class="cardDesc">
-                                Identidade de Temperamentos
-                            </div>
-                            <div class="cardDesc">
-                                <a href="#" class="links">Comprar  <i class="fa-solid fa-circle-right btnGo"></i></a>
-                            </div>
-                            @if(isset($firstNullColumnTemper))
-                                    @if($firstNullColumnTemper == 'temper2')
-                                        <div class="cardDesc">
-                                            <a href="../temper2">Continuar</a>
+                    <!-- Verifica se tem permissão para o teste de temperamentos -->
+                        @if($permiteTemperamentos == 1)
+                            <!-- Se tiver acesso -->
+                                @if($firstNullColumnTemper == 0)
+                                    <a href="/temper1" class="links">
+                                        <div class="cardArc" title="Clique para começar o teste!">
+                                            <div class="cardImg">
+                                                <img src="src/assets/img/identidade-de-temperamento.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Identidade de Temperamentos
+                                            </div>
+                                            <div class="cardDesc">
+                                                <a href="/temper1" class="links">Iniciar  <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                            </div>
                                         </div>
-                                    @elseif($firstNullColumnTemper == 'temper3')
-                                        <div class="cardDesc">
-                                            <a href="../temper3">Continuar</a>
+                                    </a>
+                                @elseif($firstNullColumnTemper == 'resultTemper')
+                                    <a href="/resultTemper" class="links">
+                                        <div class="cardArc" title="Clique para ver o resultado!">
+                                            <div class="cardImg">
+                                                <img src="src/assets/img/identidade-de-temperamento.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Identidade de Temperamentos
+                                            </div>
+                                            <div class="cardDesc">
+                                                <a href="../resultTemper" class="links">Ver resultado <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                            </div>
                                         </div>
-                                    @elseif($firstNullColumnTemper == 'temper4')
-                                        <div class="cardDesc">
-                                            <a href="../temper4">Continuar</a>
+                                    </a>
+                                @else
+                                    <!-- <a href="/temper1" class="links"> -->
+                                        <div class="cardArc" title="Clique para continuar o teste!">
+                                            <div class="cardImg">
+                                                <img src="src/assets/img/identidade-de-temperamento.svg" />
+                                            </div>
+                                            <div class="cardDesc">
+                                                Identidade de Temperamentos
+                                            </div>
+                                            @if(isset($firstNullColumnTemper))
+                                                    @if($firstNullColumnTemper == 'temper2')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper2" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper3')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper3" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper4')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper4" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper5')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper5" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper6')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper6" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper7')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper7" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper8')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper8" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper9')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper9" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper10')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper10" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper11')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper11" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper12')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper12" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper13')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper13" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper14')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper14" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper15')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper15" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper16')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper16" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper17')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper17" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper18')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper18" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper19')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper19" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'temper20')
+                                                        <div class="cardDesc">
+                                                            <a href="../temper20" class="links">Continuar <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @elseif($firstNullColumnTemper == 'resultTemper')
+                                                        <div class="cardDesc">
+                                                            <a href="../resultTemper" class="links">Ver resultado <i class="fa-solid fa-circle-right btnGo"></i></a>
+                                                        </div>
+                                                    @endif
+                                                @endif
                                         </div>
-                                    @elseif($firstNullColumnTemper == 'temper5')
-                                        <div class="cardDesc">
-                                            <a href="../temper5">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper6')
-                                        <div class="cardDesc">
-                                            <a href="../temper6">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper7')
-                                        <div class="cardDesc">
-                                            <a href="../temper7">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper8')
-                                        <div class="cardDesc">
-                                            <a href="../temper8">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper9')
-                                        <div class="cardDesc">
-                                            <a href="../temper9">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper10')
-                                        <div class="cardDesc">
-                                            <a href="../temper10">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper11')
-                                        <div class="cardDesc">
-                                            <a href="../temper11">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper12')
-                                        <div class="cardDesc">
-                                            <a href="../temper12">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper13')
-                                        <div class="cardDesc">
-                                            <a href="../temper13">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper14')
-                                        <div class="cardDesc">
-                                            <a href="../temper14">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper15')
-                                        <div class="cardDesc">
-                                            <a href="../temper15">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper16')
-                                        <div class="cardDesc">
-                                            <a href="../temper16">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper17')
-                                        <div class="cardDesc">
-                                            <a href="../temper17">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper18')
-                                        <div class="cardDesc">
-                                            <a href="../temper18">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper19')
-                                        <div class="cardDesc">
-                                            <a href="../temper19">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'temper20')
-                                        <div class="cardDesc">
-                                            <a href="../temper20">Continuar</a>
-                                        </div>
-                                    @elseif($firstNullColumnTemper == 'resultTemper')
-                                        <div class="cardDesc">
-                                            <a href="../resultTemper">Ver resultado</a>
-                                        </div>
-                                    @endif
+                                    <!-- </a> -->
                                 @endif
-                        </div>
-                    {{-- </a> --}}
+                            <!-- Se tiver acesso -->
+                        @else
+                            <!-- Se não tiver acesso -->
+                                <a href="https://pay.kiwify.com.br/zXiO5B7" class="links">
+                                    <div class="cardArc" title="Clique para comprar o teste!">
+                                        <div class="cardImg">
+                                            <img src="src/assets/img/identidade-de-temperamento.svg" />
+                                        </div>
+                                        <div class="cardDesc">
+                                            Identidade de Temperamentos
+                                        </div>
+                                        <div class="cardDesc">
+                                            <a href="https://pay.kiwify.com.br/zXiO5B7" class="links">Compre seu teste <i class="fa-solid fa-store fa-fade" style="margin:0 0 0 15px;font-size:20px;background-color:transparent;color:rgba(187, 129, 53, 1);"></i></a>
+                                        </div>
+                                    </div>
+                                </a>
+                            <!-- Se não tiver acesso -->
+                        @endif
+                    <!-- Verifica se tem permissão para o teste de temperamentos -->
                 </div>
 
                 <x-suporte />

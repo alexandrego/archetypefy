@@ -106,56 +106,52 @@ class ArchetypefyController extends Controller
                 }
             }
 
-            if ($lastTemper) {
-                $columnNamesTemper = array_keys($lastTemper->getAttributes());
-                $firstNullColumnTemper = null;
+            if (empty($lastTemper)) {
+                // Informa que não tem teste iniciado
+                $firstNullColumnTemper = 0;
+                session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+            } else {
+                $firstTime = $lastTemper->times_exec; //Verifica se é a primeira vez
 
-                foreach ($columnNamesTemper as $columnTemper) {
-                    if ($lastTemper->$columnTemper === null) {
-                        $firstNullColumnTemper = $columnTemper;
-                        break;
-                    }
-                }
+                if(empty($firstTime)){
+                    $columnNames = array_keys($lastTemper->getAttributes());
+                    $firstNullColumnTemper = null;
 
-                if ($firstNullColumnTemper) {
-                    if($firstNullColumnTemper == "temper1"){
-                        // Não exiba nada
-                    } else if ($firstNullColumnTemper == "temper2"){
-                        session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                    foreach ($columnNames as $column) {
+                        if ($lastTemper->$column == null) {
+                            $firstNullColumnTemper = $column;
+                            session(['firstNullColumnTemper' => $firstNullColumnTemper]);
+                            break;
+                        }
                     }
                 } else {
                     $firstNullColumnTemper = 'resultTemper';
                     session(['firstNullColumnTemper' => $firstNullColumnTemper]);
                 }
-            } else {
-                $firstNullColumnTemper = 'nao_iniciado_temper';
-                session(['firstNullColumnTemper' => $firstNullColumnTemper]);
             }
 
-            if ($lastComportamento) {
-                $columnNamesComportamento = array_keys($lastComportamento->getAttributes());
-                $firstNullColumnComportamento = null;
+            if (empty($lastComportamento)) {
+                // Informa que não tem teste iniciado
+                $firstNullColumnComportamento = 0;
+                session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+            } else {
+                $firstTime = $lastComportamento->times_exec; //Verifica se é a primeira vez
 
-                foreach ($columnNamesComportamento as $columnComportamento) {
-                    if ($lastComportamento->$columnComportamento === null) {
-                        $firstNullColumnComportamento = $columnComportamento;
-                        break;
-                    }
-                }
+                if(empty($firstTime)){
+                    $columnNames = array_keys($lastComportamento->getAttributes());
+                    $firstNullColumnComportamento = null;
 
-                if ($firstNullColumnComportamento) {
-                    if($firstNullColumnComportamento == "comportamento1"){
-                        // Não exiba nada
-                    } else if ($firstNullColumnComportamento == "comportamento2"){
-                        session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                    foreach ($columnNames as $column) {
+                        if ($lastComportamento->$column == null) {
+                            $firstNullColumnComportamento = $column;
+                            session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
+                            break;
+                        }
                     }
                 } else {
-                    $firstNullColumnComportamento = 'resultComportamento';
+                    $firstNullColumnComportamento = 'resultComp';
                     session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
                 }
-            } else {
-                $firstNullColumnComportamento = 'nao_iniciado_Comportamento';
-                session(['firstNullColumnComportamento' => $firstNullColumnComportamento]);
             }
 
             return view('layouts/dashboard');
