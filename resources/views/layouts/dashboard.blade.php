@@ -359,6 +359,9 @@
                                 @elseif($firstNullColumnComportamento == 'resultComp')
                                     <!-- <a href="/comportamento1" class="links"> -->
                                         <div class="cardArc" title="Clique para ver o resultado!">
+                                            <div class="testeOk">
+                                                <img src="src/assets/img/ok.svg"/>
+                                            </div>
                                             <div class="cardImg">
                                                 <img src="src/assets/img/perfil-comportamental.svg" />
                                             </div>
@@ -585,6 +588,9 @@
                                 @elseif($firstNullColumnTemper == 'resultTemper')
                                     <a href="/resultTemper" class="links">
                                         <div class="cardArc" title="Clique para ver o resultado!">
+                                            <div class="testeOk">
+                                                <img src="src/assets/img/ok.svg"/>
+                                            </div>
                                             <div class="cardImg">
                                                 <img src="src/assets/img/identidade-de-temperamento.svg" />
                                             </div>
