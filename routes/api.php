@@ -13,5 +13,14 @@ Route::get('/users/{user}', [UserController::class, 'Show']); // Get - http://12
 
 Route::post('/users', [UserController::class, 'Store']); // Post - http://127.0.0.1:8000/api/users
 
+// Webhooks para o Teste de Arquetipos
 Route::post('/kiwify', [KiwifyController::class, 'KiwifyWebhook']);
 Route::post('/kiwifyCanceledOrRefunded', [KiwifyController::class, 'KiwifyCanceledOrRefunded']);
+
+// Webhooks para o Teste de Comportamentos
+Route::post('/kiwifyComportamentos', [KiwifyController::class, 'KiwifyComportamentos']);
+Route::post('/kiwifyComportamentosCanceledOrRefunded', [KiwifyController::class, 'KiwifyComportamentosCanceledOrRefunded']);
+
+// Webhooks para o Teste de Temperamentos
+Route::post('/kiwifyTemperamentos', [KiwifyController::class, 'KiwifyTemperamentos']);
+Route::post('/kiwifyTemperamentosCanceledOrRefunded', [KiwifyController::class, 'KiwifyTemperamentosCanceledOrRefunded']);
