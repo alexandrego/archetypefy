@@ -24,3 +24,7 @@ Route::post('/kiwifyComportamentosCanceledOrRefunded', [KiwifyController::class,
 // Webhooks para o Teste de Temperamentos
 Route::post('/kiwifyTemperamentos', [KiwifyController::class, 'KiwifyTemperamentos']);
 Route::post('/kiwifyTemperamentosCanceledOrRefunded', [KiwifyController::class, 'KiwifyTemperamentosCanceledOrRefunded']);
+
+// Webhook para receber informações do combo
+Route::post('/kiwifyCombo', [KiwifyController::class, 'KiwifyCombo']);
+Route::post('/kiwifyComboCanceledOrRefunded', [KiwifyController::class, 'KiwifyComboCanceledOrRefunded']);
