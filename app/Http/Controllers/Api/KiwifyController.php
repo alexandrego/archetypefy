@@ -316,7 +316,7 @@ class KiwifyController extends Controller
 
                 if ($customer) {
                     $customer->update([
-                        'arquetipo' => 0,
+                        'arquetipos' => 0,
                         'temperamentos' => 0,
                         'comportamental' => 0,
                     ]);
