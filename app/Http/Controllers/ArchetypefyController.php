@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class ArchetypefyController extends Controller
 {
@@ -263,36 +264,79 @@ class ArchetypefyController extends Controller
         }
     }
     public function SaveUser(Request $request)
-{
-    // Validação dos dados recebidos
-    $request->validate([
-        'full_name' => 'required|string|max:255',
-        'first_name' => 'required|string|max:255',
-        'email' => 'required|email|unique:customers,email',
-        'CPF' => 'required|string|max:14|unique:customers,CPF',
-        'mobile' => 'required|string|max:15',
-        'temperamentos' => 'required|boolean',
-        'comportamental' => 'required|boolean',
-        'arquetipos' => 'required|boolean',
-    ]);
+    {
+        // Validação dos dados recebidos
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:customers,email',
+            'CPF' => 'required|string|max:14|unique:customers,CPF',
+            'mobile' => 'required|string|max:15',
+            'temperamentos' => 'required|boolean',
+            'comportamental' => 'required|boolean',
+            'arquetipos' => 'required|boolean',
+        ]);
 
-    // Cria um novo cliente
-    $customer = new Customer();
-    $customer->full_name = $request->full_name;
-    $customer->first_name = $request->first_name;
-    $customer->email = $request->email;
-    $customer->CPF = preg_replace('/\D/', '',$request->CPF); // Remove tudo que não é número
-    $customer->mobile = $request->mobile;
-    $customer->temperamentos = $request->temperamentos;
-    $customer->comportamental = $request->comportamental;
-    $customer->arquetipos = $request->arquetipos;
-    $customer->save();
+        // Cria um novo cliente
+        $customer = new Customer();
+        $customer->full_name = $request->full_name;
+        $customer->first_name = $request->first_name;
+        $customer->email = $request->email;
+        $customer->CPF = preg_replace('/\D/', '',$request->CPF); // Remove tudo que não é número
+        $customer->mobile = $request->mobile;
+        $customer->temperamentos = $request->temperamentos;
+        $customer->comportamental = $request->comportamental;
+        $customer->arquetipos = $request->arquetipos;
+        $customer->save();
 
-    // Busca o último usuário cadastrado
-    $customers = Customer::latest()->first();
-    // Redireciona com mensagem de sucesso
-    return redirect()->route('configDashboard', compact('customers'))->with('success', 'Usuário cadastrado com sucesso!');
-}
+        // Busca o último usuário cadastrado
+        $customers = Customer::latest()->first();
+        // Redireciona com mensagem de sucesso
+        return redirect()->route('configDashboard', compact('customers'))->with('success', 'Usuário cadastrado com sucesso!');
+    }
+    // Método para excluir um usuário
+    public function DeleteUser(Request $request)
+    {
+        if(Auth::guest()){
+            //Se não estiver logado, volta para o login
+            return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
+        } else {
+            $allowedUserIds = [1, 2, 5, 8]; // IDs dos usuários permitidos
+            $user = Auth::user();
+            $userID = $user->id;
+
+            if (!in_array($userID, $allowedUserIds)) {
+                return redirect()->route('dashboard')->with('error', 'Você não tem permissão para excluir qualquer usuário!');
+            } else {
+                $userDelete = $request->email;
+
+                // Encontra o usuário pelo ID
+                $user =  Customer::where('email', $userDelete)->first();
+
+                // Verifica se o usuário existe
+                if (!$user) {
+                    return redirect()->route('configDashboard')->with('error', 'Usuário não encontrado.');
+                }
+
+                // Pergunta se realmente deseja excluir
+                return redirect()->route('configDashboard')->with(
+                    [
+                        'error' => 'Atenção essa ação não poderá ser desfeita!',
+                        'customerDelete' => $user
+                    ]
+                );
+
+                // Deleta o usuário
+                // $user->delete();
+
+                // Log de exclusão
+                // Log::info('Usuário excluído com sucesso: ' . $user->id);
+
+                // Redireciona de volta com uma mensagem de sucesso
+                // return redirect()->route('users.index')->with('success', 'Usuário excluído com sucesso!');
+            }
+        }
+    }
     public function Atention() {
         return view('layouts/atention');
     }

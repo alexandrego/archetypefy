@@ -172,6 +172,7 @@
 
                             @php
                                 $customer = session('customer');
+                                $customerDelete = session('customerDelete')
                             @endphp
 
                             @if(isset($customer))
@@ -281,6 +282,7 @@
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
                                                             <button type="submit" class="btn btn-primary">Salvar mudanças</button>
                                                         </div>
                                                     </form>
@@ -315,93 +317,100 @@
                                         <!-- Mostrar modal para cada usuario -->
                                             <!-- Modal -->
                                             <div class="modal fade" id="user{{ $customer->id }}" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="TituloModalCentralizado">Atualizar Usuário</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                        <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="TituloModalCentralizado">Atualizar Usuário</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="/updateUser" method="POST">
+                                                        @csrf
+                                                            <div class="modal-body">
+
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon3">Nome Completo</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="basic-url" name="full_name" value="{{ $customer->full_name }}" aria-describedby="basic-addon3">
+                                                                </div>
+
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon3">Primeiro Nome</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="basic-url" name="first_name" value="{{ $customer->first_name }}" aria-describedby="basic-addon3">
+                                                                </div>
+
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon3">Email</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="basic-url" name="email" value="{{ $customer->email }}" aria-describedby="basic-addon3">
+                                                                </div>
+
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon3">CPF</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="basic-url" name="CPF" value="{{ $customer->CPF }}" aria-describedby="basic-addon3">
+                                                                </div>
+
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon3">Celular</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="basic-url" name="mobile" value="{{ $customer->mobile }}" aria-describedby="basic-addon3">
+                                                                </div>
+
+                                                                <input type="hidden" name="id" value="{{ $customer->id }}" />
+                                                            </div>
+
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="basic-addon3">Teste de Temperamentos</span>
+                                                                </div>
+                                                                <select class="custom-select" id="inputGroupSelect01" name="temperamentos">
+                                                                    <option value="1" {{ $customer->temperamentos == 1 ? 'selected' : '' }}>Ativo</option>
+                                                                    <option value="0"  {{ $customer->temperamentos == 0 ? 'selected' : '' }}>Inativo</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="basic-addon3">Perfil Comportamental</span>
+                                                                </div>
+                                                                <select class="custom-select" id="inputGroupSelect01" name="comportamental">
+                                                                    <option value="1" {{ $customer->comportamental == 1 ? 'selected' : '' }}>Ativo</option>
+                                                                    <option value="0"  {{ $customer->comportamental == 0 ? 'selected' : '' }}>Inativo</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="basic-addon3">Teste de Arquétipos</span>
+                                                                </div>
+                                                                <select class="custom-select" id="inputGroupSelect01" name="arquetipos">
+                                                                    <option value="1" {{ $customer->arquetipos == 1 ? 'selected' : '' }}>Ativo</option>
+                                                                    <option value="0"  {{ $customer->arquetipos == 0 ? 'selected' : '' }}>Inativo</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <!-- Botão para excluir o  usuário -->
+                                                                    <a href="/deleteUser/{{ $customer->email }}" class="btn btn-danger">
+                                                                        Excluir
+                                                                    </a>
+                                                                <!-- Botão para excluir o  usuário -->
+
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+                                                                <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <form action="/updateUser" method="POST">
-                                                    @csrf
-                                                        <div class="modal-body">
-
-                                                            <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="basic-addon3">Nome Completo</span>
-                                                                </div>
-                                                                <input type="text" class="form-control" id="basic-url" name="full_name" value="{{ $customer->full_name }}" aria-describedby="basic-addon3">
-                                                            </div>
-
-                                                            <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="basic-addon3">Primeiro Nome</span>
-                                                                </div>
-                                                                <input type="text" class="form-control" id="basic-url" name="first_name" value="{{ $customer->first_name }}" aria-describedby="basic-addon3">
-                                                            </div>
-
-                                                            <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="basic-addon3">Email</span>
-                                                                </div>
-                                                                <input type="text" class="form-control" id="basic-url" name="email" value="{{ $customer->email }}" aria-describedby="basic-addon3">
-                                                            </div>
-
-                                                            <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="basic-addon3">CPF</span>
-                                                                </div>
-                                                                <input type="text" class="form-control" id="basic-url" name="CPF" value="{{ $customer->CPF }}" aria-describedby="basic-addon3">
-                                                            </div>
-
-                                                            <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="basic-addon3">Celular</span>
-                                                                </div>
-                                                                <input type="text" class="form-control" id="basic-url" name="mobile" value="{{ $customer->mobile }}" aria-describedby="basic-addon3">
-                                                            </div>
-
-                                                            <input type="hidden" name="id" value="{{ $customer->id }}" />
-                                                        </div>
-
-                                                        <div class="input-group mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon3">Teste de Temperamentos</span>
-                                                            </div>
-                                                            <select class="custom-select" id="inputGroupSelect01" name="temperamentos">
-                                                                <option value="1" {{ $customer->temperamentos == 1 ? 'selected' : '' }}>Ativo</option>
-                                                                <option value="0"  {{ $customer->temperamentos == 0 ? 'selected' : '' }}>Inativo</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="input-group mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon3">Perfil Comportamental</span>
-                                                            </div>
-                                                            <select class="custom-select" id="inputGroupSelect01" name="comportamental">
-                                                                <option value="1" {{ $customer->comportamental == 1 ? 'selected' : '' }}>Ativo</option>
-                                                                <option value="0"  {{ $customer->comportamental == 0 ? 'selected' : '' }}>Inativo</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="input-group mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon3">Teste de Arquétipos</span>
-                                                            </div>
-                                                            <select class="custom-select" id="inputGroupSelect01" name="arquetipos">
-                                                                <option value="1" {{ $customer->arquetipos == 1 ? 'selected' : '' }}>Ativo</option>
-                                                                <option value="0"  {{ $customer->arquetipos == 0 ? 'selected' : '' }}>Inativo</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                            <button type="submit" class="btn btn-primary">Salvar mudanças</button>
-                                                        </div>
-                                                    </form>
                                                 </div>
-                                            </div>
                                             </div>
                                         <!-- Mostrar modal para cada usuario -->
                                         @endforeach
@@ -439,6 +448,15 @@
                                         </div>
                                     </div>
                                 </div>
+                            @endif
+
+                            @if(isset($customerDelete))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>O usuário {{$customerDelete->full_name}}, será excluído!</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
                             @endif
                         </div>
                     </div>
