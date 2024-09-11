@@ -25,4 +25,3 @@ function mascaraCelular(campo) {
         campo.value = campo.value.substring(0, 10) + '-' + campo.value.substring(10, 14); // Limita a 4 dígitos após o traço
     }
 }
-

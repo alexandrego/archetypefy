@@ -9,7 +9,6 @@
                 <div class="logout">
                     <form action="/atention" method="GET">
                         @csrf
-                        <!-- <button type="submit" class="btn btn-danger"> <img src="src/assets/img/back.svg" class="btnBackStartTest" />Voltar</button> -->
                         <button type="submit"> <i class="fa-solid fa-circle-left" style="margin: 0 8px 0 0;"></i>Voltar</button>
                     </form>
                 </div>

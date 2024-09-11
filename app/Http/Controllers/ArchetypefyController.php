@@ -12,7 +12,11 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Log;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class ArchetypefyController extends Controller
 {
@@ -294,9 +298,68 @@ class ArchetypefyController extends Controller
         // Redireciona com mensagem de sucesso
         return redirect()->route('configDashboard', compact('customers'))->with('success', 'Usuário cadastrado com sucesso!');
     }
-    // Método para excluir um usuário
-    public function DeleteUser(Request $request)
+
+    public function OkDelete($id)
     {
+        // Array de IDs que não podem ser excluídos
+        $nonDeletableIds = [1, 2, 5, 8]; // Adicione os IDs que não podem ser excluídos
+
+        // Verifica se o ID do usuário está no array de IDs não permitidos
+        if (in_array($id, $nonDeletableIds)) {
+            return redirect()->route('configDashboard')->with('error', 'Este usuário não pode ser excluído.');
+        }
+
+        $customerName = ''; // Inicializa a variável para armazenar o nome do cliente
+
+        try {
+            // Inicia uma transação
+            DB::transaction(function () use ($id, &$customerName) {
+                // Encontra o cliente a ser excluído
+                $okCustomerDeleted = Customer::findOrFail($id);
+                $customerName = $okCustomerDeleted->full_name; // Armazena o nome do cliente
+
+                // Encontra o usuário correspondente
+                $okUserDeleted = User::where('email', $okCustomerDeleted->email)->first();
+
+                // Deleta o usuário se existir
+                if ($okUserDeleted) {
+                    // Deleta as relações do cliente
+                    Questions::where('user_id', $okUserDeleted->id)->delete();
+                    Temperamentos::where('user_id', $okUserDeleted->id)->delete();
+                    Comportamentos::where('user_id', $okUserDeleted->id)->delete();
+
+                    $okUserDeleted->delete();
+                }
+
+                // Deleta o cliente
+                $okCustomerDeleted->delete();
+            });
+
+            return redirect()->route('configDashboard')->with('success', 'Usuário ' . $customerName . ' e suas informações foram excluídos com sucesso!');
+        } catch (QueryException $e) {
+            // Lida com exceções de consulta
+            Log::error('Erro ao excluir usuário: ' . $e->getMessage());
+
+            // Redireciona com uma mensagem de erro
+            return redirect()->route('configDashboard')->with('error', 'Ocorreu um erro ao excluir o usuário. Por favor, tente novamente mais tarde.');
+        } catch (\Exception $e) {
+            // Lida com outras exceções
+            Log::error('Erro inesperado ao excluir usuário: ' . $e->getMessage());
+
+            // Redireciona com uma mensagem de erro
+            return redirect()->route('configDashboard')->with('error', 'Ocorreu um erro inesperado ao excluir o usuário ' . $customerName . '. Por favor, tente novamente mais tarde.');
+        }
+    }
+
+    public function ConfirmDeleteUser()
+    {
+        // Retorna a view de confirmação passando o usuário
+        return view('layouts.confirmDeleteUser');
+    }
+    // Método para excluir um usuário
+    public function DeleteUser($id)
+    {
+
         if(Auth::guest()){
             //Se não estiver logado, volta para o login
             return redirect()->route('login')->with('error', 'Sua sessão expirou, faça login novamente!');
@@ -308,32 +371,20 @@ class ArchetypefyController extends Controller
             if (!in_array($userID, $allowedUserIds)) {
                 return redirect()->route('dashboard')->with('error', 'Você não tem permissão para excluir qualquer usuário!');
             } else {
-                $userDelete = $request->email;
-
                 // Encontra o usuário pelo ID
-                $user =  Customer::where('email', $userDelete)->first();
+                $customerId = Customer::find($id);
 
                 // Verifica se o usuário existe
-                if (!$user) {
+                if (!$customerId) {
                     return redirect()->route('configDashboard')->with('error', 'Usuário não encontrado.');
                 }
 
-                // Pergunta se realmente deseja excluir
-                return redirect()->route('configDashboard')->with(
+                // Retorna a view de confirmação passando o usuário
+                return redirect()->route('confirmDeleteUser')->with(
                     [
-                        'error' => 'Atenção essa ação não poderá ser desfeita!',
-                        'customerDelete' => $user
+                        'customerId' => $customerId
                     ]
                 );
-
-                // Deleta o usuário
-                // $user->delete();
-
-                // Log de exclusão
-                // Log::info('Usuário excluído com sucesso: ' . $user->id);
-
-                // Redireciona de volta com uma mensagem de sucesso
-                // return redirect()->route('users.index')->with('success', 'Usuário excluído com sucesso!');
             }
         }
     }
